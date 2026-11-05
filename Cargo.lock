@@ -679,7 +679,7 @@ checksum = "f18aa187839b2bdb1ad2fa35ead8c4c2976b64e4363c386d45ac0f7ee85c9233"
 
 [[package]]
 name = "ths"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "clap",
  "lsp-server",
@@ -697,7 +697,7 @@ dependencies = [
 
 [[package]]
 name = "ths_check"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "rowan",
  "ths_syntax",
@@ -705,7 +705,7 @@ dependencies = [
 
 [[package]]
 name = "ths_project"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "globset",
  "serde",
@@ -716,7 +716,7 @@ dependencies = [
 
 [[package]]
 name = "ths_strip"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "rowan",
  "ths_syntax",
@@ -724,7 +724,7 @@ dependencies = [
 
 [[package]]
 name = "ths_syntax"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "rowan",
 ]

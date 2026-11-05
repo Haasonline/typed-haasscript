@@ -2,7 +2,7 @@
   "name": "typed-haasscript",
   "displayName": "Typed HaasScript",
   "description": "Type checking and syntax highlighting for Typed HaasScript, TypeScript-style types for HaasOnline TradeServer scripts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "HaasOnline",
   "icon": "icon.png",
   "preview": true,
