@@ -1,0 +1,10 @@
+[package]
+name = "ths_syntax"
+description = "Lossless lexer and parser for Typed HaasScript"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+rowan = "0.17.0"

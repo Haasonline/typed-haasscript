@@ -1,0 +1,119 @@
+{
+  "name": "typed-haasscript",
+  "displayName": "Typed HaasScript",
+  "description": "Type checking and syntax highlighting for Typed HaasScript, TypeScript-style types for HaasOnline TradeServer scripts",
+  "version": "0.1.0",
+  "publisher": "HaasOnline",
+  "icon": "icon.png",
+  "preview": true,
+  "packageManager": "pnpm@12.16.1",
+  "license": "(MIT OR Apache-2.0)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Haasonline/typed-haasscript",
+    "directory": "editors/vscode"
+  },
+  "bugs": {
+    "url": "https://github.com/Haasonline/typed-haasscript/issues"
+  },
+  "engines": {
+    "vscode": "^1.145.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "workspaceContains:**/ths.toml"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "typed-haasscript",
+        "aliases": [
+          "Typed HaasScript"
+        ],
+        "extensions": [
+          ".ths"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/haasscript-file.svg",
+          "dark": "./icons/haasscript-file_dark.svg"
+        }
+      },
+      {
+        "id": "haasscript",
+        "aliases": [
+          "HaasScript"
+        ],
+        "extensions": [
+          ".hs"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/haasscript-file.svg",
+          "dark": "./icons/haasscript-file_dark.svg"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "typed-haasscript",
+        "scopeName": "source.typed-haasscript",
+        "path": "./syntaxes/typed-haasscript.tmLanguage.json"
+      },
+      {
+        "language": "haasscript",
+        "scopeName": "source.haasscript",
+        "path": "./syntaxes/haasscript.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "title": "Typed HaasScript",
+      "properties": {
+        "typedHaasScript.server.path": {
+          "type": "string",
+          "default": "",
+          "scope": "machine-overridable",
+          "markdownDescription": "The `ths` command that runs the language server: a path, or a name found on `PATH`. Leave it empty to use the `ths` that comes with the extension, or `ths` on `PATH` when none came with it."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "typedHaasScript.restartServer",
+        "title": "Restart the Language Server",
+        "category": "Typed HaasScript"
+      },
+      {
+        "command": "typedHaasScript.createSettingsFile",
+        "title": "Create ths.toml",
+        "category": "Typed HaasScript"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "esbuild src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node --target=node24 --sourcemap",
+    "typecheck": "tsc --noEmit",
+    "test": "pnpm run typecheck && pnpm run test:unit && pnpm run test:grammar",
+    "test:unit": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test \"test/unit/*.test.mts\"",
+    "test:grammar:write": "node scripts/write-grammar-tests.mjs",
+    "test:grammar": "vscode-tmgrammar-test --grammar syntaxes/typed-haasscript.tmLanguage.json --grammar syntaxes/haasscript.tmLanguage.json \"test/grammar/*.ths\" \"test/grammar/*.hs\"",
+    "vscode:prepublish": "pnpm run build --minify",
+    "package": "node scripts/copy-licenses.mjs && node scripts/vsce-package.mjs",
+    "package:platform": "node scripts/package-platform.mjs"
+  },
+  "dependencies": {
+    "vscode-languageclient": "11.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "@types/vscode": "1.145.0",
+    "@vscode/vsce": "^4.1.0",
+    "esbuild": "^0.28.2",
+    "typescript": "~7.0.2",
+    "vscode-tmgrammar-test": "^0.1.3"
+  }
+}

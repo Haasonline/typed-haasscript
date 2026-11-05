@@ -1,0 +1,11 @@
+import { constants } from "node:fs";
+import { access } from "node:fs/promises";
+
+export async function fileExists(file: string): Promise<boolean> {
+  try {
+    await access(file, constants.F_OK);
+    return true;
+  } catch {
+    return false;
+  }
+}

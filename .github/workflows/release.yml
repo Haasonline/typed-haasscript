@@ -1,0 +1,147 @@
+name: Release
+
+# Pushing a tag `v<version>`, the version in editors/vscode/package.json,
+# builds the VSCode extension for every platform with `ths` inside, attaches
+# the packages to a GitHub release, and publishes them to each marketplace
+# whose token is set.
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  package:
+    name: Package ${{ matrix.platform }}
+    strategy:
+      fail-fast: false
+      matrix:
+        # Each built where it runs, so nothing is cross-compiled. The
+        # Alpine packages hold the same static musl binary as Linux's.
+        include:
+          - { platform: win32-x64, runner: windows-2025, rust-target: x86_64-pc-windows-msvc }
+          - { platform: win32-arm64, runner: windows-11-arm, rust-target: aarch64-pc-windows-msvc }
+          - { platform: darwin-x64, runner: macos-26-intel, rust-target: x86_64-apple-darwin }
+          - { platform: darwin-arm64, runner: macos-26, rust-target: aarch64-apple-darwin }
+          - { platform: linux-x64, runner: ubuntu-26.04, rust-target: x86_64-unknown-linux-musl }
+          - { platform: linux-arm64, runner: ubuntu-26.04-arm, rust-target: aarch64-unknown-linux-musl }
+          - { platform: alpine-x64, runner: ubuntu-26.04, rust-target: x86_64-unknown-linux-musl }
+          - { platform: alpine-arm64, runner: ubuntu-26.04-arm, rust-target: aarch64-unknown-linux-musl }
+    runs-on: ${{ matrix.runner }}
+    defaults:
+      run:
+        shell: bash
+        working-directory: editors/vscode
+    steps:
+      - uses: actions/checkout@v7
+      - run: rustup toolchain install stable --profile minimal --target ${{ matrix.rust-target }}
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: ${{ matrix.rust-target }}
+      - uses: pnpm/action-setup@v6
+        with:
+          package_json_file: editors/vscode/package.json
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 26
+          cache: pnpm
+          cache-dependency-path: editors/vscode/pnpm-lock.yaml
+      - name: Check the tag matches the extension's version
+        run: node scripts/check-release-tag.mjs "$GITHUB_REF_NAME"
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run package:platform ${{ matrix.platform }}
+      - uses: actions/upload-artifact@v7
+        with:
+          name: vsix-${{ matrix.platform }}
+          path: editors/vscode/*.vsix
+          if-no-files-found: error
+
+  package-universal:
+    name: Package for other platforms
+    runs-on: ubuntu-26.04
+    defaults:
+      run:
+        working-directory: editors/vscode
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with:
+          package_json_file: editors/vscode/package.json
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 26
+          cache: pnpm
+          cache-dependency-path: editors/vscode/pnpm-lock.yaml
+      - run: node scripts/check-release-tag.mjs "$GITHUB_REF_NAME"
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run package
+      - uses: actions/upload-artifact@v7
+        with:
+          name: vsix-universal
+          path: editors/vscode/*.vsix
+          if-no-files-found: error
+
+  publish:
+    name: Publish
+    needs: [package, package-universal]
+    runs-on: ubuntu-26.04
+    # Protection rules on this environment, such as a required reviewer,
+    # hold publishing until approved. The Visual Studio Marketplace takes this
+    # job's GitHub identity (Trusted Publishing, so no token is stored); its
+    # publisher's policy names this repository, release.yml and this
+    # environment. Open VSX takes the token in the environment's secret.
+    environment: marketplaces
+    permissions:
+      contents: write
+      id-token: write
+    env:
+      # Set this environment variable to `true` once the publisher's Trusted
+      # Publishing policy exists; until then the Marketplace is skipped.
+      VSCODE_MARKETPLACE_TRUSTED_PUBLISHING: ${{ vars.VSCODE_MARKETPLACE_TRUSTED_PUBLISHING }}
+      OVSX_PAT: ${{ secrets.OVSX_PAT }}
+      GH_TOKEN: ${{ github.token }}
+    defaults:
+      run:
+        working-directory: editors/vscode
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with:
+          package_json_file: editors/vscode/package.json
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 26
+          cache: pnpm
+          cache-dependency-path: editors/vscode/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: vsix-*
+          path: editors/vscode/packages
+          merge-multiple: true
+      # A preview (`preview` in package.json) goes out as a pre-release
+      # everywhere. Open VSX reads that from each package, which was packaged
+      # as a pre-release; the Visual Studio Marketplace also needs the flag.
+      - name: Read whether this version is a preview
+        id: channel
+        run: echo "preview=$(node scripts/release-channel.mjs)" >> "$GITHUB_OUTPUT"
+      - name: Attach the packages to a GitHub release
+        env:
+          PRERELEASE_FLAG: ${{ steps.channel.outputs.preview == 'true' && '--prerelease' || '' }}
+        run: gh release create "$GITHUB_REF_NAME" packages/*.vsix --title "$GITHUB_REF_NAME" --generate-notes ${PRERELEASE_FLAG:+"$PRERELEASE_FLAG"}
+      - name: Publish to the Visual Studio Marketplace
+        if: env.VSCODE_MARKETPLACE_TRUSTED_PUBLISHING == 'true'
+        env:
+          PRE_RELEASE_FLAG: ${{ steps.channel.outputs.preview == 'true' && '--pre-release' || '' }}
+        run: pnpm exec vsce publish --oidc --packagePath packages/*.vsix ${PRE_RELEASE_FLAG:+"$PRE_RELEASE_FLAG"}
+      - name: Publish to Open VSX
+        if: env.OVSX_PAT != ''
+        run: |
+          for package in packages/*.vsix; do
+            pnpm dlx ovsx publish "$package"
+          done

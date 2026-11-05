@@ -1,0 +1,207 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Typed HaasScript",
+  "scopeName": "source.typed-haasscript",
+  "patterns": [
+    { "include": "source.haasscript#comment" },
+    { "include": "source.haasscript#string" },
+    { "include": "#import" },
+    { "include": "#export-list" },
+    { "include": "#export" },
+    { "include": "#declare" },
+    { "include": "#type-alias" },
+    { "include": "#interface" },
+    { "include": "#type-arguments" },
+    { "include": "#cast" },
+    { "include": "#type-annotation" },
+    { "include": "#optional-marker" },
+    { "include": "source.haasscript#statements" }
+  ],
+  "repository": {
+    "import": {
+      "name": "meta.import.typed-haasscript",
+      "begin": "\\b(import)\\b(?=\\s*[{*])",
+      "end": "(?<=[\"'])|$",
+      "beginCaptures": { "1": { "name": "keyword.control.import.typed-haasscript" } },
+      "patterns": [
+        { "include": "source.haasscript#comment" },
+        { "include": "source.haasscript#string" },
+        { "name": "keyword.control.from.typed-haasscript", "match": "\\bfrom\\b" },
+        { "name": "keyword.control.as.typed-haasscript", "match": "\\bas\\b" },
+        { "name": "storage.type.type.typed-haasscript", "match": "\\btype\\b(?=\\s+[A-Za-z_])" },
+        { "name": "constant.language.import-export-all.typed-haasscript", "match": "\\*" },
+        { "name": "variable.other.readwrite.alias.typed-haasscript", "match": "[A-Za-z_]\\w*" },
+        { "name": "punctuation.separator.comma.typed-haasscript", "match": "," }
+      ]
+    },
+    "export-list": {
+      "name": "meta.export.typed-haasscript",
+      "begin": "\\b(export)\\s*(\\{)",
+      "end": "\\}",
+      "beginCaptures": {
+        "1": { "name": "keyword.control.export.typed-haasscript" },
+        "2": { "name": "punctuation.definition.block.typed-haasscript" }
+      },
+      "endCaptures": { "0": { "name": "punctuation.definition.block.typed-haasscript" } },
+      "patterns": [
+        { "include": "source.haasscript#comment" },
+        { "name": "keyword.control.as.typed-haasscript", "match": "\\bas\\b" },
+        { "name": "variable.other.readwrite.alias.typed-haasscript", "match": "[A-Za-z_]\\w*" },
+        { "name": "punctuation.separator.comma.typed-haasscript", "match": "," }
+      ]
+    },
+    "export": {
+      "name": "keyword.control.export.typed-haasscript",
+      "match": "\\bexport\\b(?=\\s+(?:local|type|interface)\\b)"
+    },
+    "declare": {
+      "name": "storage.modifier.declare.typed-haasscript",
+      "match": "\\bdeclare\\b(?=\\s+(?:function|local|type)\\b)"
+    },
+    "type-alias": {
+      "name": "meta.type.declaration.typed-haasscript",
+      "begin": "\\b(type)\\s+([A-Za-z_]\\w*)(?=\\s*[<=])",
+      "end": "$",
+      "beginCaptures": {
+        "1": { "name": "storage.type.type.typed-haasscript" },
+        "2": { "name": "entity.name.type.alias.typed-haasscript" }
+      },
+      "patterns": [
+        { "include": "#type-parameters" },
+        { "name": "keyword.operator.assignment.typed-haasscript", "match": "=(?!>)" },
+        { "include": "#type-expression" }
+      ]
+    },
+    "interface": {
+      "name": "meta.interface.typed-haasscript",
+      "begin": "\\b(interface)\\s+([A-Za-z_]\\w*)",
+      "end": "(?<=\\})",
+      "beginCaptures": {
+        "1": { "name": "storage.type.interface.typed-haasscript" },
+        "2": { "name": "entity.name.type.interface.typed-haasscript" }
+      },
+      "patterns": [
+        { "include": "source.haasscript#comment" },
+        { "include": "#type-parameters" },
+        { "name": "storage.modifier.extends.typed-haasscript", "match": "\\bextends\\b" },
+        { "include": "#object-type" },
+        { "include": "#type-name" },
+        { "name": "punctuation.separator.comma.typed-haasscript", "match": "," }
+      ]
+    },
+    "type-parameters": {
+      "name": "meta.type.parameters.typed-haasscript",
+      "begin": "<",
+      "end": ">",
+      "beginCaptures": { "0": { "name": "punctuation.definition.typeparameters.begin.typed-haasscript" } },
+      "endCaptures": { "0": { "name": "punctuation.definition.typeparameters.end.typed-haasscript" } },
+      "patterns": [
+        { "name": "storage.modifier.extends.typed-haasscript", "match": "\\bextends\\b" },
+        { "include": "#type-expression" }
+      ]
+    },
+    "type-arguments": {
+      "comment": "`<T>` after a function's name or a callee: `function first<T>(` and `Pick<number>(`. Only simple name lists, so `a < b and c > (d)` stays a comparison.",
+      "name": "meta.type.parameters.typed-haasscript",
+      "begin": "(?<=\\w)\\s*(<)(?=\\s*[A-Za-z_][\\w.]*(?:\\s*(?:,|extends)\\s*[A-Za-z_][\\w.]*)*\\s*>\\s*\\()",
+      "end": ">",
+      "beginCaptures": { "1": { "name": "punctuation.definition.typeparameters.begin.typed-haasscript" } },
+      "endCaptures": { "0": { "name": "punctuation.definition.typeparameters.end.typed-haasscript" } },
+      "patterns": [
+        { "name": "storage.modifier.extends.typed-haasscript", "match": "\\bextends\\b" },
+        { "include": "#type-expression" }
+      ]
+    },
+    "cast": {
+      "name": "meta.cast.typed-haasscript",
+      "begin": "\\b(as)\\b(?=\\s*[A-Za-z_{(\"'])",
+      "end": "(?=[,;)\\]}]|=(?!>)|\\b(?:and|do|else|elseif|end|for|function|if|local|not|or|repeat|return|then|until|while)\\b)|$",
+      "beginCaptures": { "1": { "name": "keyword.operator.cast.typed-haasscript" } },
+      "patterns": [{ "include": "#type-expression" }]
+    },
+    "type-annotation": {
+      "comment": "`: Type` after a name, `)`, `]` or `?`. A method call (`prices:Get(`, `log:Write \"x\"`) is not an annotation.",
+      "name": "meta.type.annotation.typed-haasscript",
+      "begin": "(?<=[\\w)\\]?.])\\s*(:)(?!:)(?!\\s*[A-Za-z_]\\w*\\s*(?:[({\"']|\\[=*\\[))",
+      "end": "(?=[,;)\\]}]|=(?!>)|\\b(?:and|do|else|elseif|end|for|function|if|local|not|or|repeat|return|then|until|while)\\b)|$",
+      "beginCaptures": { "1": { "name": "keyword.operator.type.annotation.typed-haasscript" } },
+      "patterns": [{ "include": "#type-expression" }]
+    },
+    "optional-marker": {
+      "name": "keyword.operator.optional.typed-haasscript",
+      "match": "\\?(?=\\s*:)"
+    },
+    "type-expression": {
+      "patterns": [
+        { "include": "source.haasscript#comment" },
+        { "include": "source.haasscript#string" },
+        { "include": "source.haasscript#number" },
+        { "name": "support.type.primitive.typed-haasscript", "match": "\\b(?:any|boolean|never|nil|number|string|table|unknown|void)\\b" },
+        { "name": "constant.language.boolean.typed-haasscript", "match": "\\b(?:true|false)\\b" },
+        { "name": "keyword.control.import.typed-haasscript", "match": "\\bimport\\b(?=\\s*\\()" },
+        { "name": "storage.type.function.arrow.typed-haasscript", "match": "=>" },
+        { "name": "keyword.operator.type.typed-haasscript", "match": "[|&]" },
+        { "name": "keyword.operator.optional.typed-haasscript", "match": "\\?" },
+        { "name": "keyword.operator.spread.typed-haasscript", "match": "\\.\\.\\." },
+        { "include": "#object-type" },
+        { "include": "#parenthesized-type" },
+        { "include": "#type-parameters" },
+        {
+          "name": "meta.type.tuple.typed-haasscript",
+          "begin": "\\[",
+          "end": "\\]",
+          "patterns": [{ "include": "#type-expression" }]
+        },
+        { "include": "#type-name" },
+        { "name": "punctuation.separator.comma.typed-haasscript", "match": "," },
+        { "name": "punctuation.accessor.typed-haasscript", "match": "\\." }
+      ]
+    },
+    "type-name": {
+      "name": "entity.name.type.typed-haasscript",
+      "match": "\\b[A-Za-z_]\\w*\\b"
+    },
+    "object-type": {
+      "name": "meta.object.type.typed-haasscript",
+      "begin": "\\{",
+      "end": "\\}",
+      "beginCaptures": { "0": { "name": "punctuation.definition.block.typed-haasscript" } },
+      "endCaptures": { "0": { "name": "punctuation.definition.block.typed-haasscript" } },
+      "patterns": [
+        { "include": "source.haasscript#comment" },
+        { "name": "variable.other.property.typed-haasscript", "match": "\\b[A-Za-z_]\\w*(?=\\s*\\??\\s*[:(])" },
+        { "include": "#optional-marker" },
+        { "include": "#member-type" },
+        { "include": "#parenthesized-type" },
+        { "include": "#type-parameters" },
+        { "name": "punctuation.separator.comma.typed-haasscript", "match": "[,;]" }
+      ]
+    },
+    "member-type": {
+      "name": "meta.type.annotation.typed-haasscript",
+      "begin": "(:)",
+      "end": "(?=[,;}])|$",
+      "beginCaptures": { "1": { "name": "keyword.operator.type.annotation.typed-haasscript" } },
+      "patterns": [{ "include": "#type-expression" }]
+    },
+    "parenthesized-type": {
+      "comment": "A function type's parameters, `(price: number, label?: string)`, or a grouped type.",
+      "begin": "\\(",
+      "end": "\\)",
+      "beginCaptures": { "0": { "name": "punctuation.definition.parameters.begin.typed-haasscript" } },
+      "endCaptures": { "0": { "name": "punctuation.definition.parameters.end.typed-haasscript" } },
+      "patterns": [
+        { "name": "variable.parameter.typed-haasscript", "match": "\\b[A-Za-z_]\\w*(?=\\s*\\??\\s*:)" },
+        { "include": "#optional-marker" },
+        {
+          "name": "meta.type.annotation.typed-haasscript",
+          "begin": "(:)",
+          "end": "(?=[,)])",
+          "beginCaptures": { "1": { "name": "keyword.operator.type.annotation.typed-haasscript" } },
+          "patterns": [{ "include": "#type-expression" }]
+        },
+        { "include": "#type-expression" }
+      ]
+    }
+  }
+}

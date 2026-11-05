@@ -1,0 +1,79 @@
+-- Hand-written corrections to the generated haasscript.d.ths. Each
+-- declaration here replaces the generated one of the same name. Every
+-- correction rests on behavior verified on the TradeServer.
+
+-- Engine collections the generic helpers below accept.
+type Collection = any[] | HaasNumberCollection
+
+-- Listed as a number, but returns a series of one element.
+declare function Random(min?: number, max?: number): HaasNumberCollection
+
+-- Listed as a string, but returns a color object like `Red`.
+declare function Color(r: number, g: number, b: number, a?: number): EnumColor
+
+-- Listed as Dynamic; returns a contract-type constant, or nil on a market
+-- without one, such as spot.
+declare function ContractType(market?: string): EnumContractType | nil
+
+-- Listed as an enumeration of no named category; each returns constants of
+-- one category.
+declare function GetMarginMode(market?: string, accountId?: string): EnumMarginMode
+declare function GetOrderType(): EnumOrderTypes
+declare function GetPositionMode(accountId?: string, market?: string): EnumPositionMode
+declare function GetType(value: any): EnumDataTypes
+declare function HindSightSignal(period: number): EnumSignal
+
+-- Its fields are listed as enumerations of no named category; both hold
+-- signals.
+interface IndicatorContainerResult { unanimousSignal: EnumSignal; consensusSignal: EnumSignal; 1: EnumSignal; 2: EnumSignal; [index: number]: EnumSignal }
+declare function IndicatorContainer(...: Enum): IndicatorContainerResult
+
+-- Plots the signal and returns it unchanged.
+declare function PlotSignalEnum(chartId: number, signal: EnumSignal): EnumSignal
+
+-- Returns the chosen constant, of the default's category, which may be any.
+declare function InputConstant<T extends Enum>(label: string, defaultValue: T, tooltip?: string, group?: string): T
+
+-- Takes a signal, not a signal type as the command list suggests (a signal
+-- type stops the script), and returns the signal after the settings it
+-- adds are applied.
+declare function InputSignalManagement(label: string, signal: EnumSignal, tooltip?: string, group?: string): EnumSignal
+
+-- Returns what the callback returns, recalculated once per candle of
+-- `interval` minutes. The extra values are not typed.
+declare function OptimizedForInterval<T>(interval: number, callback: () => T): (T, ...any)
+
+-- Take numbers too: IsTrue(1) and IsTrue(5) are true and IsTrue(0) false;
+-- IsFalse(0) and IsFalse(-1) are true and IsFalse(1) false.
+declare function IsTrue(...: boolean | number): boolean
+declare function IsFalse(...: boolean | number): boolean
+
+-- The selected argument passes through unchanged.
+declare function IfElse<T>(statement: boolean, value1: T, value2: T): T
+declare function IfElseIf<T>(statement1: boolean, statement2: boolean, value1: T, value2: T, value3: T): T
+declare function IfNull<T>(value: T | nil, defaultValue: T): T
+declare function Switch<T>(statement: boolean, value1: T, value2: T): T
+
+-- Array helpers return the kind of collection they are given: a series for
+-- a series, a Lua table for a Lua table. A Lua table concatenated with a
+-- series gives a series.
+declare function ArrayAdd<T extends Collection>(input: T, element: any): T
+declare function ArrayUnshift<T extends Collection>(input: T, element: any): T
+declare function ArrayConcat<T extends Collection>(array1: T, array2: T): T
+declare function ArrayDistinct<T extends Collection>(input: T): T
+declare function ArrayFilter<T extends Collection>(input: T, value: any, filterType?: EnumArrayFilterTypes): T
+declare function ArrayPop<T extends Collection>(input: T): T
+declare function ArrayRemove<T extends Collection>(input: T, index: number): T
+declare function ArrayReplace<T extends Collection>(input: T, oldValue: any, newValue: any): T
+declare function ArrayShift<T extends Collection>(input: T): T
+declare function ArraySort<T extends Collection>(input: T, descending?: boolean): T
+declare function Grab<T extends Collection>(input: T, offset: number, count?: number): T
+declare function Offset<T extends Collection>(input: T, offset: number): T
+declare function Range<T extends Collection>(input: T, offset: number, count?: number): T
+
+-- Missing from the command list, but known to the compile check: reading
+-- them compiles, and they hold nil, so calling one fails.
+declare NewArray: nil
+declare NewList: nil
+declare NewSortedArray: nil
+declare NewSortedList: nil

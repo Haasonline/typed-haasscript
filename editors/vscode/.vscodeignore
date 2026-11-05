@@ -1,0 +1,11 @@
+**
+!package.json
+!README.md
+!icon.png
+!icons/**
+!LICENSE-MIT
+!LICENSE-APACHE
+!language-configuration.json
+!syntaxes/**
+!out/extension.js
+!server/**

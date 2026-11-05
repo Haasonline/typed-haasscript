@@ -1,0 +1,49 @@
+<idea-plugin>
+    <id>com.haasonline.typedhaasscript</id>
+    <name>Typed HaasScript</name>
+    <vendor url="https://www.haasonline.com">HaasOnline</vendor>
+    <description><![CDATA[
+        Type checking and syntax highlighting for Typed HaasScript, TypeScript-style
+        type annotations for HaasOnline TradeServer scripts.
+        <ul>
+            <li>Type errors as you type, from <code>ths server</code>, for <code>.ths</code> and plain <code>.hs</code> files.</li>
+            <li>Syntax highlighting for both, with types told apart from the script.</li>
+        </ul>
+        Needs the <code>ths</code> command; set where it is in Settings | Tools | Typed HaasScript.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lsp</depends>
+    <depends>org.jetbrains.plugins.textmate</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <platform.lsp.integrationProvider
+            implementation="com.haasonline.typedhaasscript.ThsIntegrationProvider"/>
+        <textmate.bundleProvider
+            implementation="com.haasonline.typedhaasscript.HaasScriptBundleProvider"/>
+        <fileIconProvider
+            implementation="com.haasonline.typedhaasscript.HaasScriptFileIconProvider"/>
+        <applicationConfigurable
+            parentId="tools"
+            id="com.haasonline.typedhaasscript.settings"
+            displayName="Typed HaasScript"
+            instance="com.haasonline.typedhaasscript.ServerSettingsConfigurable"/>
+        <notificationGroup id="Typed HaasScript" displayType="BALLOON"/>
+    </extensions>
+
+    <projectListeners>
+        <listener
+            class="com.haasonline.typedhaasscript.configuration.ConfigurationPromptListener"
+            topic="com.intellij.openapi.fileEditor.FileEditorManagerListener"/>
+    </projectListeners>
+
+    <actions>
+        <action
+            id="com.haasonline.typedhaasscript.CreateConfiguration"
+            class="com.haasonline.typedhaasscript.configuration.CreateConfigurationAction"
+            text="Create ths.toml"
+            description="Create a ths.toml in the project folder, so Typed HaasScript checks its scripts">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>

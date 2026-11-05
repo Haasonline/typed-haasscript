@@ -1,0 +1,11 @@
+[package]
+name = "ths_strip"
+description = "Removes Typed HaasScript annotations, keeping every line and column in place"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+rowan = "0.17.0"
+ths_syntax = { path = "../ths-syntax" }

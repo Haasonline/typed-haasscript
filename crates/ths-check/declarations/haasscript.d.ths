@@ -1,0 +1,2731 @@
+-- Generated from the TradeServer's command list. Do not
+-- edit: put corrections in overrides.d.ths, whose declarations replace the
+-- generated ones of the same name.
+
+declare type Enum
+declare type EnumArrayFilterTypes extends Enum
+declare type EnumCandlePattern extends Enum
+declare type EnumCharting extends Enum
+declare type EnumColor extends Enum { (opacity: number | { opacity: number }): EnumColor }
+declare type EnumContractType extends Enum
+declare type EnumDataTypes extends Enum
+declare type EnumMarginMode extends Enum
+declare type EnumMovingAverages extends Enum
+declare type EnumOrderTypes extends Enum
+declare type EnumParameterType extends Enum
+declare type EnumPosition extends Enum
+declare type EnumPositionMode extends Enum
+declare type EnumSignal extends Enum
+declare type EnumSignalTypes extends Enum
+declare type EnumSourcePriceTypes extends Enum
+declare type EnumTrading extends Enum
+declare type EnumTradingLR extends Enum
+declare type HaasNumberCollection
+
+-- Enumeration, returns an enum for AbandonedBabyType type.
+declare AbandonedBabyType: EnumCandlePattern
+
+-- Enumeration, returns an enum for AdvanceBlockType type.
+declare AdvanceBlockType: EnumCandlePattern
+
+-- Enumeration, returns a color, which every color parameter accepts in place of a hex string. Can be used as Aqua, Aqua() or with a specific opacity Aqua(10).
+declare Aqua: EnumColor
+
+-- Enumeration, returns a data type enum.
+declare ArrayDataType: EnumDataTypes
+
+-- Exclusive filter type; will exclude all matching values.
+declare ArrayFilterExclusiveType: EnumArrayFilterTypes
+
+-- GreaterThan filter type; will include all greater values.
+declare ArrayFilterGreaterThanType: EnumArrayFilterTypes
+
+-- Inclusive filter type; will include all matching values.
+declare ArrayFilterInclusiveType: EnumArrayFilterTypes
+
+-- LessThan filter type; will include all lesser values.
+declare ArrayFilterLessThanType: EnumArrayFilterTypes
+
+-- Enumeration, returns an enum for BeltHoldType type.
+declare BeltHoldType: EnumCandlePattern
+
+-- Enumeration, returns a color, which every color parameter accepts in place of a hex string. Can be used as Black, Black() or with a specific opacity Black(10).
+declare Black: EnumColor
+
+-- Enumeration, returns a color, which every color parameter accepts in place of a hex string. Can be used as Blue, Blue() or with a specific opacity Blue(10).
+declare Blue: EnumColor
+
+-- Enumeration, returns a data type enum.
+declare BoolDataType: EnumDataTypes
+
+-- Enumeration, returns a parameter enum. Used by DefineParameter() or DefineOutput() for example.
+declare BooleanType: EnumParameterType
+
+-- Enumeration, returns a signal type enum. Used with GetSuperSignal().
+declare BothCenterCrossType: EnumSignalTypes
+
+-- Enumeration, returns a signal type enum. Used with GetSuperSignal().
+declare BothThresholdType: EnumSignalTypes
+
+-- Enumeration, returns an enum for BreakawayType type.
+declare BreakawayType: EnumCandlePattern
+
+-- Enumeration, returns a parameter enum. Used by DefineParameter() or DefineOutput() for example.
+declare CallbackType: EnumParameterType
+
+-- Enumeration, return a price plot enum. Used by PlotPrice() or ChartSetOptions()
+declare Candlestick: EnumCharting
+
+-- Enumeration, return a price plot enum. Used by PlotPrice() or ChartSetOptions()
+declare CandlestickHLC: EnumCharting
+
+-- Enumeration, return a price plot enum. Used by PlotPrice() or ChartSetOptions()
+declare CloseLine: EnumCharting
+
+-- Enumeration, returns an enum for Close Price Source type.
+declare ClosePriceSource: EnumSourcePriceTypes
+
+-- Enumeration, returns an enum for ClosingMarubozuType type.
+declare ClosingMarubozuType: EnumCandlePattern
+
+-- Enumeration, returns a data type enum.
+declare CommandDataType: EnumDataTypes
+
+-- Enumeration, returns an enum for ConcealBabysWallType type.
+declare ConcealBabysWallType: EnumCandlePattern
+
+-- Enumeration, returns an enum for CounterAttackType type.
+declare CounterAttackType: EnumCandlePattern
+
+-- Enumeration, returns the cross margin mode enum. Used with GetMarginMode(), SetMarginMode() and IsMarginModeSupported().
+declare CrossMarginMode: EnumMarginMode
+
+-- Enumeration, returns a color, which every color parameter accepts in place of a hex string. Can be used as Cyan, Cyan() or with a specific opacity Cyan(10).
+declare Cyan: EnumColor
+
+-- Enumeration, returns an enum for DarkCloudCoverType type.
+declare DarkCloudCoverType: EnumCandlePattern
+
+-- Enumeration, returns a color, which every color parameter accepts in place of a hex string. Can be used as DarkGray, DarkGray() or with a specific opacity DarkGray(10).
+declare DarkGray: EnumColor
+
+-- Enumeration, returns a color, which every color parameter accepts in place of a hex string. Can be used as DarkGreen, DarkGreen() or with a specific opacity DarkGreen(10).
+declare DarkGreen: EnumColor
+
+-- Enumeration, returns a line decoration enum. Used by LineOptions() for example.
+declare Dashed: EnumCharting
+
+-- Enumeration, returns an enum for DEMA type.
+declare DemaType: EnumMovingAverages
+
+-- Enumeration, returns an enum for DojiStarType type.
+declare DojiStarType: EnumCandlePattern
+
+-- Enumeration, returns an enum for DojiType type.
+declare DojiType: EnumCandlePattern
+
+-- Enumeration, returns a line decoration enum. Used by LineOptions() for example.
+declare Dotted: EnumCharting
+
+-- Enumeration, returns an enum for DragonflyDojiType type.
+declare DragonflyDojiType: EnumCandlePattern
+
+-- Enumeration, returns a parameter enum. Used by DefineParameter() or DefineOutput() for example.
+declare DynamicType: EnumParameterType
+
+-- Enumeration, returns an enum for EMA type.
+declare EmaType: EnumMovingAverages
+
+-- Enumeration, returns an enum for EngulfingType type.
+declare EngulfingType: EnumCandlePattern
+
+-- Enumeration, returns a parameter enum. Used by DefineParameter() or DefineOutput() for example.
+declare EnumType: EnumParameterType
+
+-- Enumeration, returns 1 Satoshi (=Epsilon).
+declare Epsilon: number
+
+-- Enumeration, returns an enum for EveningDojiStarType type.
+declare EveningDojiStarType: EnumCandlePattern
+
+-- Enumeration, returns an enum for EveningStarType type.
+declare EveningStarType: EnumCandlePattern
+
+-- Enumeration, returns a color, which every color parameter accepts in place of a hex string. Can be used as Fuchsia, Fuchsia() or with a specific opacity Fuchsia(10).
+declare Fuchsia: EnumColor
+
+-- Enumeration, returns a data type enum.
+declare FunctionDataType: EnumDataTypes
+
+-- Enumeration, returns an enum for GapSideSideWhiteType type.
+declare GapSideSideWhiteType: EnumCandlePattern
+
+-- Enumeration, returns a color, which every color parameter accepts in place of a hex string. Can be used as Gold, Gold() or with a specific opacity Gold(10).
+declare Gold: EnumColor
+
+-- Enumeration, returns an enum for GravestoneDojiType type.
+declare GravestoneDojiType: EnumCandlePattern
+
+-- Enumeration, returns a color, which every color parameter accepts in place of a hex string. Can be used as Gray, Gray() or with a specific opacity Gray(10).
+declare Gray: EnumColor
+
+-- Enumeration, returns a color, which every color parameter accepts in place of a hex string. Can be used as Green, Green() or with a specific opacity Green(10).
+declare Green: EnumColor
+
+-- Enumeration, return a price plot enum. Used by PlotPrice() or ChartSetOptions()
+declare HLC: EnumCharting
+
+-- Enumeration, returns an enum for HLC Price Source type.
+declare HLCPriceSource: EnumSourcePriceTypes
+
+-- Enumeration, returns an enum for HL Price Source type.
+declare HLPriceSource: EnumSourcePriceTypes
+
+-- Enumeration, returns an enum for HammerType type.
+declare HammerType: EnumCandlePattern
+
+-- Enumeration, returns an enum for HangingManType type.
+declare HangingManType: EnumCandlePattern
+
+-- Enumeration, returns an enum for HaramiCrossType type.
+declare HaramiCrossType: EnumCandlePattern
+
+-- Enumeration, returns an enum for HaramiType type.
+declare HaramiType: EnumCandlePattern
+
+-- Enumeration, returns the hedge position mode enum. Used with GetPositionMode(), SetPositionMode() and IsPositionModeSupported().
+declare HedgePositionMode: EnumPositionMode
+
+-- Enumeration, return a price plot enum. Used by PlotPrice() or ChartSetOptions()
+declare HeikinAshi: EnumCharting
+
+-- Enumeration, returns an enum for High Price Source type.
+declare HighPriceSource: EnumSourcePriceTypes
+
+-- Enumeration, returns an enum for HignWaveType type.
+declare HignWaveType: EnumCandlePattern
+
+-- Enumeration, returns an enum for HikkakeModType type.
+declare HikkakeModType: EnumCandlePattern
+
+-- Enumeration, returns an enum for HikkakeType type.
+declare HikkakeType: EnumCandlePattern
+
+-- Enumeration, returns an enum for HomingPigeonType type.
+declare HomingPigeonType: EnumCandlePattern
+
+-- Enumeration, returns an enum for IdenticalThreeCrowsType type.
+declare IdenticalThreeCrowsType: EnumCandlePattern
+
+-- Enumeration, returns an enum for InNeckType type.
+declare InNeckType: EnumCandlePattern
+
+-- Enumeration, returns a signal type enum. Used with GetSuperSignal().
+declare IndicatorCenterCrossType: EnumSignalTypes
+
+-- Enumeration, returns a signal type enum. Used with GetSuperSignal().
+declare IndicatorSignalCrossType: EnumSignalTypes
+
+-- Enumeration, returns a signal type enum. Used with GetSuperSignal().
+declare IndicatorThresholdType: EnumSignalTypes
+
+-- Enumeration, returns a contract type enum for Inverse contracts (non-linear, coin-margined). Used by ContractType()
+declare InverseContract: EnumContractType
+
+-- Enumeration, returns an enum for InvertedHammerType type.
+declare InvertedHammerType: EnumCandlePattern
+
+-- Enumeration, returns the isolated margin mode enum. Used with GetMarginMode(), SetMarginMode() and IsMarginModeSupported().
+declare IsolatedMarginMode: EnumMarginMode
+
+-- Enumeration, returns an enum for KAMA type.
+declare KamaType: EnumMovingAverages
+
+-- Enumeration, returns an enum for KickingByLengthType type.
+declare KickingByLengthType: EnumCandlePattern
+
+-- Enumeration, returns an enum for KickingType type.
+declare KickingType: EnumCandlePattern
+
+-- Enumeration, returns an enum for LINEARREG().
+declare LR_Angle: EnumTradingLR
+
+-- Enumeration, returns an enum for LINEARREG().
+declare LR_Default: EnumTradingLR
+
+-- Enumeration, returns an enum for LINEARREG().
+declare LR_Intercept: EnumTradingLR
+
+-- Enumeration, returns an enum for LINEARREG().
+declare LR_Slope: EnumTradingLR
+
+-- Enumeration, returns an enum for LadderBottomType type.
+declare LadderBottomType: EnumCandlePattern
+
+-- Enumeration, returns the a chart axis enum. Used ChartSetAxisOptions() for example.
+declare LeftAxis: EnumCharting
+
+-- Enumeration, returns a market type enum. Used by MarketType()
+declare LeverageTrading: EnumTrading
+
+-- Standard limit order type enum with a default timeout of 10 minutes. Used by SetOrderType() or PlaceOrders commands.
+declare LimitOrderType: EnumOrderTypes
+
+-- Enumeration, return a price plot enum. Used by PlotPrice() or ChartSetOptions()
+declare Line: EnumCharting
+
+-- Enumeration, returns the a chart axis type enum. Used ChartSetOptions() for example.
+declare LinearAxis: EnumCharting
+
+-- Enumeration, returns a parameter enum. Used by DefineParameter() or DefineOutput() for example.
+declare ListDynamicType: EnumParameterType
+
+-- Enumeration, returns a parameter enum. Used by DefineParameter() or DefineOutput() for example.
+declare ListNumberType: EnumParameterType
+
+-- Enumeration, returns an enum for LongLeggedDojiType type.
+declare LongLeggedDojiType: EnumCandlePattern
+
+-- Enumeration, returns an enum for LongLineType type.
+declare LongLineType: EnumCandlePattern
+
+-- Enumeration, returns an enum for Low Price Source type.
+declare LowPriceSource: EnumSourcePriceTypes
+
+-- MakerOrCancel order type enum with a standard timeout of 10 minutes. When the exchange does not support this type, a normal limit order will be executed. Used by SetOrderType() or PlaceOrders commands.
+declare MakerOrCancelOrderType: EnumOrderTypes
+
+-- Enumeration, returns an enum for MAMA type.
+declare MamaType: EnumMovingAverages
+
+-- Enumeration, returns a market type enum. Used by MarketType()
+declare MarginTrading: EnumTrading
+
+-- Standard market order type. Used by SetOrderType() or PlaceOrders commands.
+declare MarketOrderType: EnumOrderTypes
+
+-- Enumeration, returns a color, which every color parameter accepts in place of a hex string. Can be used as Maroon, Maroon() or with a specific opacity Maroon(10).
+declare Maroon: EnumColor
+
+-- Enumeration, returns an enum for MarubozuType type.
+declare MarubozuType: EnumCandlePattern
+
+-- Enumeration, returns an enum for MatHoldType type.
+declare MatHoldType: EnumCandlePattern
+
+-- Enumeration, returns an enum for MatchingLowType type.
+declare MatchingLowType: EnumCandlePattern
+
+-- Enumeration, returns an enum for MorningDojiStarType type.
+declare MorningDojiStarType: EnumCandlePattern
+
+-- Enumeration, returns an enum for MorningStarType type.
+declare MorningStarType: EnumCandlePattern
+
+-- Enumeration, return a price plot enum. Used by PlotPrice() or ChartSetOptions()
+declare Mountain: EnumCharting
+
+-- Enumeration, returns a data type enum.
+declare NilDataType: EnumDataTypes
+
+-- Enumeration, returns a bot position enum. Used by GetPositionDirection() for example.
+declare NoPosition: EnumPosition
+
+-- Enumeration, returns an order type enum. Used by SetOrderType() or PlaceOrders commands.
+declare NoTimeOutOrderType: EnumOrderTypes
+
+-- Enumeration, returns a data type enum.
+declare NumberDataType: EnumDataTypes
+
+-- Enumeration, returns the maximum number.
+declare NumberMax: number
+
+-- Enumeration, returns the minimum number.
+declare NumberMin: number
+
+-- Enumeration, returns a parameter enum. Used by DefineParameter() or DefineOutput() for example.
+declare NumberType: EnumParameterType
+
+-- Enumeration, return a price plot enum. Used by PlotPrice() or ChartSetOptions()
+declare OHLC: EnumCharting
+
+-- Enumeration, returns an enum for OHLC Price Source type.
+declare OHLCPriceSource: EnumSourcePriceTypes
+
+-- Enumeration, returns a color, which every color parameter accepts in place of a hex string. Can be used as Olive, Olive() or with a specific opacity Olive(10).
+declare Olive: EnumColor
+
+-- Enumeration, returns an enum for OnNeckType type.
+declare OnNeckType: EnumCandlePattern
+
+-- Enumeration, returns the one-way position mode enum. Used with GetPositionMode(), SetPositionMode() and IsPositionModeSupported().
+declare OneWayPositionMode: EnumPositionMode
+
+-- Enumeration, returns an enum for Open Price Source type.
+declare OpenPriceSource: EnumSourcePriceTypes
+
+-- Enumeration, returns a color, which every color parameter accepts in place of a hex string. Can be used as Orange, Orange() or with a specific opacity Orange(10).
+declare Orange: EnumColor
+
+-- Enumeration, returns the number of PI.
+declare PI: number
+
+-- Enumeration, returns the a chart axis type enum. Used ChartSetOptions() for example.
+declare PercentageAxis: EnumCharting
+
+-- Enumeration, returns an enum for PiercingType type.
+declare PiercingType: EnumCandlePattern
+
+-- Enumeration, returns a bot position enum. Used by GetPositionDirection() for example.
+declare PositionBought: EnumPosition
+
+-- Enumeration, returns a bot position enum. Used by GetPositionDirection() for example.
+declare PositionLong: EnumPosition
+
+-- Enumeration, returns a bot position enum. Used by GetPositionDirection() for example.
+declare PositionShort: EnumPosition
+
+-- Enumeration, returns a bot position enum. Used by GetPositionDirection() for example.
+declare PositionSold: EnumPosition
+
+-- Enumeration, returns a color, which every color parameter accepts in place of a hex string. Can be used as Purple, Purple() or with a specific opacity Purple(10).
+declare Purple: EnumColor
+
+-- Enumeration, returns a contract type enum for Quanto contracts (fixed multiplier, cross-currency). Used by ContractType()
+declare QuantoContract: EnumContractType
+
+-- Enumeration, returns a color, which every color parameter accepts in place of a hex string. Can be used as Red, Red() or with a specific opacity Red(10).
+declare Red: EnumColor
+
+-- Enumeration, returns an enum for RickshawManType type.
+declare RickshawManType: EnumCandlePattern
+
+-- Enumeration, returns the a chart axis enum. Used ChartSetAxisOptions() for example.
+declare RightAxis: EnumCharting
+
+-- Enumeration, returns an enum for RiseFallThreeMethodsType type.
+declare RiseFallThreeMethodsType: EnumCandlePattern
+
+-- Enumeration, returns 1 Satoshi (=Epsilon).
+declare Satoshi: number
+
+-- Enumeration, returns an enum for SeparatingLinesType type.
+declare SeparatingLinesType: EnumCandlePattern
+
+-- Enumeration, returns the a shape type enum. Used PlotShapes().
+declare ShapeAdd: EnumCharting
+
+-- Enumeration, returns the a shape type enum. Used PlotShapes().
+declare ShapeCircle: EnumCharting
+
+-- Enumeration, returns the a shape type enum. Used PlotShapes().
+declare ShapeCross: EnumCharting
+
+-- Enumeration, returns the a shape type enum. Used PlotShapes().
+declare ShapeDash: EnumCharting
+
+-- Enumeration, returns the a shape type enum. Used PlotShapes().
+declare ShapeDiamond: EnumCharting
+
+-- Enumeration, returns the a shape type enum. Used PlotShapes().
+declare ShapeSquare: EnumCharting
+
+-- Enumeration, returns the a shape type enum. Used PlotShapes().
+declare ShapeText: EnumCharting
+
+-- Enumeration, returns the a shape type enum. Used PlotShapes().
+declare ShapeTriangleDown: EnumCharting
+
+-- Enumeration, returns the a shape type enum. Used PlotShapes().
+declare ShapeTriangleUp: EnumCharting
+
+-- Enumeration, returns an enum for ShootingStarType type.
+declare ShootingStarType: EnumCandlePattern
+
+-- Enumeration, returns an enum for ShortLineType type.
+declare ShortLineType: EnumCandlePattern
+
+-- Enumeration, returns a signal enum. Used by GetRemoteSignal() or custom commands for example.
+declare SignalBuy: EnumSignal
+
+-- Enumeration, returns a signal type enum. Used with GetSuperSignal().
+declare SignalCenterCrossType: EnumSignalTypes
+
+-- Enumeration, returns a signal enum. Used by GetRemoteSignal() or custom commands for example.
+declare SignalError: EnumSignal
+
+-- Enumeration, returns a signal enum. Used by GetRemoteSignal() or custom commands for example.
+declare SignalExitLong: EnumSignal
+
+-- Enumeration, returns a signal enum. Used by GetRemoteSignal() or custom commands for example.
+declare SignalExitPosition: EnumSignal
+
+-- Enumeration, returns a signal enum. Used by GetRemoteSignal() or custom commands for example.
+declare SignalExitShort: EnumSignal
+
+-- Enumeration, returns a signal enum. Used by GetRemoteSignal() or custom commands for example.
+declare SignalLong: EnumSignal
+
+-- Enumeration, returns a signal enum. Used by GetRemoteSignal() or custom commands for example.
+declare SignalNone: EnumSignal
+
+-- Enumeration, returns a signal enum. Used by GetRemoteSignal() or custom commands for example.
+declare SignalReservedA: EnumSignal
+
+-- Enumeration, returns a signal enum. Used by GetRemoteSignal() or custom commands for example.
+declare SignalReservedB: EnumSignal
+
+-- Enumeration, returns a signal enum. Used by GetRemoteSignal() or custom commands for example.
+declare SignalSell: EnumSignal
+
+-- Enumeration, returns a signal enum. Used by GetRemoteSignal() or custom commands for example.
+declare SignalShort: EnumSignal
+
+-- Enumeration, returns a signal type enum. Used with GetSuperSignal().
+declare SignalThresholdType: EnumSignalTypes
+
+-- Enumeration, returns an enum for SimpleDoubleDownCandleType type.
+declare SimpleDoubleDownCandleType: EnumCandlePattern
+
+-- Enumeration, returns an enum for SimpleDoubleUpCandleType type.
+declare SimpleDoubleUpCandleType: EnumCandlePattern
+
+-- Enumeration, returns an enum for SimpleDownCandleType type.
+declare SimpleDownCandleType: EnumCandlePattern
+
+-- Enumeration, returns an enum for SimpleUpCandleType type.
+declare SimpleUpCandleType: EnumCandlePattern
+
+-- Enumeration, returns a color, which every color parameter accepts in place of a hex string. Can be used as SkyBlue, SkyBlue() or with a specific opacity SkyBlue(10).
+declare SkyBlue: EnumColor
+
+-- Enumeration, returns an enum for SMA type.
+declare SmaType: EnumMovingAverages
+
+-- Enumeration, returns a line style enum. Used by LineOptions() for example.
+declare Smooth: EnumCharting
+
+-- Enumeration, returns a line decoration enum. Used by LineOptions() for example.
+declare Solid: EnumCharting
+
+-- Enumeration, returns a line style enum. Used by LineOptions() for example.
+declare Spiked: EnumCharting
+
+-- Enumeration, returns an enum for SpinningTopType type.
+declare SpinningTopType: EnumCandlePattern
+
+-- Enumeration, returns a market type enum. Used by MarketType()
+declare SpotTrading: EnumTrading
+
+-- Enumeration, return a price plot enum. Used by PlotPrice() or ChartSetOptions()
+declare Spread: EnumCharting
+
+-- Enumeration, return a price plot enum. Used by PlotPrice() or ChartSetOptions()
+declare SpreadCandle: EnumCharting
+
+-- Enumeration, returns an enum for StalledPatternType type.
+declare StalledPatternType: EnumCandlePattern
+
+-- Enumeration, returns a line style enum. Used by LineOptions() for example.
+declare Step: EnumCharting
+
+-- Enumeration, returns a line style enum. Used by LineOptions() for example.
+declare StepAfter: EnumCharting
+
+-- Enumeration, returns a line style enum. Used by LineOptions() for example.
+declare StepBefore: EnumCharting
+
+-- Enumeration, returns an enum for StickSandwichType type.
+declare StickSandwichType: EnumCandlePattern
+
+-- Stop-Limit order type enum with a standard timeout of 10 minutes. In live trading, when the exchange does not declare this type, the order is refused before it is sent: it fails with "Requested order type '...' is not supported by ..." and the bot keeps running. Backtests do not check this and simulate the order anyway. Used by the PlaceOrders commands together with a triggerPrice. SetOrderType() refuses it, because managed trading never passes a trigger price.
+declare StopLimitOrderType: EnumOrderTypes
+
+-- Stop-Market order type enum. In live trading, when the exchange does not declare this type, the order is refused before it is sent: it fails with "Requested order type '...' is not supported by ..." and the bot keeps running. Backtests do not check this and simulate the order anyway. Used by the PlaceOrders commands together with a triggerPrice. SetOrderType() refuses it, because managed trading never passes a trigger price.
+declare StopMarketOrderType: EnumOrderTypes
+
+-- Enumeration, returns a parameter enum. Used by DefineParameter() or DefineOutput() for example.
+declare StringType: EnumParameterType
+
+-- Enumeration, returns an enum for T3 type.
+declare T3Type: EnumMovingAverages
+
+-- Take-profit limit order type enum with a standard timeout of 10 minutes. In live trading, when the exchange does not declare this type, the order is refused before it is sent: it fails with "Requested order type '...' is not supported by ..." and the bot keeps running. Backtests do not check this and simulate the order anyway. Used by the PlaceOrders commands together with a triggerPrice. SetOrderType() refuses it, because managed trading never passes a trigger price.
+declare TakeProfitLimitOrderType: EnumOrderTypes
+
+-- Take-Profit-Market order type enum. In live trading, when the exchange does not declare this type, the order is refused before it is sent: it fails with "Requested order type '...' is not supported by ..." and the bot keeps running. Backtests do not check this and simulate the order anyway. Used by the PlaceOrders commands together with a triggerPrice. SetOrderType() refuses it, because managed trading never passes a trigger price.
+declare TakeProfitMarketOrderType: EnumOrderTypes
+
+-- Enumeration, returns an enum for TakuriType type.
+declare TakuriType: EnumCandlePattern
+
+-- Enumeration, returns an enum for TasukiGapType type.
+declare TasukiGapType: EnumCandlePattern
+
+-- Enumeration, returns a color, which every color parameter accepts in place of a hex string. Can be used as Teal, Teal() or with a specific opacity Teal(10).
+declare Teal: EnumColor
+
+-- Enumeration, returns an enum for TEMA type.
+declare TemaType: EnumMovingAverages
+
+-- Enumeration, returns a data type enum.
+declare TextDataType: EnumDataTypes
+
+-- Enumeration, returns an enum for ThreeBlackCrowsType type.
+declare ThreeBlackCrowsType: EnumCandlePattern
+
+-- Enumeration, returns an enum for ThreeInsideType type.
+declare ThreeInsideType: EnumCandlePattern
+
+-- Enumeration, returns an enum for ThreeLineStrikeType type.
+declare ThreeLineStrikeType: EnumCandlePattern
+
+-- Enumeration, returns an enum for ThreeOutsideType type.
+declare ThreeOutsideType: EnumCandlePattern
+
+-- Enumeration, returns an enum for ThreeStarsInSouthType type.
+declare ThreeStarsInSouthType: EnumCandlePattern
+
+-- Enumeration, returns an enum for ThreeWhiteSoldiersType type.
+declare ThreeWhiteSoldiersType: EnumCandlePattern
+
+-- Enumeration, returns an enum for ThrustingType type.
+declare ThrustingType: EnumCandlePattern
+
+-- Enumeration, returns an enum for TRIMA type.
+declare TrimaType: EnumMovingAverages
+
+-- Enumeration, returns an enum for TristarType type.
+declare TristarType: EnumCandlePattern
+
+-- Enumeration, returns a data type enum.
+declare TupleDataType: EnumDataTypes
+
+-- Enumeration, returns an enum for TwoCrowsType type.
+declare TwoCrowsType: EnumCandlePattern
+
+-- Enumeration, returns an enum for UniqueThreeRiverType type.
+declare UniqueThreeRiverType: EnumCandlePattern
+
+-- Enumeration, returns a data type enum.
+declare UnknownDataType: EnumDataTypes
+
+-- Enumeration, returns an enum for UpsideGapTwoCrowsType type.
+declare UpsideGapTwoCrowsType: EnumCandlePattern
+
+-- Enumeration, returns a data type enum.
+declare UserDataDataType: EnumDataTypes
+
+-- Enumeration, returns a contract type enum for Vanilla contracts (linear, USDT-margined). Used by ContractType()
+declare VanillaContract: EnumContractType
+
+-- Enumeration, returns a data type enum.
+declare VoidDataType: EnumDataTypes
+
+-- Enumeration, returns a parameter enum. Used by DefineParameter() or DefineOutput() for example.
+declare VoidType: EnumParameterType
+
+-- Enumeration, returns an enum for Volume Source type.
+declare VolumePriceSource: EnumSourcePriceTypes
+
+-- Enumeration, returns a color, which every color parameter accepts in place of a hex string. Can be used as White, White() or with a specific opacity White(10).
+declare White: EnumColor
+
+-- Enumeration, returns an enum for WMA type.
+declare WmaType: EnumMovingAverages
+
+-- Enumeration, returns an enum for XSideGapThreeMethodsType type.
+declare XSideGapThreeMethodsType: EnumCandlePattern
+
+-- Enumeration, returns a color, which every color parameter accepts in place of a hex string. Can be used as Yellow, Yellow() or with a specific opacity Yellow(10).
+declare Yellow: EnumColor
+
+interface ABANDSResult { upper: HaasNumberCollection; middle: HaasNumberCollection; lower: HaasNumberCollection; 1: HaasNumberCollection; 2: HaasNumberCollection; 3: HaasNumberCollection; [index: number]: HaasNumberCollection }
+
+-- Acceleration Bands (ABANDS) created by Price Headley.
+-- Plots bands around a simple moving average as the midpoint and the upper and lower
+-- bands are of equal distance from this midpoint.
+-- Look for breakouts outside these bands, while also using the shorter time frames
+-- to define likely support and resistance levels at the lower and upper Acceleration Bands. This indicator is usually plotted on the price chart.
+declare function ABANDS(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection, period: number | HaasNumberCollection): ABANDSResult
+
+-- Accumulation/Distribution Line (AD) Developed by Marc Chaikin, the Accumulation Distribution
+-- Line is a volume-based indicator designed to measure the cumulative flow of money into and out of a security. Chaikin
+-- originally referred to the indicator as the Cumulative Money Flow Line. As with cumulative indicators, the Accumulation
+-- Distribution Line is a running total of each period's Money Flow Volume. First, a multiplier is calculated based on the
+-- relationship of the close to the high-low range. Second, the Money Flow Multiplier is multiplied by the period's volume
+-- to come up with a Money Flow Volume. A running total of the Money Flow Volume forms the Accumulation Distribution Line. This indicator is usually plotted to its own chart.
+declare function AD(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection, volume: number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Developed by Marc Chaikin, the Chaikin Oscillator (ADOSC) measures the momentum of the
+-- Accumulation Distribution Line using the MACD formula. (This makes it an indicator of an indicator.)
+-- The Chaikin Oscillator is the difference between the 3-day and 10-day EMAs of the Accumulation Distribution
+-- Line. Like other momentum indicators, this indicator is designed to anticipate directional changes in the
+-- Accumulation Distribution Line by measuring the momentum behind the movements.
+-- A momentum change is the first step to a trend change. This indicator is usually plotted to its own chart.
+declare function ADOSC(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection, volume: number[] | HaasNumberCollection, fastPeriod: number | HaasNumberCollection, slowPeriod: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Average Directional Index (ADX) depicts a presence or absence of a trend.
+-- ADX advices on the strength of the dominant forces that move market prices here and now.
+-- In other words, ADX advices on trend tendencies: whether the trend is going to continue
+-- and strengthen or it is about to lose its positions. This indicator is usually plotted to its own chart.
+declare function ADX(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- Average Directional Movement Index Rating (ADXR) is a smoothed version
+-- of ADX indicator and is used as a rating of the Directional Movement while smoothing out ADX values.
+-- If to compare ADXR to ADX, the smoother ADXR doesn't depend much on fast short-term market turns and
+-- reversals, which allows to minimize trading risks when relying on ADXR in the long term. This indicator is usually plotted to its own chart.
+declare function ADXR(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Awesome Oscillator (AO) shows the difference in between the 5 SMA and 34 SMA.
+-- If to be precise, 5 SMA of mid-prices is subtracted from 34 SMA of mid-prices which allows to see the market momentum. This indicator is usually plotted to its own chart.
+declare function AO(hl2prices: number[] | HaasNumberCollection, shortLength: number | HaasNumberCollection, longLength: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Absolute Price Oscillator (APO) displays the difference between two
+-- exponential moving averages of an asset's price and is expressed as an absolute value. This indicator is usually plotted to its own chart.
+declare function APO(prices: number[] | HaasNumberCollection, fastPeriod: number | HaasNumberCollection, slowPeriod: number | HaasNumberCollection, maType?: EnumMovingAverages): HaasNumberCollection
+
+interface AROONResult { aroonDn: HaasNumberCollection; aroonUp: HaasNumberCollection; 1: HaasNumberCollection; 2: HaasNumberCollection; [index: number]: HaasNumberCollection }
+
+-- Aroon indicator is a young one, developed by Tushar Chande in 1995.
+-- Aroon was created to measure the strength of a trend and potentials for its continuation as well
+-- as the quality and type of the trend: up-trend, down-trend or sideways moving market. This indicator is usually plotted to its own chart.
+declare function AROON(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, period: number | HaasNumberCollection): AROONResult
+
+-- Aroon oscillator is based on Aroon Indicator. Aroon Oscillator is
+-- a trend-following indicator that illustrates the strength of a current trend and its potentials to last. This indicator is usually plotted to its own chart.
+declare function AROONOSC(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Average True Range (ATR), developed by Wilder, gives traders a feel of what the historical volatility
+-- was in order to prepare for trading in the actual market.
+-- Currency pairs that get lower ATR readings suggest lower market volatility, while currency pairs with higher
+-- ATR indicator readings require appropriate trading adjustments according to higher volatility.
+-- Wilder used the Moving average to smooth out the ATR indicator readings, so that ATR looks the way we know it. This indicator is usually plotted to its own chart.
+declare function ATR(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Average Deviation (AVGDEV) is simply an averaged version of the Standard Deviation (STDDEV). This indicator is usually plotted to its own chart.
+declare function AVGDEV(close: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Average Price (AVGPRICE) is the price between open, high, low and close (aka OHLC/4). This indicator is usually plotted on the price chart.
+declare function AVGPRICE(open: number[] | HaasNumberCollection, high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Calculates an absolute/positive number.
+declare function Abs(input: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Compares the average entry price to current price, absolute value-based.
+declare function AbsolutePriceChange(amount?: number | HaasNumberCollection, targetPrice?: number | HaasNumberCollection, positionId?: string): boolean
+
+-- Gets the main account guid of the bot.
+declare function AccountGuid(): string
+
+-- Calculates the angle whose cosine is the specified number.
+declare function Acos(input: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Adds numbers/tables and returns the result number/table.
+declare function Add(input1: number | number[] | HaasNumberCollection, input2?: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Add a percentage to the value.
+declare function AddPerc(value: number | number[] | HaasNumberCollection, percentage: number | HaasNumberCollection): HaasNumberCollection
+
+-- Add a percentage to the value.
+declare function AddPercentage(value: number | number[] | HaasNumberCollection, percentage: number | HaasNumberCollection): HaasNumberCollection
+
+-- Adjusts an Unix timestamp.
+declare function AdjustTimestamp(unix?: number | HaasNumberCollection, addSeconds?: number | HaasNumberCollection, addMinutes?: number | HaasNumberCollection, addHours?: number | HaasNumberCollection, addMonths?: number | HaasNumberCollection, addDays?: number | HaasNumberCollection, addYears?: number | HaasNumberCollection): number
+
+-- Adjusts a virtual bot position by processing a simulated order using the defined specifications. Works similarly to PlaceExitLongOrder/PlaceExitShortOrder, but will NOT create a real order; it is only simulated.
+declare function AdjustVPosition(price: number | HaasNumberCollection, amount: number | HaasNumberCollection, positionId?: string): nil
+
+-- Gets the amount label. For reflection, in case the market is Bitstamp BTC/USDit will return 'BTC'. When we are on BitMEX XBT/USD (XBTUSD), it will return 'contract(s)'.
+declare function AmountCurrency(market?: string): string
+
+-- Returns a number of how many decimals is allowed for order amounts.
+declare function AmountDecimals(market?: string, amount?: number | HaasNumberCollection): number
+
+-- Gets the amount label. For reflection, in case the market is Bitstamp BTC/USDit will return 'BTC'. When we are on BitMEX XBT/USD (XBTUSD), it will return 'contract(s)'.
+declare function AmountLabel(market?: string): string
+
+-- Returns the minimum allowed trade amount step for market.
+declare function AmountStep(market?: string): number
+
+-- Validates all values on being true.
+declare function And(...: boolean): boolean
+
+-- Returns true if the array contains any element or an element matches a specific value.
+declare function ArrayAny(input: any, value?: any | nil): boolean
+
+-- Returns true if the array contains any element or an element matches a specific value.
+declare function ArrayContains(input: any, value?: any | nil): boolean
+
+-- Returns a new list of the positions of the matching values. Matching rules are set by filterType. The positions depend on the input type. On a Lua table they are 1-based, so they can be used directly as an index (t[i]). On a series (a price source or HNC) they are 0-based: the newest bar is position 0, so add 1 before using one as an index (close[i + 1]). Using a series result directly as an index reads the next newer bar (one bar closer to the newest), and a match on the newest bar (0) stops the script with an out-of-range error.
+declare function ArrayFind(input: any, value: any, filterType?: EnumArrayFilterTypes): any
+
+-- Gets the value on a specific index. A negative index will take from the end of the array.
+declare function ArrayGet(input: any, index: number | HaasNumberCollection): any
+
+-- Gets the value on a specific index. A negative index will take from the end of the array.
+declare function ArrayIndex(input: any, index: number | HaasNumberCollection): any
+
+-- Gets the last value of the array with an optional offset.
+declare function ArrayLast(input: any, offset?: number | HaasNumberCollection): any
+
+-- Computes the sum of the array. Can be used in combination with a list of numbers or container results like GetAllOpenOrders() or GetAllFilledOrders().
+declare function ArraySum(input: any, key?: string): number
+
+-- Calculates the angle whose sine is the specified number.
+declare function Asin(input: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Gets the buy/ask prices.
+declare function AskPrices(interval?: number | HaasNumberCollection, fullCandles?: boolean, market?: string, hlcStyle?: boolean): HaasNumberCollection
+
+-- Calculates the angle whose tangent is the specified number.
+declare function Atan(input: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Calculates the angle whose tangent is the quotient of two specified numbers.
+declare function Atan2(input1: number | number[] | HaasNumberCollection, input2: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Calculates the average value of the array, two numbers or averages between 2 arrays.
+declare function Average(input1: number | number[] | HaasNumberCollection, input2?: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Calculates the average value of the array for a certain period.
+declare function Average2(input: number[] | HaasNumberCollection, period?: number | HaasNumberCollection): HaasNumberCollection
+
+-- Calculates the average candle body size of the last 50 minutes.
+declare function AverageCandleSize(market?: string): number
+
+-- Gets the average enter price.
+declare function AverageEnterPrice(positionId?: string): number
+
+-- Gets the average exit price.
+declare function AverageExitPrice(positionId?: string): number
+
+-- Calculates the average orderbook bid/ask spread of the last 50 minutes.
+declare function AverageOrderbookSpread(market?: string): number
+
+interface BBANDSResult { upper: HaasNumberCollection; middle: HaasNumberCollection; lower: HaasNumberCollection; 1: HaasNumberCollection; 2: HaasNumberCollection; 3: HaasNumberCollection; [index: number]: HaasNumberCollection }
+
+-- The Bollinger Band (BBANDS) study created
+-- by John Bollinger plots upper and lower envelope bands around the
+-- price of the instrument. The width of the bands is based on the
+-- standard deviation of the closing prices from a moving average of
+-- price. This indicator is usually plotted on the price chart.
+declare function BBANDS(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection, devUp: number | HaasNumberCollection, devDn: number | HaasNumberCollection, maType?: EnumMovingAverages): BBANDSResult
+
+-- The Beta (BETA) value can measure he volatility of a coin in relation to that of the market.
+-- For stock investors the beta value[1] of a portfolio is an important measure of risk, a value above 1 means the
+-- investment is more volatile than the market, a value lower than 1 is less volatile.
+-- It can be helpful to do a beta analysis for your portfolio to see how returns match up against the beta and
+-- spot real winners (low beta, high returns). Since most altcoins are still sold and bought using Bitcoin (BTC),
+-- its price could be used as the [Market's source data] (2nd input parameter), which results BTC a beta of 1. This indicator is usually plotted to its own chart.
+declare function BETA(prices1: number[] | HaasNumberCollection, prices2: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Balance of Power (BOP) indicator measures the market
+-- strength of buyers against sellers by assessing the ability of each side to drive prices to an extreme level.
+-- The resulting values can be smoothed by a moving average. This indicator is usually plotted to its own chart.
+declare function BOP(open: number[] | HaasNumberCollection, high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection): HaasNumberCollection
+
+interface BalanceResult { available: number; locked: number; total: number; 1: number; 2: number; 3: number; [index: number]: number }
+
+-- Available, locked and total balance of a currency.
+declare function Balance(accountId?: string, coin?: string, market?: string): BalanceResult
+
+-- Total balance value of a specific currency. Including order and position margin. Does not work yet in backtests and for simulated accounts.
+declare function BalanceAmount(accountId?: string, coin?: string, market?: string): number
+
+-- Returns the base currency of the market. For reflection, in case we are on Bitstamp BTC/USD it will return 'BTC'.
+declare function BaseCurrency(market?: string): string
+
+-- A collection with sell/ask prices. Sorted from new to old.
+declare function BidPrices(interval?: number | HaasNumberCollection, fullCandles?: boolean, market?: string, hlcStyle?: boolean): HaasNumberCollection
+
+-- Converts 4 boolean values to a signal.
+declare function BoolToSignal(isLong?: boolean, isShort?: boolean, isExit?: boolean, isNone?: boolean): EnumSignal
+
+-- Send a text message to Discord.
+declare function BroadcastToDiscord(message: string): nil
+
+-- Send a text message to your Telegram.
+declare function BroadcastToTelegram(message: string): nil
+
+-- Gets the buy/ask prices.
+declare function BuyPrices(interval?: number | HaasNumberCollection, fullCandles?: boolean, market?: string, hlcStyle?: boolean): HaasNumberCollection
+
+-- The Commodity Channel Index (CCI) compares the current price to an
+-- average price over a period of time. The indicator fluctuates above or below zero,
+-- moving into positive or negative territory. CCI is relatively high when prices are
+-- far above their average, but is relatively low when prices are far below their average.
+-- In this manner, CCI can be used to identify overbought and oversold levels, or to confirm trends. This indicator is usually plotted to its own chart.
+declare function CCI(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- Stoploss based on the BBands.
+declare function CC_BBandsStopLoss(source: number[] | HaasNumberCollection, maPeriod?: number | HaasNumberCollection | nil, devMult?: number | HaasNumberCollection | nil, maType?: Enum | nil, positionId?: string | nil): boolean
+
+-- Lazy Bear - Colored Volume Bars. Buy the green or blue volume bars, use a 1% trailing stop, and stand aside on red or orange bars.
+declare function CC_CVOLB_LB(chartIndex: number | HaasNumberCollection, interval?: number | HaasNumberCollection | nil): EnumSignal
+
+-- Keeps the signal continuous for a number of minutes. Only switches when the signal changes from long to short.
+declare function CC_ContinuousSignal(signal: Enum, minutes: number | HaasNumberCollection): EnumSignal
+
+-- The Crypto Index Slot maintains the wallet for a certain index.
+declare function CC_CryptoIndexSlot(coin: string, baseCoin: string, allocatedAmount: number | HaasNumberCollection, buyLevel: number | HaasNumberCollection, sellLevel: number | HaasNumberCollection, stopLoss?: number | HaasNumberCollection | nil, trailingStop?: number | HaasNumberCollection | nil, takeOverWallet?: boolean | nil): string
+
+-- Ehlers MESA Adaptive Moving Average
+declare function CC_EMAMA_LB(chartIndex: number | HaasNumberCollection, interval?: number | HaasNumberCollection | nil): EnumSignal
+
+-- Adaptive RSI by Alex Orekhov
+declare function CC_EasyAdaptiveRSI(chartIndex: number | HaasNumberCollection, interval?: number | HaasNumberCollection | nil): EnumSignal
+
+-- The Force Index is an indicator that uses price and volume to assess the power behind a move or identify possible turning points.
+declare function CC_EasyForceIndex(chartIndex: number | HaasNumberCollection, interval?: number | HaasNumberCollection | nil): EnumSignal
+
+-- Double Hull MA
+declare function CC_EasyHullMA(chartIndex: number | HaasNumberCollection, interval?: number | HaasNumberCollection | nil): EnumSignal
+
+-- Easy Market Volume Oscillator
+declare function CC_EasyMVO(chartIndex: number | HaasNumberCollection, name?: string | nil, interval?: number | HaasNumberCollection | nil): EnumSignal
+
+-- The Mass Index uses the high-low range to identify trend reversals based on range expansions
+declare function CC_EasyMassIndex(chartIndex: number | HaasNumberCollection, interval?: number | HaasNumberCollection | nil): EnumSignal
+
+-- Schaff Trend Cycle indicator
+declare function CC_EasySTC(chartIndex: number | HaasNumberCollection, interval?: number | HaasNumberCollection | nil): EnumSignal
+
+-- RSI smoothed with SMA.
+declare function CC_EasySmoothRSI(chartIndex: number | HaasNumberCollection, name?: string | nil, interval?: number | HaasNumberCollection | nil): EnumSignal
+
+-- Tom Demark Sequential (TD) implementation
+declare function CC_EasyTD(chartIndex: number | HaasNumberCollection, count: number | HaasNumberCollection, lookback: number | HaasNumberCollection, interval?: number | HaasNumberCollection | nil): EnumSignal
+
+-- True Strength Index
+declare function CC_EasyTSI(chartIndex: number | HaasNumberCollection, name?: string | nil, interval?: number | HaasNumberCollection | nil): EnumSignal
+
+-- Easy TrendMA implementation by Pshai
+declare function CC_EasyTrendMA(source: number[] | HaasNumberCollection, maPeriod: number | HaasNumberCollection, maType?: Enum | nil): EnumSignal
+
+-- RSI Calculated over volume and smoothed.
+declare function CC_EasyVolumeRSI(chartIndex: number | HaasNumberCollection, name?: string | nil, interval?: number | HaasNumberCollection | nil): EnumSignal
+
+-- A slot in the style of a Flash Crash Bot
+declare function CC_FlashCrashSlot(basePrice: number | HaasNumberCollection, index: number | HaasNumberCollection, amount: number | HaasNumberCollection, spread: number | HaasNumberCollection, startWithBuy: boolean): nil
+
+-- Formats a number to be rounded and have the quote currency symbol.
+declare function CC_FormatRoundedQuoteCurrency(input: number | HaasNumberCollection, digits?: number | HaasNumberCollection | nil, symbol?: string | nil): string
+
+-- Hull Moving Average by pshai
+declare function CC_HMA(source: number[] | HaasNumberCollection, period: number | HaasNumberCollection, maType?: Enum | nil): HaasNumberCollection
+
+-- HullMA Indicator
+declare function CC_HullMA(length: number | HaasNumberCollection, source?: number[] | HaasNumberCollection | nil): HaasNumberCollection
+
+-- Market Volume Oscillator
+declare function CC_MVO(high?: number[] | HaasNumberCollection | nil, low?: number[] | HaasNumberCollection | nil, close?: number[] | HaasNumberCollection | nil, volume?: number[] | HaasNumberCollection | nil, fastPeriod?: number | HaasNumberCollection | nil, fastMaType?: number | HaasNumberCollection | nil, slowPeriod?: number | HaasNumberCollection | nil, slowMaType?: number | HaasNumberCollection | nil, stochFastK?: number | HaasNumberCollection | nil, stochSlowK?: number | HaasNumberCollection | nil, stochSlowD?: number | HaasNumberCollection | nil): HaasNumberCollection
+
+-- Custom BBands signal implementation for MadHatter
+declare function CC_MadHatterBBands(chartIndex: number | HaasNumberCollection, name?: string | nil, interval?: number | HaasNumberCollection | nil): EnumSignal
+
+-- Custom MACD signal implementation for MadHatter
+declare function CC_MadHatterMACD(chartIndex: number | HaasNumberCollection, name?: string | nil, interval?: number | HaasNumberCollection | nil): EnumSignal
+
+-- Custom RSI signal implementation for MadHatter
+declare function CC_MadHatterRSI(chartIndex: number | HaasNumberCollection, name?: string | nil, interval?: number | HaasNumberCollection | nil): EnumSignal
+
+-- Market making bot slot
+declare function CC_MarketMakingSlot(startLong: boolean, offset: number | HaasNumberCollection, amount: number | HaasNumberCollection, enterTimeout: number | HaasNumberCollection, exitTimeout: number | HaasNumberCollection, stopLossPercentage?: number | HaasNumberCollection | nil, stopLossCoolDown?: number | HaasNumberCollection | nil, reset?: boolean | nil, note?: string | nil): string
+
+-- Lazy Bear - This is a modified form of PSO (original idea by Lee Leibfarth), to use RSI as the input.
+declare function CC_PRO_LB(chartIndex: number | HaasNumberCollection, interval?: number | HaasNumberCollection | nil): EnumSignal
+
+-- A ProfitTrailer implementation by Pshai. Works like a safety and returns true when active.
+declare function CC_ProfitTrailer(trailStartPrc: number | HaasNumberCollection, trailDistPrc: number | HaasNumberCollection, trailMode?: string | nil, maxRebounds?: number | HaasNumberCollection | nil, positionId?: string | nil): boolean
+
+-- Adds a custom report on your worst point of liquidation risk.
+declare function CC_ReportMaxRiskPoint(): nil
+
+-- Squeeze Momentum Indicator - LazyBear
+declare function CC_SQZMOM_LB(chartIndex: number | HaasNumberCollection, interval?: number | HaasNumberCollection | nil): EnumSignal
+
+-- Schaff Trend Cycle
+declare function CC_STC(data: number[] | HaasNumberCollection, depth: number | HaasNumberCollection, longLength: number | HaasNumberCollection, shortLength: number | HaasNumberCollection): HaasNumberCollection
+
+-- Lazy Bear - Scalper Channel
+declare function CC_ScalperChannel_LB(chartIndex: number | HaasNumberCollection, interval?: number | HaasNumberCollection | nil): EnumSignal
+
+-- Wilson Relative Price Channel
+declare function CC_WRPC(chartIndex: number | HaasNumberCollection, interval?: number | HaasNumberCollection | nil): EnumSignal
+
+-- Candlestick pattern finder.
+declare function CDL(open: number[] | HaasNumberCollection, high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection, type: EnumCandlePattern, penetration?: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Choppiness Index, designed by E.W. Dreiss, is an indicator which is directionless. This means it doesn't show the market direction,
+-- rather reflects whether the market is choppy (trades sideways) or smooth (trending). The general way of interpreting
+-- this index is that higher values mean the market is choppy, while lower values equal directional movement.
+declare function CHOP(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Chande Momentum Oscillator (CMO) indicates overbought
+-- conditions when it reaches the 50 level and oversold conditions when it reaches -50.
+-- You can also look for signals based on the CMO crossing above and below a signal line
+-- composed of a 9-period moving average of the 20 period CMO. This indicator measures the trend strength. This indicator is usually plotted to its own chart.
+declare function CMO(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Coppock Curve (COPPOCK) is a smoothed momentum oscillator developed by Edwin "Sedge" Coppock.
+-- It can help you isolate buying opportunities and exit points. Even though it was originally designed for long-term analysis,
+-- it can be used on intraday, daily or weekly charts and the settings can be adjusted to suit one's style.
+-- The main signals are generated with crosses above and below the zero line. This indicator is usually plotted to its own chart.
+declare function COPPOCK(prices: number[] | HaasNumberCollection, roc1: number | HaasNumberCollection, roc2: number | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Correlation (CORREL) is a statistical measure that reflects the correlation between two assets.
+-- In other words, this statistic tells us how closely one security is related to the other.
+-- Coefficient is above zero when both securities move in the same direction (up or down) and below zero when the two securities move in opposite directions.
+-- This indicator can also help traders diversify by identifying assets with a low or negative correlation to the market. This indicator is usually plotted to its own chart.
+declare function CORREL(source1: number[] | HaasNumberCollection, source2: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Connor's RSI (CRSI) is a momentum oscillator created by Larry Connors.
+-- Three components combine to form this momentum oscillator; The RSI, UpDown Length, and Rate-of-Change.
+-- Connors RSI outputs a value between 0 and 100, which is then used to identify short-term overbought
+-- and oversold conditions, or to confirm trends. This indicator is usually plotted to its own chart.
+declare function CRSI(prices: number[] | HaasNumberCollection, rsiPeriod: number | HaasNumberCollection, udPeriod: number | HaasNumberCollection, length: number | HaasNumberCollection): HaasNumberCollection
+
+-- Cancels all open orders.
+declare function CancelAllOrders(positionId?: string): nil
+
+-- Sends out a cancel order for the given order identifier.
+declare function CancelOrder(orderId: string): nil
+
+-- Calculates the smallest integral value greater than or equal to the specified number.
+declare function Ceil(input: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Calculates the chandelier exit long price.
+declare function ChandelierExitLong(high: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, depth?: number | HaasNumberCollection, multiplier?: number | HaasNumberCollection): number
+
+-- Calculates the chandelier exit short price.
+declare function ChandelierExitShort(high: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, depth?: number | HaasNumberCollection, multiplier?: number | HaasNumberCollection): number
+
+-- Calculates the change between consecutive values (newer minus older).
+declare function Change(prices: number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Converts HEX to RGBA with opacity.
+declare function ChangeColorOpacity(color: string | EnumColor, opacity: number | HaasNumberCollection): string
+
+-- Adds a label on the y-axis.
+declare function ChartAddAxisLabel(chartId: number | HaasNumberCollection, side: EnumCharting, text: string, value: number | HaasNumberCollection, color?: string | EnumColor, textColor?: string | EnumColor): nil
+
+-- Gives control over axis settings such as low, high and visibility.
+declare function ChartSetAxisOptions(chartId: number | HaasNumberCollection, side: EnumCharting, low?: number | HaasNumberCollection, high?: number | HaasNumberCollection, visible?: boolean, type?: EnumCharting): nil
+
+-- Gives control over chart options such as title and height.
+declare function ChartSetOptions(chartId: number | HaasNumberCollection, title?: string, height?: number | HaasNumberCollection, style?: EnumCharting): nil
+
+-- Calculates the number or table of numbers clamped between the specified minimum and maximum.
+declare function Clamp(input: number | number[] | HaasNumberCollection, min: number | HaasNumberCollection, max: number | HaasNumberCollection): HaasNumberCollection
+
+-- A collection with close prices. Sorted from new to old.
+declare function ClosePrices(interval?: number | HaasNumberCollection, fullCandles?: boolean, market?: string, hlcStyle?: boolean): HaasNumberCollection
+
+-- Converts a timestamps to the close timestamp of the candle.
+declare function CloseTime(unix: number | HaasNumberCollection, interval: number | HaasNumberCollection): number
+
+-- Closes a virtual bot position entirely by processing a simulated order using the defined specifications. Works similarly to DoExitPosition and PlaceExitPositionOrder, but will NOT create a real order; only simulated! Use this to "clean up" bot positions if required.
+declare function CloseVPosition(price: number | HaasNumberCollection, positionId?: string): nil
+
+interface CompareResult { isAbove: boolean; isEqual: boolean; isBelow: boolean; 1: boolean; 2: boolean; 3: boolean; [index: number]: boolean }
+
+-- Checks if input1 is below, equal to or above input2.
+declare function Compare(input1: number | number[] | HaasNumberCollection, input2: number | number[] | HaasNumberCollection): CompareResult
+
+-- Calculates the average values of every 2 values in an array. When the input is [10, 20, 30, 40] the result will be [15, 35].
+declare function Compress(input: number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Gets the contract name of the market.
+declare function ContractName(market?: string): string
+
+-- Gets the value of a single contract, defined in their denomination.
+declare function ContractValue(market?: string): number
+
+-- Converts the signal if its matches the defined one.
+declare function ConvertSignal(signal: Enum, signalToCovert: EnumSignal, convertedSignal: EnumSignal): EnumSignal
+
+-- Calculates the cosine of the specified angle.
+declare function Cos(input: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Calculates the hyperbolic cosine of the specified angle.
+declare function Cosh(input: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Gets the length of an array or the number of occurrences within the array of a specific value.
+declare function Count(input: any, value?: any | nil): number
+
+-- Creates a market string that can be used for a variety of commands.
+declare function CreateMarket(priceSource?: string, baseCurrency?: string, quoteCurrency?: string, contractName?: string): string
+
+-- Creates a bot position by processing a simulated order using the defined specifications. By doing this, profit/loss and position details can be used by the script. Use the returned position ID with PositionContainer() to extract position data.
+declare function CreatePosition(direction: EnumPosition, price: number | HaasNumberCollection, amount: number | HaasNumberCollection, market?: string, leverage?: number | HaasNumberCollection, positionId?: string): string
+
+-- Creates an Unix timestamp from the specified value.
+declare function CreateTimestamp(year?: number | HaasNumberCollection, month?: number | HaasNumberCollection, day?: number | HaasNumberCollection, hour?: number | HaasNumberCollection, minute?: number | HaasNumberCollection, second?: number | HaasNumberCollection): number
+
+-- Checks if a crossover occurs between value1 and value2.
+declare function CrossOver(value1: number | number[] | HaasNumberCollection, value2: number | number[] | HaasNumberCollection): boolean
+
+-- Calculates the number of ticks since the last crossover.
+declare function CrossOverSince(value1: number | number[] | HaasNumberCollection, value2: number | number[] | HaasNumberCollection): number
+
+-- Checks if a crossunder occurs between value1 and value2.
+declare function CrossUnder(value1: number | number[] | HaasNumberCollection, value2: number | number[] | HaasNumberCollection): boolean
+
+-- Calculates the number of ticks since the last crossunder.
+declare function CrossUnderSince(value1: number | number[] | HaasNumberCollection, value2: number | number[] | HaasNumberCollection): number
+
+-- Gets the date of the month of the current time or requested time. Based on UTC.
+declare function CurrentDate(unix?: number | HaasNumberCollection): number
+
+-- Gets the day of the week of the current time or requested time. Based on UTC.
+declare function CurrentDay(unix?: number | HaasNumberCollection): number
+
+-- Gets the hour the current time or requested time. Based on UTC.
+declare function CurrentHour(unix?: number | HaasNumberCollection): number
+
+-- Gets the default interval selected by the user or returns the interval of a price source.
+declare function CurrentInterval(...: any): number
+
+-- Gets the minute the current time or requested time. Based on UTC.
+declare function CurrentMinute(unix?: number | HaasNumberCollection): number
+
+-- Gets the month of the year of the current time or requested time. Based on UTC.
+declare function CurrentMonth(unix?: number | HaasNumberCollection): number
+
+interface CurrentPriceResult { open: number; high: number; low: number; close: number; volume: number; ask: number; bid: number; 1: number; 2: number; 3: number; 4: number; 5: number; 6: number; 7: number; [index: number]: number }
+
+-- Gets all the price data from the current candle.
+declare function CurrentPrice(market?: string): CurrentPriceResult
+
+-- Gets the second the current time or requested time. Based on UTC.
+declare function CurrentSecond(unix?: number | HaasNumberCollection): number
+
+-- Gets the week of the year of the current time or requested time. Based on UTC.
+declare function CurrentWeek(unix?: number | HaasNumberCollection): number
+
+-- Gets the year the current time or requested time. Based on UTC.
+declare function CurrentYear(unix?: number | HaasNumberCollection): number
+
+-- Creates an item in the bot's custom reports. Use group="Override" to override standard bot report fields (e.g. RealizedProfit, UnrealizedProfit) for both live bots and backtest results.
+declare function CustomReport(key: string, value: any | nil, group?: string, displayValue?: boolean): nil
+
+-- The Double Exponential Moving Average (DEMA) was developed by Patrick Mulloy.
+-- It is used for smoothing price series and attempts to offer a smoothed average with less
+-- lag than a straight exponential moving average (EMA). This indicator is usually plotted directly on a price chart.
+declare function DEMA(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+interface DONCHIANResult { upper: HaasNumberCollection; middle: HaasNumberCollection; lower: HaasNumberCollection; 1: HaasNumberCollection; 2: HaasNumberCollection; 3: HaasNumberCollection; [index: number]: HaasNumberCollection }
+
+-- The Donchian Channel (DONCHIAN), developed by Richard Donchian.
+-- Donchian Channel is formed by taking the highest high and the lowest low of the last n periods.
+-- The area between the high and the low is the channel for the period chosen. This indicator is usually plotted on the price chart.
+declare function DONCHIAN(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, period: number | HaasNumberCollection): DONCHIANResult
+
+-- The Detrended Price Oscillator (DPO) is an indicator
+-- in technical analysis that attempts to eliminate the long-term trends in prices
+-- by using a displaced moving average so it does not react to the most current price action.
+-- This allows the indicator to show intermediate overbought and oversold levels effectively.
+-- This indicator is usually plotted on its own chart.
+declare function DPO(prices: number[] | HaasNumberCollection, shortLength: number | HaasNumberCollection, longLength: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Directional Movement Index (DX) is indicator in technical
+-- analysis which is based on two other Welles Wilder's indicators: negative directional
+-- indicator (-DI) and positive directional indicator (+DI). It was designed to evaluate
+-- the strength of a trend and to define a period of sideways trading. This indicator is usually
+-- plotted on its own chart.
+declare function DX(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- Deactivates the bot after an enter order has been completed.
+declare function DeactivateAfterEnterOrder(positionCount?: number | HaasNumberCollection): boolean
+
+-- Deactivates the bot after an exit order has been completed.
+declare function DeactivateAfterExitOrder(positionCount?: number | HaasNumberCollection): boolean
+
+-- Deactivates the bot when the is active for a certain time.
+declare function DeactivateAfterXActiveMinutes(minutes: number | HaasNumberCollection): boolean
+
+-- Deactivates the bot if the last completed order is a number of minutes in the past. Timeout starts after the first completed order.
+declare function DeactivateAfterXIdleMinutes(minutes: number | HaasNumberCollection): boolean
+
+-- Deactivates the bot after a number of orders has been completed.
+declare function DeactivateAfterXOrders(count?: number | HaasNumberCollection): boolean
+
+-- Deactivates the bot after a number of positions has been completed.
+declare function DeactivateAfterXPositions(count?: number | HaasNumberCollection): boolean
+
+-- Deactivates the bot. Once the bot is deactivated, it can only manually activate again.
+declare function DeactivateBot(reason?: string, cancelOpenOrders?: boolean): nil
+
+-- Deactivates the bot when there is no open position and the ROI based losses have reached a certain level.
+declare function DeactivateOnLoss(maxLoss: number | HaasNumberCollection): boolean
+
+-- Deactivates the bot when there is no open position and the ROI based profits have reached a certain level.
+declare function DeactivateOnProfit(minProfit: number | HaasNumberCollection): boolean
+
+-- This defines the name and description of the custom command. This information will reflect in commands/block lists and help models.
+declare function DefineCommand(name: string, description: string): nil
+
+-- Defines the signal output for the custom indicator.
+declare function DefineEasyIndicatorOutput(result: Enum): nil
+
+interface DefineEasyIndicatorParametersResult { chartIndex: number; interval: number; 1: number; 2: number; [index: number]: number }
+
+-- Defines the chartIndex and interval parameter.
+declare function DefineEasyIndicatorParameters(chartIndex?: number | HaasNumberCollection): DefineEasyIndicatorParametersResult
+
+-- Optimizes the custom command for back tests. Only use this if the command needs updates once every interval tick.
+declare function DefineIntervalOptimization(interval: number | HaasNumberCollection): nil
+
+-- Defines the output type and data.
+declare function DefineOutput(type: EnumParameterType, value?: any | nil, description?: string, outputSuggestions?: string | nil): nil
+
+-- Creates an index based output connection to be used in the visual editor.
+declare function DefineOutputIndex(index: number | HaasNumberCollection, type: EnumParameterType, name: string, description: string, outputSuggestions?: string | nil): nil
+
+-- Defines the parameter for a custom command.
+declare function DefineParameter(type: EnumParameterType, name: string, description: string, isRequired: boolean, defaultValue: any, inputSuggestions?: string | nil): any
+
+-- Saves and delays a signal by a number of minutes.
+declare function DelaySignal(signal: Enum, minutes: number | HaasNumberCollection): EnumSignal
+
+-- Deletes a value on a specific key.
+declare function Delete(key: string): nil
+
+-- Calculates the percentage between input1 and input2 or the percentage change between the values of input1.
+declare function Delta(input1: number | number[] | HaasNumberCollection, input2?: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Disables IndicatorContainer log messages.
+declare function DisableIndicatorContainerLogs(): nil
+
+-- Divides input1 with input2. If one of the parameters is a single value, the other is divided by this.
+declare function Div(input1: number | number[] | HaasNumberCollection, input2: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Generates a buy signal on spot or a long signal on margin & leverage.
+declare function DoBuy(note?: string): nil
+
+-- Sends out a sell signal on spot or an exit positions signal on margin & leverage.
+declare function DoExitPosition(note?: string): nil
+
+-- Executes a DoLong() when the current position is short and an DoShort() the position is long.
+declare function DoFlipPosition(note?: string): nil
+
+-- Generates a buy signal on spot or a long signal on margin & leverage.
+declare function DoLong(note?: string): nil
+
+-- Generates a sell signal on spot or a short signal on margin & leverage.
+declare function DoSell(note?: string): nil
+
+-- Generates a sell signal on spot or a short signal on margin & leverage.
+declare function DoShort(note?: string): nil
+
+-- Processes a signal enum. Triggers a DoLong() when the signal equals SignalLong, a DoShort() when the signal equals SignalShort, a DoExitPosition() when the signal equals SignalExitPosition, exits only the long position when the signal equals SignalExitLong, exits only the short position when the signal equals SignalExitShort (both do nothing when that side has no position, and SignalExitShort never trades on spot) and does nothing when the signal is SignalNone.
+declare function DoSignal(signal: Enum, note?: string): nil
+
+-- Calculates the dynamic stop loss price and compares it with the current exit price.
+declare function DynamicStopLoss(percentage: number | HaasNumberCollection, depth?: number | HaasNumberCollection, positionId?: string, direction?: EnumPosition): boolean
+
+-- Calculates the dynamic take profit price and compares it with the current exit price.
+declare function DynamicTakeProfit(percentage: number | HaasNumberCollection, depth?: number | HaasNumberCollection, positionId?: string, direction?: EnumPosition): boolean
+
+-- The Exponential Moving Average (EMA) is a weighted moving average
+-- (WMA) that gives more weighting, or importance, to recent price data than the simple moving average (SMA) does.
+-- This indicator is usually plotted on the price chart.
+declare function EMA(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- Automatically defines the input fields, calculates the ABANDS, plots the chart and returns the signal.
+declare function EasyABANDS(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the ADOSC, plots the chart and returns the signal.
+declare function EasyADOSC(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the AO, plots the chart and returns the signal.
+declare function EasyAO(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the APO, plots the chart and returns the signal.
+declare function EasyAPO(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the AROON, plots the chart and returns the signal.
+declare function EasyAROON(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the AROONOSC, plots the chart and returns the signal.
+declare function EasyAROONOSC(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the Alice signal based on the Haasonline Intelli Alice bot. By default Alice works on a 2 minute interval., plots the chart and returns the signal.
+declare function EasyAlice(interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the BBANDS, plots the chart and returns the signal.
+declare function EasyBBANDS(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the BBANDS %B, plots the chart and returns the signal.
+declare function EasyBBANDSB(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the BBANDS %W, plots the chart and returns the signal.
+declare function EasyBBANDSW(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the BOP, plots the chart and returns the signal.
+declare function EasyBOP(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the CCI, plots the chart and returns the signal.
+declare function EasyCCI(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the CDL, plots the chart and returns the signal.
+declare function EasyCDL(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the CMO, plots the chart and returns the signal.
+declare function EasyCMO(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the COPPOCK, plots the chart and returns the signal.
+declare function EasyCOPPOCK(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the CRSI, plots the chart and returns the signal.
+declare function EasyCRSI(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the ADX, +DI, -DI, plots the chart and returns the signal.
+declare function EasyDMI(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the DONCHIAN, plots the chart and returns the signal.
+declare function EasyDONCHIAN(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the DPO, plots the chart and returns the signal.
+declare function EasyDPO(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the DX, plots the chart and returns the signal.
+declare function EasyDX(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the DynamicBuySellLevel, plots the chart and returns the signal.
+declare function EasyDynamicLongShortLevels(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the FIBONACCI, plots the chart and returns the signal.
+declare function EasyFIBONACCI(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the FastRSI, plots the chart and returns the signal.
+declare function EasyFastRSI(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the FixedLongShort, plots the chart and returns the signal.
+declare function EasyFixedLongShortLevels(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the ICHIMOKU, plots the chart and returns the signal.
+declare function EasyICHIMOKU(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the IMI, plots the chart and returns the signal.
+declare function EasyIMI(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the KELTNER, plots the chart and returns the signal.
+declare function EasyKELTNER(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the KRI, plots the chart and returns the signal.
+declare function EasyKRI(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the KST, plots the chart and returns the signal.
+declare function EasyKST(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the LINEARREG, plots the chart and returns the signal.
+declare function EasyLINEARREG(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the MA, plots the chart and returns the signal.
+declare function EasyMA(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the MACD, plots the chart and returns the signal.
+declare function EasyMACD(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the MFI, plots the chart and returns the signal.
+declare function EasyMFI(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the MOM, plots the chart and returns the signal.
+declare function EasyMOM(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the OBV, plots the chart and returns the signal.
+declare function EasyOBV(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the PPO, plots the chart and returns the signal.
+declare function EasyPPO(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the ROC, plots the chart and returns the signal.
+declare function EasyROC(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the RSI, plots the chart and returns the signal.
+declare function EasyRSI(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the SAR, plots the chart and returns the signal.
+declare function EasySAR(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the SSTOCH, plots the chart and returns the signal.
+declare function EasySSTOCH(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the STOCH, plots the chart and returns the signal.
+declare function EasySTOCH(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the STOCHF, plots the chart and returns the signal.
+declare function EasySTOCHF(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the STOCHRSI, plots the chart and returns the signal.
+declare function EasySTOCHRSI(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the SlowRSI, plots the chart and returns the signal.
+declare function EasySlowRSI(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the TRIX, plots the chart and returns the signal.
+declare function EasyTRIX(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the TSI, plots the chart and returns the signal.
+declare function EasyTSI(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the UDRSI, plots the chart and returns the signal.
+declare function EasyUDRSI(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the ULTOSC, plots the chart and returns the signal.
+declare function EasyULTOSC(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the WILLR, plots the chart and returns the signal.
+declare function EasyWILLR(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Automatically defines the input fields, calculates the ZLMA, plots the chart and returns the signal.
+declare function EasyZLMA(chartIndex: number | HaasNumberCollection, name?: string, interval?: number | HaasNumberCollection): EnumSignal
+
+-- Enables high-speed script execution, running the script on every price tick instead of once per minute. With guaranteeInterval enabled, the script will execute at least once every 10 seconds even if no price ticks arrive.
+declare function EnableHighSpeedUpdates(updateOnFilledOrders?: boolean, guaranteeInterval?: boolean): nil
+
+-- Enables order persistence for managed trading.
+declare function EnableOrderPersistence(): nil
+
+-- Compares two values and returns whether or not the values are equal.
+declare function Equals(value1: any, value2: any): boolean
+
+-- Calculates 'e' raised to the specified power.
+declare function Exp(input: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+interface FastRSIResult { rsi: HaasNumberCollection; fastRsi: HaasNumberCollection; 1: HaasNumberCollection; 2: HaasNumberCollection; [index: number]: HaasNumberCollection }
+
+-- The FastRSI is a custom implementation from Haasonline. It uses a custom RSI and EMA calculation.
+declare function FastRSI(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection, signal: number | HaasNumberCollection): FastRSIResult
+
+-- Gets the current fee percentage of the main or specific market.
+declare function Fee(market?: string): number
+
+-- Filters out all values above a specific value.
+declare function FilterAbove(input: number | number[] | HaasNumberCollection, threshold: number | HaasNumberCollection): HaasNumberCollection
+
+-- Filters out all values below a specific value.
+declare function FilterBelow(input: number | number[] | HaasNumberCollection, threshold: number | HaasNumberCollection): HaasNumberCollection
+
+-- Only executes on the last update cycle of a backtest. Saving time in the overall backtest length. Can be used in combination with plot manipulation (eg. PlotDoubleColor()) or CustomReport()
+declare function Finalize(callback?: any): boolean
+
+-- Calculates the largest integral value less than or equal to the specified number.
+declare function Floor(input: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Formats a unix datetime number (to "YYYY-MM-DD at HH:MM" by default).
+declare function FormatDateTime(unix?: number | HaasNumberCollection, dateDelimiter?: string, dateTimeDelimiter?: string, timeDelimiter?: string, includeSeconds?: boolean, includeTime?: boolean, includeYear?: boolean): string
+
+-- Returns a continuous signal when values are above/below of each other.
+declare function GetAboveBelowSignal(fast: number | HaasNumberCollection, slow: number | HaasNumberCollection): EnumSignal
+
+-- An array of markets affiliated with a particular account.
+declare function GetAccountMarkets(accountId?: string): any
+
+-- A collection of (partially) filled orders executed by the bot. Maximum size is 50 orders.
+declare function GetAllFilledOrders(positionId?: string): any
+
+-- A collection of open orders executed by the bot.
+declare function GetAllOpenOrders(positionId?: string): any
+
+-- Gets all open positions and returns them as PositionContainers.
+declare function GetAllOpenPositions(): any
+
+interface GetAllUserPositionsResult { positionId: string; accountId: string; market: string; isLong: boolean; isShort: boolean; enterPrice: number; amount: number; profit: number; roi: number; leverage: number; direction: EnumPosition; 1: string; 2: string; 3: string; 4: boolean; 5: boolean; 6: number; 7: number; 8: number; 9: number; 10: number; 11: EnumPosition; [index: number]: EnumPosition | boolean | number | string }
+
+-- Gets the positions the exchange reports for the account, independent of the bot position ledger. Use it to detect positions the bot did not open itself. On a managed bot the account snapshot only covers the bot's own market; unmanaged bots see every market on the account.
+declare function GetAllUserPositions(accountId?: string, market?: string): GetAllUserPositionsResult
+
+-- A collection with the highest price of the candle its body prices. Sorted from new to old.
+declare function GetBodyHighPrices(interval?: number | HaasNumberCollection, fullCandles?: boolean, market?: string, hlcStyle?: boolean): HaasNumberCollection
+
+-- A collection with the lowest price of the candle its body prices. Sorted from new to old.
+declare function GetBodyLowPrices(interval?: number | HaasNumberCollection, fullCandles?: boolean, market?: string, hlcStyle?: boolean): HaasNumberCollection
+
+-- Total realized profits on a specific market. Unrealized profits are included when 'includeUnrealized' is set on true.
+declare function GetBotProfit(market?: string, includeUnrealized?: boolean): number
+
+-- Gets the return on investment. The ROI is calculated by dividing the total realized profits by the average position size.
+declare function GetBotROI(market?: string): number
+
+-- Determines the signal from a result with a buy and sell level.
+declare function GetBuySellLevelSignal(value: number | HaasNumberCollection, buyLevel: number | HaasNumberCollection, sellLevel: number | HaasNumberCollection): EnumSignal
+
+-- Gets a command by name.
+declare function GetCommand(name: string): any
+
+-- Counts the number of signals. When the majority agrees it will return the signal.
+declare function GetConsensusSignal(...: Enum): EnumSignal
+
+-- Determines the signal from a result with a crossover or -under level.
+declare function GetCrossOverUnderSignal(fast: number | number[] | HaasNumberCollection, slow: number | number[] | HaasNumberCollection): EnumSignal
+
+-- Gets unrealized plus realized profits of the current open position. Optional parameters fall back to main bot settings. The accountId parameter can take a positionId as well.
+declare function GetCurrentProfit(direction?: EnumPosition, market?: string): number
+
+-- Gets the return on investment percentage based on the total cost/margin used of the open positions. Optional parameters fall back to main bot settings. The accountId parameter can take a positionId as well.
+declare function GetCurrentROI(direction?: EnumPosition, market?: string): number
+
+-- An array of markets affiliated with a particular exchange.
+declare function GetExchangeMarkets(exchangeCode: string): any
+
+-- The reason for the order failure.
+declare function GetFailedOrderMessage(orderId: string): string
+
+-- Gets the current HaasScript version as a number.
+declare function GetHaasScriptVersion(): number
+
+-- Gets the highest value.
+declare function GetHigh(prices: number[] | HaasNumberCollection, depth: number | HaasNumberCollection, offset?: number | HaasNumberCollection): number
+
+-- Gets the highest values within lookback period.
+declare function GetHighs(array: number[] | HaasNumberCollection, depth: number | HaasNumberCollection): HaasNumberCollection
+
+-- Gets a list of the last trades.
+declare function GetLastTrades(depth?: number | HaasNumberCollection, market?: string): HaasNumberCollection
+
+-- Gets the set leverage for current or specified market.
+declare function GetLeverage(market?: string, accountId?: string): number
+
+-- Gets the lowest value.
+declare function GetLow(prices: number[] | HaasNumberCollection, depth: number | HaasNumberCollection, offset?: number | HaasNumberCollection): number
+
+-- Gets the lowest values within lookback period.
+declare function GetLows(array: number[] | HaasNumberCollection, depth: number | HaasNumberCollection): HaasNumberCollection
+
+-- Gets the maximum leverage for current or specified market.
+declare function GetMaxLeverage(market?: string): number
+
+-- Calculates the cancelled amount if the order is completed/cancelled.
+declare function GetOrderCancelledAmount(orderId: string): number
+
+-- Calculates the amount filled for a specific order.
+declare function GetOrderFilledAmount(orderId: string, afterFees?: boolean): number
+
+-- Calculates how long an order is or has been open in minutes.
+declare function GetOrderOpenTime(orderId: string, inSeconds?: boolean): number
+
+-- Calculates the realized profits of the order.
+declare function GetOrderProfit(orderId: string): number
+
+interface GetOrderbookResult { askPrices: HaasNumberCollection; askAmounts: HaasNumberCollection; bidPrices: HaasNumberCollection; bidAmounts: HaasNumberCollection; 1: HaasNumberCollection; 2: HaasNumberCollection; 3: HaasNumberCollection; 4: HaasNumberCollection; [index: number]: HaasNumberCollection }
+
+-- Gets the orderbook on a specific market.
+declare function GetOrderbook(market?: string): GetOrderbookResult
+
+-- Gets a list of the orderbook ask records.
+declare function GetOrderbookAsk(market?: string): any
+
+-- Gets a list of the orderbook bid records.
+declare function GetOrderbookBid(market?: string): any
+
+-- Gets the total amount open in a specific position.
+declare function GetPositionAmount(positionId?: string): number
+
+-- Gets the direction of a specific position.
+declare function GetPositionDirection(positionId?: string): EnumPosition
+
+-- Gets the average enter price of an open position.
+declare function GetPositionEnterPrice(positionId?: string): number
+
+-- Gets the market of an open position.
+declare function GetPositionMarket(positionId?: string): string
+
+-- Gets the total realized plus unrealized profit of a specific position.
+declare function GetPositionProfit(positionId?: string, targetPrice?: number | HaasNumberCollection): number
+
+-- Calculates the ROI based on used margin and unrealized + realized profits.
+declare function GetPositionROI(positionId?: string, targetPrice?: number | HaasNumberCollection): number
+
+-- Gets the remote signal which is published by SaveRemoteSignal() or the STORE_SIGNAL webhook. An incoming webhook signal triggers an immediate script execution, bypassing the normal tick interval.
+declare function GetRemoteSignal(id: string): EnumSignal
+
+-- Returns a continuous trade signal with defined signal type and values.
+declare function GetSuperSignal(indicatorValue: number[] | HaasNumberCollection, signalValue: number[] | HaasNumberCollection, signalType: Enum, centerPosition?: number | HaasNumberCollection, buyLevel?: number | HaasNumberCollection, sellLevel?: number | HaasNumberCollection): EnumSignal
+
+-- Calculates the amount of swing in percentages.
+declare function GetSwing(input1: number | number[] | HaasNumberCollection, input2: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Determines the signal based on a result and a threshold.
+declare function GetThresholdSignal(value: number | HaasNumberCollection, threshold: number | HaasNumberCollection, swing?: number | HaasNumberCollection): EnumSignal
+
+-- Gets the elapsed time for a timer.
+declare function GetTimer(key?: string): number
+
+interface GetTradingReportResult { maxDrawDownPrc: number; maxDrawDown: number; sharpeRatio: number; sortinoRatio: number; winPercentage: number; profitRatio: number; profitFactor: number; cpcIndex: number; tailRatio: number; commonSenseRatio: number; outlierWinRatio: number; outlierLossRatio: number; profitMarginRatio: number; biggestWin: number; biggestLoss: number; highestPointInProfit: number; lowestPointInProfit: number; totalMarginUsed: number; averageMargin: number; averageProfit: number; closedPositions: number; profitablePositions: number; losingPositions: number; executedOrders: number; completedOrders: number; 1: number; 2: number; 3: number; 4: number; 5: number; 6: number; 7: number; 8: number; 9: number; 10: number; 11: number; 12: number; 13: number; 14: number; 15: number; 16: number; 17: number; 18: number; 19: number; 20: number; 21: number; 22: number; 23: number; 24: number; 25: number; [index: number]: number }
+
+-- Gets the trading report container with many useful values to help properly evaluate a strategy or a trading system.
+declare function GetTradingReport(market?: string): GetTradingReportResult
+
+-- Validates if all signals are the same.
+declare function GetUnanimousSignal(...: Enum): EnumSignal
+
+-- A collection with volume data. Sorted from new to old.
+declare function GetVolume(interval?: number | HaasNumberCollection, fullCandles?: boolean, market?: string, hlcStyle?: boolean): HaasNumberCollection
+
+-- Gets the latest incoming webhook signal by ID. Triggers immediate script execution when a webhook arrives, bypassing the normal minute tick interval - use this for high-performance signal-based trading.
+declare function GetWebHookSignal(id: string): any
+
+-- Calculates and determines the weighted consensus signal.
+declare function GetWeightedConsensusSignal(longWeight: number | HaasNumberCollection, shortWeight: number | HaasNumberCollection, exitWeight: number | HaasNumberCollection, ...: Enum): EnumSignal
+
+-- Keeps track of the highest/lowest recorded price and adjust the stop loss accordingly. The higher the price change the more the trailing distances grows.
+declare function GrowingTrailingStopLoss(percentage: number | HaasNumberCollection, growPercentage: number | HaasNumberCollection, positionId?: string, direction?: EnumPosition): boolean
+
+-- A collection with the average of high, low and close prices. Sorted from new to old.
+declare function HLCPrices(interval?: number | HaasNumberCollection, fullCandles?: boolean, market?: string, hlcStyle?: boolean): HaasNumberCollection
+
+-- A collection with an average of high and low prices. Sorted from new to old.
+declare function HLPrices(interval?: number | HaasNumberCollection, fullCandles?: boolean, market?: string, hlcStyle?: boolean): HaasNumberCollection
+
+-- HNC is an array on which match can be applied directly. This is not position with the lua code `{}`.
+declare function HNC(size?: number | HaasNumberCollection, value?: number | HaasNumberCollection): HaasNumberCollection
+
+-- Hilbert Transform - The Dominant Cycle Period (HT_DCPERIOD).
+-- The Hilbert Transform is a technique used to generate inphase and quadrature components
+-- of a de-trended real-valued "analytic-like" signal (such as a Price Series) in order
+-- to analyze variations of the instantaneous phase and amplitude. HTPeriod (or MESA Instantaneous Period)
+-- returns the period of the Dominant Cycle of the analytic signal as generated by the Hilbert Transform.
+-- The Dominant Cycle can be thought of as being the "most likely" period (in the range of 10 to 40)
+-- of a sine function of the Price Series.
+declare function HT_DCPERIOD(prices: number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Hilbert Transform - The Dominant Cycle Phase (HT_DCPHASE)
+-- The Hilbert Transform is a technique used to generate inphase and quadrature components
+-- of a de-trended real-valued "analytic-like" signal (such as a Price Series) in order
+-- to analyze variations of the instantaneous phase and amplitude. HTDCPhase returns the
+-- Hilbert Transform Phase of the Dominant Cycle. The Dominant Cycle Phase lies in the
+-- range of 0 to 360 degrees.
+declare function HT_DCPHASE(prices: number[] | HaasNumberCollection): HaasNumberCollection
+
+interface HT_PHASORResult { inPhaseOut: HaasNumberCollection; quadratureOut: HaasNumberCollection; 1: HaasNumberCollection; 2: HaasNumberCollection; [index: number]: HaasNumberCollection }
+
+-- Hilbert Transform - The Phasor Components (HT_PHASOR)
+-- The Hilbert Transform is a technique used to generate inphase and quadrature components
+-- of a de-trended real-valued "analytic-like" signal (such as a Price Series) in order
+-- to analyze variations of the instantaneous phase and amplitude.
+-- In-Phase is the Hilbert Transform generated In-Phase component of the input Price Series.
+-- Quadrature is the Hilbert Transform generated Quadrature component of the input Price Series.
+declare function HT_PHASOR(prices: number[] | HaasNumberCollection): HT_PHASORResult
+
+interface HT_SINEResult { sine: HaasNumberCollection; leadSine: HaasNumberCollection; 1: HaasNumberCollection; 2: HaasNumberCollection; [index: number]: HaasNumberCollection }
+
+-- Hilbert Transform - The SineWave (HT_SINE)
+-- The Hilbert Transform is a technique used to generate inphase and quadrature components
+-- of a de-trended real-valued "analytic-like" signal (such as a Price Series) in order
+-- to analyze variations of the instantaneous phase and amplitude. HTDCPhase returns the
+-- Hilbert Transform Phase of the Dominant Cycle. The Dominant Cycle Phase lies in the
+-- range of 0 to 360 degrees.
+-- The Hilbert Transform Sine is just the sine of the DC Phase.
+-- The Hilbert Transform Lead Sine is just the sine of the DC Phase advanced by 45 degrees.
+declare function HT_SINE(prices: number[] | HaasNumberCollection): HT_SINEResult
+
+-- Hilbert Transform - The Trend Line (HT_TRENDLINE)
+-- The Hilbert Transform is a technique used to generate inphase and quadrature components
+-- of a de-trended real-valued "analytic-like" signal (such as a Price Series) in order
+-- to analyze variations of the instantaneous phase and amplitude. HTTrendline (or MESA Instantaneous Trendline)
+-- returns the Price Series value after the Dominant Cycle of the analytic signal as generated by the Hilbert
+-- Transform has been removed. The Dominant Cycle can be thought of as being the "most likely" period
+-- (in the range of 10 to 40) of a sine function of the Price Series.
+declare function HT_TRENDLINE(prices: number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Hilbert Transform - The Trend Mode (HT_TRENDMODE).
+declare function HT_TRENDMODE(prices: number[] | HaasNumberCollection): HaasNumberCollection
+
+-- A collection with the average of open, high, low and close prices. Sorted from new to old.
+declare function HeikenClosePrices(interval?: number | HaasNumberCollection, fullCandles?: boolean, market?: string, hlcStyle?: boolean): HaasNumberCollection
+
+-- Gets the Heikin-Ashi open prices.
+declare function HeikinOpenPrices(interval?: number | HaasNumberCollection, fullCandles?: boolean, market?: string): HaasNumberCollection
+
+-- Hides the 2 order settings fields.
+declare function HideOrderSettings(): nil
+
+-- Hides the 2 trade amount settings fields.
+declare function HideTradeAmountSettings(): nil
+
+-- A collection with high prices. Sorted from new to old.
+declare function HighPrices(interval?: number | HaasNumberCollection, fullCandles?: boolean, market?: string, hlcStyle?: boolean): HaasNumberCollection
+
+interface ICHIMOKUResult { conversion: HaasNumberCollection; base: HaasNumberCollection; spanA: HaasNumberCollection; spanB: HaasNumberCollection; 1: HaasNumberCollection; 2: HaasNumberCollection; 3: HaasNumberCollection; 4: HaasNumberCollection; [index: number]: HaasNumberCollection }
+
+-- The Ichimoku Clouds (ICHIMOKU) also known as Ichimoku Kinko Hyo, developed by journalist Goichi Hosoda,
+-- is a versatile indicator that defines support and resistance, identifies trend direction, gauges momentum and provides trading signals.
+-- Ichimoku Kinko Hyo translates into "one look equilibrium chart". With one look, chartists
+-- can identify the trend and look for potential signals within that trend. Even though the
+-- Ichimoku Cloud may seem complicated when viewed on the price chart, it's actually a rather
+-- straightforward indicator; the concepts are easy to understand and the signals are well-defined.
+declare function ICHIMOKU(prices: number[] | HaasNumberCollection, tenkansen: number | HaasNumberCollection, kijunsen: number | HaasNumberCollection, senkouspanb: number | HaasNumberCollection): ICHIMOKUResult
+
+-- The Intraday Momentum Index (IMI), developed by Tushar Chande,
+-- combines aspects of candlestick analysis with the relative strength index (RSI). The intraday
+-- indicator was designed to provide investors with a way to find optimal days to buy and sell.
+declare function IMI(open: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- Marks the signal to be ignored when it matches a certain signal.
+declare function IgnoreSignalIf(signal: Enum, signalToIgnore: Enum): EnumSignal
+
+-- Initialize a file that can be exported later. Rows are written with WriteExportData, which only records during a backtest. Cloud servers allow up to 25 export files per script.
+declare function InitExportData(name: string, ...: string): nil
+
+-- Creates a script input field. The type is depending on the default value. It can be a number, text or boolean (checkbox) field. Without default value, it will be a text field.
+declare function Input(label: string, defaultValue?: any, tooltip?: string, group?: string): any
+
+-- Creates an account selection field.
+declare function InputAccount(label: string, tooltip?: string, group?: string): string
+
+-- Creates an account drop-down and a market drop-down for that account.
+declare function InputAccountMarket(label: string, tooltip?: string, group?: string): string
+
+-- Creates a button in the input field. When press in the UI, the bot will receive the action and execute the callback defined in the parameters.
+declare function InputButton(label: string, callback: (...: any) => any, tooltip?: string, group?: string): nil
+
+-- Creates a dropdown with available Candlestick Pattern (CDL) types. Can be used in combination with CDL().
+declare function InputCdlTypes(label: string, defaultValue: EnumCandlePattern, tooltip?: string, group?: string): EnumCandlePattern
+
+-- Creates a group header, separating input sets.
+declare function InputGroupHeader(label: string): nil
+
+-- Creates an interval dropdown.
+declare function InputInterval(label: string, defaultValue?: number | HaasNumberCollection, tooltip?: string, group?: string): number
+
+-- Creates a dropdown with the available LR types.
+declare function InputLrTypes(label: string, defaultValue?: EnumTradingLR, tooltip?: string, group?: string): EnumTradingLR
+
+-- Creates a dropdown with available MA types. Can be used in combination with a variety of technical indicators like BBANDS() or PPO().
+declare function InputMaTypes(label: string, defaultValue: EnumMovingAverages, tooltip?: string, group?: string): EnumMovingAverages
+
+-- Creates a market dropdown. The market options are related to the main account selection.
+declare function InputMarket(label: string, defaultValue?: string, tooltip?: string, group?: string): string
+
+-- Creates a dropdown with custom options.
+declare function InputOptions(label: string, defaultValue: string, options: any, tooltip?: string, group?: string): string
+
+-- Creates a dropdown with the default available order types.
+declare function InputOrderType(label: string, defaultValue?: EnumOrderTypes, tooltip?: string, group?: string): EnumOrderTypes
+
+-- Creates a price source dropdown.
+declare function InputPriceSource(label: string, defaultValue?: string, tooltip?: string, group?: string): string
+
+-- Creates a price source & market dropdown.
+declare function InputPriceSourceMarket(label: string, defaultValue?: string, type?: EnumTrading, tooltip?: string, group?: string): string
+
+-- Creates a dropdown with available Signal Types. Can be used in combination with GetSuperSignal().
+declare function InputSignalTypes(label: string, defaultValue: EnumSignalTypes, tooltip?: string, group?: string): EnumSignalTypes
+
+-- Creates a dropdown with available Source Price types. Can be used in combination with SourcePrices().
+declare function InputSourcePrice(label: string, defaultValue: EnumSourcePriceTypes, tooltip?: string, group?: string): EnumSourcePriceTypes
+
+-- Creates a dynamic input table.
+declare function InputTable(options: any, ...: any): any
+
+-- Creates an table column options object for InputTable()
+declare function InputTableColumn(name: string, ...: any): any
+
+-- Creates a table column options object for InputTable() with a dropdown.
+declare function InputTableColumnDropdown(name: string, options: any, ...: any): any
+
+-- Creates an options object for InputTable().
+declare function InputTableOptions(title?: string, rows?: number | HaasNumberCollection, maxRows?: number | HaasNumberCollection, group?: string): any
+
+-- Validates if all the signals agree.
+declare function InsuranceContainer(...: boolean): boolean
+
+-- Looks at a numeric array and checks whether its newest (first) value lies within multiplier standard deviations of the average. Not available in the cloud version.
+declare function IsAbnormal(dataset: number[] | HaasNumberCollection, multiplier: number | HaasNumberCollection): boolean
+
+-- Checks if there are any open orders completed/cancelled.
+declare function IsAnyOrderFinished(positionId?: string): boolean
+
+-- Checks if there are any open orders.
+declare function IsAnyOrderOpen(positionId?: string): boolean
+
+-- Checks if the value is bigger than lowValue and smaller then highValue.
+declare function IsBiggerAndSmallerThan(value: number | number[] | HaasNumberCollection, lowValue: number | HaasNumberCollection, highValue: number | HaasNumberCollection): boolean
+
+-- Checks if the value is bigger than highValue or smaller then lowValue.
+declare function IsBiggerOrSmallerThan(value: number | number[] | HaasNumberCollection, highValue: number | HaasNumberCollection, lowValue: number | HaasNumberCollection): boolean
+
+-- Checks if input1 is bigger than input2.
+declare function IsBiggerThan(input1: number | number[] | HaasNumberCollection, input2: number | HaasNumberCollection): boolean
+
+-- Used in combination with Pause- & ResumeBot(). The value can also be updated manually though the UI.
+declare function IsBotPaused(): boolean
+
+-- Checks if the given order is a buy order.
+declare function IsBuyOrder(orderId: string | nil): boolean
+
+-- Checks whether the candle that closed last is complete in the prices this update reads. Right after a candle closes, a bot with high-speed updates can run before the exchange's last minute of that candle is stored. Until then the closed candle's close and volume can still change. The answer matches the price commands in the same update, so check it first in the update, before acting on fullCandles data at a candle boundary. Built-in indicators keep their result for the candle only once it is complete, so they follow this answer. OptimizedForInterval callbacks, custom commands and SourceManager still run once per candle, so skip them for that interval while this returns false. Always true in backtests. Also true 45 seconds after the boundary, because a minute without trades is never stored. Waits for that timeout on weekly and monthly intervals, on very deep price histories, and on markets with no trade in the candle's last minute.
+declare function IsClosedCandleFinal(interval?: number | HaasNumberCollection, market?: string): boolean
+
+-- Returns true if running the enterprise version. Otherwise false.
+declare function IsEnterpriseVersion(): boolean
+
+-- Checks if the values are decreasing towards the newest within the lookback period.
+declare function IsFalling(array: number[] | HaasNumberCollection, lookback: number | HaasNumberCollection): boolean
+
+-- Counts the number of falling ticks.
+declare function IsFallingSince(array: number[] | HaasNumberCollection, lookback: number | HaasNumberCollection): number
+
+-- Checks if the specified margin mode is supported on current or specified market.
+declare function IsMarginModeSupported(marginMode: EnumMarginMode, accountId?: string): boolean
+
+-- Checks if the value is not null.
+declare function IsNotNull(value: any | nil): boolean
+
+-- Checks if the value is null.
+declare function IsNull(value: any | nil): boolean
+
+-- Checks if the given order is filled.
+declare function IsOrderFilled(orderId: string | nil): boolean
+
+-- Checks if the given order is still open.
+declare function IsOrderOpen(orderId: string | nil): boolean
+
+-- Checks whether or not a position is closed.
+declare function IsPositionClosed(positionId?: string): boolean
+
+-- Checks if specified position mode is supported on current or specified market.
+declare function IsPositionModeSupported(positionMode: EnumPositionMode, accountId?: string): boolean
+
+-- Checks if the values are increasing towards the newest within the lookback period.
+declare function IsRising(array: number[] | HaasNumberCollection, lookback: number | HaasNumberCollection): boolean
+
+-- Counts the number of rising ticks.
+declare function IsRisingSince(array: number[] | HaasNumberCollection, lookback: number | HaasNumberCollection): number
+
+-- Checks if the given order is a sell order.
+declare function IsSellOrder(orderId: string | nil): boolean
+
+-- Checks if input1 is smaller than input2.
+declare function IsSmallerThan(input1: number | number[] | HaasNumberCollection, input2: number | HaasNumberCollection): boolean
+
+-- Gets whether or not the trade amount is high enough for exchange limits.
+declare function IsTradeAmountEnough(market: string, price: number | HaasNumberCollection, amount: number | HaasNumberCollection, logWarning?: boolean, reduceOnlyExit?: boolean): boolean
+
+-- Checks if the input is a valid market.
+declare function IsValidMarket(market: string): boolean
+
+-- The Kaufman's Adaptive Moving Average (KAMA), developed by Perry Kaufman,
+-- is an intelligent moving average. The powerful trend-following indicator is based on the
+-- Exponential Moving Average (EMA) and is responsive to both trend and volatility.
+-- Like all moving averages, the KAMA can be used to visualize the trend. This indicator is usually plotted on the price chart.
+declare function KAMA(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection, fastest?: number | HaasNumberCollection, slowest?: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Kaufman's Adaptive Moving Average (KAMA2), developed by Perry Kaufman,
+-- is an intelligent moving average. The powerful trend-following indicator is based on the
+-- Exponential Moving Average (EMA) and is responsive to both trend and volatility.
+-- Like all moving averages, the KAMA can be used to visualize the trend. This indicator is usually plotted on the price chart.
+declare function KAMA2(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection, fastest?: number | HaasNumberCollection, slowest?: number | HaasNumberCollection): HaasNumberCollection
+
+interface KELTNERResult { upper: HaasNumberCollection; middle: HaasNumberCollection; lower: HaasNumberCollection; 1: HaasNumberCollection; 2: HaasNumberCollection; 3: HaasNumberCollection; [index: number]: HaasNumberCollection }
+
+-- The Keltner Channel (KELTNER), originally developed by Chester Keltner, extended by Linda Bradford Raschke,
+-- uses a volatility-based envelopes set above and below an exponential moving average.
+-- This indicator is similar to Bollinger Bands, which use the standard deviation (STDDEV)
+-- to set the bands. Instead of using the standard deviation, Keltner Channels use
+-- the Average True Range (ATR) to set channel width. The channels are typically
+-- set 2x ATR values above and below the EMA. The exponential
+-- moving average dictates direction and the Average True Range sets channel width.
+-- Keltner Channels are a trend following indicator used to identify reversals with
+-- channel breakouts and channel direction. Channels can also be used to identify
+-- overbought and oversold levels when the market is ranging. This indicator is usually plotted on the price chart.
+declare function KELTNER(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection, emaPeriod: number | HaasNumberCollection, atrPeriod?: number | HaasNumberCollection, multiplier?: number | HaasNumberCollection): KELTNERResult
+
+-- Kairi method (KRI) is similar to Momentum according to its application mode.
+-- The oscillator fluctuates around 0 but the fluctuation range is wider. KRI can be used for any time frame.
+-- It is one of the simplest oscillators. When creating the indicator, deviation of a price from its simple
+-- moving average is calculated and the result is shown in percentage of the average.
+declare function KRI(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+interface KSTResult { kst: HaasNumberCollection; signal: HaasNumberCollection; 1: HaasNumberCollection; 2: HaasNumberCollection; [index: number]: HaasNumberCollection }
+
+-- Know Sure Thing (KST), developed by Martin Pring, is a momentum oscillator based on the smoothed
+-- Rate-of-Change (ROC) for four different periods. In short, KST measures price momentum for four different price cycles, combining
+-- them into a single momentum oscillator. Like any other unbound momentum oscillator, chartists can use KST to look for divergences, signal
+-- line crossovers, and centerline crossovers. Pring frequently applied trend lines to KST. Although trend line signals do not occur
+-- often, Pring notes that such breaks reinforce signal line crossovers. This indicator is usually plotted on its own chart.
+declare function KST(prices: number[] | HaasNumberCollection, rocPeriod1: number | HaasNumberCollection, rocSmaPeriod1: number | HaasNumberCollection, rocPeriod2: number | HaasNumberCollection, rocSmaPeriod2: number | HaasNumberCollection, rocPeriod3: number | HaasNumberCollection, rocSmaPeriod3: number | HaasNumberCollection, rocPeriod4: number | HaasNumberCollection, rocSmaPeriod4: number | HaasNumberCollection, signalPeriod: number | HaasNumberCollection): KSTResult
+
+-- The Linear Regression (LINEARREG)
+-- is a trend following indicator that plots a dynamic version of the linear
+-- regression indicator. The concept is to track the trend not using basic
+-- averages or weighted averages - as in the case of moving averages - but
+-- rather by taking the "best fit" line to match the data.
+declare function LINEARREG(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection, type?: EnumTradingLR): HaasNumberCollection
+
+-- Returns the volume of the last buy trades.
+declare function LastBuyTradesCommand(secondsBack?: number | HaasNumberCollection, market?: string): number
+
+-- Gets the last used exit long price.
+declare function LastExitLongPrice(): number
+
+-- Gets the last used exit short or long price.
+declare function LastExitPositionPrice(): number
+
+-- Gets the last used exit short price.
+declare function LastExitShortPrice(): number
+
+-- Gets the last enter long price.
+declare function LastLongPrice(): number
+
+-- Gets the profit of the last long exit or sell trade.
+declare function LastLongProfit(positionId?: string): number
+
+-- Returns the volume of the last sell trades.
+declare function LastSellTradesCommand(secondsBack?: number | HaasNumberCollection, market?: string): number
+
+-- Gets the last enter short price.
+declare function LastShortPrice(): number
+
+-- Gets the profit of the last short exit or buy trade.
+declare function LastShortProfit(positionId?: string): number
+
+-- Calculates the last trades sentiment as a number.
+declare function LastTradesSentiment(market?: string): number
+
+-- Gets the main account leverage setting.
+declare function Leverage(): number
+
+-- Creates a line options object to be used for Plot().
+declare function LineOptions(color?: string | EnumColor, style?: EnumCharting, deco?: EnumCharting, width?: number | HaasNumberCollection, offset?: number | HaasNumberCollection, side?: EnumCharting, id?: string, behind?: boolean, ignoreOnAxis?: boolean, drawTrailingLine?: boolean): any
+
+-- Calculates the logarithm of a specified number.
+declare function Ln(input1: number | number[] | HaasNumberCollection, input2?: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Loads a value saved on the specified key. When nothing is saved on the key, the default value is returned and saved on it; when the saved value cannot be read (e.g. the read timed out), the run ends and the next run tries again.
+declare function Load(key: string, defaultValue?: any): any
+
+-- Create a message in the log.
+declare function Log(message: any | nil, color?: string | EnumColor): nil
+
+-- Calculates the base 10 logarithm of a specified number.
+declare function Log10(input: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Create an error message in the log.
+declare function LogError(message: any): nil
+
+-- Logs a warning and shows the bot as Insufficient funds for this update.
+declare function LogWalletError(message: any): nil
+
+-- Create a warning message in the log.
+declare function LogWarning(message: any): nil
+
+-- Gets the total amount open in a long position.
+declare function LongAmount(market?: string): number
+
+-- A collection with low prices. Sorted from new to old.
+declare function LowPrices(interval?: number | HaasNumberCollection, fullCandles?: boolean, market?: string, hlcStyle?: boolean): HaasNumberCollection
+
+-- The Moving Averages (MA) combines multiple Moving Averages
+-- in one command. Works well together with the InputMaTypes() command. Supported types are:
+-- 'sma', 'ema', 'dema', 'tema', 'trima', 't3', 'mama', 'kama' and 'wma'.
+declare function MA(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection, maType: EnumMovingAverages): HaasNumberCollection
+
+interface MACDResult { macd: HaasNumberCollection; signal: HaasNumberCollection; hist: HaasNumberCollection; 1: HaasNumberCollection; 2: HaasNumberCollection; 3: HaasNumberCollection; [index: number]: HaasNumberCollection }
+
+-- The Moving Average Convergence Divergence (MACD), developed by ,
+-- is a trend-following momentum indicator that shows the relationship between two moving averages of an asset's price.
+-- The MACD is calculated by subtracting the longer-period Exponential Moving Average (EMA) from the shorter-period EMA.
+declare function MACD(prices: number[] | HaasNumberCollection, fastPeriod: number | HaasNumberCollection, slowPeriod: number | HaasNumberCollection, signalPeriod: number | HaasNumberCollection): MACDResult
+
+interface MACDEXTResult { macd: HaasNumberCollection; signal: HaasNumberCollection; hist: HaasNumberCollection; 1: HaasNumberCollection; 2: HaasNumberCollection; 3: HaasNumberCollection; [index: number]: HaasNumberCollection }
+
+-- The Moving Average Convergence Divergence [Extended] (MACDEXT) is
+-- the same as MACD, but provides more parameters to fiddle with.
+declare function MACDEXT(prices: number[] | HaasNumberCollection, fastPeriod: number | HaasNumberCollection, fastType: EnumMovingAverages, slowPeriod: number | HaasNumberCollection, slowType: EnumMovingAverages, signalPeriod: number | HaasNumberCollection, signalType: EnumMovingAverages): MACDEXTResult
+
+interface MACDFIXResult { macd: HaasNumberCollection; signal: HaasNumberCollection; hist: HaasNumberCollection; 1: HaasNumberCollection; 2: HaasNumberCollection; 3: HaasNumberCollection; [index: number]: HaasNumberCollection }
+
+-- The Moving Average Convergence Divergence [Fixed] (MACDFIX) is
+-- the same as MACD, but uses fixed periods for the fast (12) and slow (26) EMAs.
+declare function MACDFIX(prices: number[] | HaasNumberCollection, signalPeriod: number | HaasNumberCollection): MACDFIXResult
+
+interface MAMAResult { mama: HaasNumberCollection; fama: HaasNumberCollection; 1: HaasNumberCollection; 2: HaasNumberCollection; [index: number]: HaasNumberCollection }
+
+-- The Mesa Adaptive Moving Average (MAMA) is a trend-following
+-- indicator which adapts to price movement "based on the rate change of phase as measured by the Hilbert Transform Discriminator".
+-- This method of adaptation features a fast and a slow moving average so that the composite moving average swiftly responds to price
+-- changes and holds the average value until the next bar's close.
+-- The Averages act as support and resistance areas and the price will tend to react to them.
+-- This makes pullbacks to the MAMA and FAMA suitable with-trend entry areas. This indicator is usually plotted on the price chart.
+-- NOTE: The FastLimit and SlowLimit parameters should be between 0.01 and 0.99.
+declare function MAMA(prices: number[] | HaasNumberCollection, fastlimit: number | HaasNumberCollection, slowlimit: number | HaasNumberCollection): MAMAResult
+
+-- The Moving Average Variable Period (MAVP) is a moving average
+-- that adjusts itself based on the period settings given to it. The [inPeriods] array should be the
+-- same length as [prices] array. The Nth period will be used to calculate the Nth data point.
+-- It is essentially the same as changing the period yourself using the MA() command, but using this
+-- command instead, you can use for example the absolute (ABS) CMO output values as the periods:
+-- local periods = Abs(CMO(ClosePrices(), 20)).
+declare function MAVP(prices: number[] | HaasNumberCollection, inPeriods: number[] | HaasNumberCollection, minPeriod: number | HaasNumberCollection, maxPeriod: number | HaasNumberCollection, maType?: EnumMovingAverages): HaasNumberCollection
+
+-- Max Index (MAXINDEX) will return the index of the
+-- highest high in source data within the given period. You can see this index as the "distance"
+-- to the highest high. To get the highest high value, use this index with the input
+-- array or use GetHigh/GetHighs command instead.
+declare function MAXINDEX(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): number
+
+-- Median Price (MEDPRICE) indicator is simply the midpoint of market's prices.
+-- The Typical Price and Weighted Close are similar indicators. The Median Price indicator
+-- provides a simple, single-line chart of the market's"average price."
+-- This average price is useful when you want a simpler view of prices.
+-- This indicator is usually plotted on the price chart.
+declare function MEDPRICE(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection): HaasNumberCollection
+
+-- The Money Flow Index (MFI), developed by Gene Quong and Avrum Soudack,
+-- is an oscillator that uses both price and volume to measure buying and selling pressure.
+-- MFI is also known as volume-weighted RSI. MFI starts with the typical price for each period.
+-- Money flow is positive when the typical price rises (buying pressure) and negative when the
+-- typical price declines (selling pressure). A ratio of positive and negative money flow is
+-- then plugged into an RSI formula to create an oscillator that moves between zero and one hundred.
+-- As a momentum oscillator tied to volume, MFI is best suited to identify reversals and price
+-- extremes with a variety of signals.
+declare function MFI(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection, volume: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- Midpoint price (MIDPOINT) is similar to the
+-- Midprice (MIDPRICE), except the highest and lowest values are returned from
+-- the same input field; the source data. Midpoint indicator calculates the highest
+-- close and lowest close within the look back period and averages
+-- the two values.
+declare function MIDPOINT(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- MidPrice (MIDPRICE) returns the midpoint value from
+-- two different input fields. The Midprice indicator calculates the
+-- highest high and lowest low within the look back period and averages
+-- the two values to return the Midprice.
+declare function MIDPRICE(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- Min Index (MININDEX) will return the index of the
+-- lowest low in source data within the given period. You can see this index as the "distance"
+-- to the lowest low. To get the lowest low value, use this index with the input
+-- array or use GetLow/GetLows command instead.
+declare function MININDEX(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): number
+
+-- The Negative Directional indicator (MINUSDI) measures the presence of a
+-- downtrend and is part of the Average Directional Index (ADX). If -DI is sloping upward, it's a sign
+-- that the price downtrend is getting stronger. This indicator is nearly always plotted along with
+-- the Positive Directional indicator (PLUSDI).
+declare function MINUSDI(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Negative Directional Movement (MINUSDM) indicator is the basis of
+-- the Negative Directional indicator (MINUSDI).
+declare function MINUSDM(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Momentum Indicator (MOM) is a leading indicator measuring a
+-- asset's rate-of-change. It compares the current price with the previous price from a number
+-- of periods ago. The ongoing plot forms an oscillator that moves above and below 0.
+-- This indicator is usually plotted on its own chart.
+declare function MOM(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- Gets makers fee of the market.
+declare function MakersFee(market?: string): number
+
+-- Converts the signal if its matches the defined one.
+declare function MapSignal(signal: Enum, signalToCovert: EnumSignal, convertedSignal: EnumSignal): EnumSignal
+
+-- Convert margin to a trade amount. In spot markets, the margin is anticipated to be in the quote currency (e.g., USDT in BTC/USDT). For leverage markets, the margin is expected to be in the underlying currency.
+declare function MarginToTradeAmount(price: number | HaasNumberCollection, margin: number | HaasNumberCollection, leverage: number | HaasNumberCollection, market?: string): number
+
+-- Changes the color of a single candle.
+declare function MarkCandle(chartId: number | HaasNumberCollection, depth?: number | HaasNumberCollection): nil
+
+-- Gets the market type enumeration of the market.
+declare function MarketType(market?: string): EnumTrading
+
+-- Returns the maximum value. If the input is a single array, it returns the biggest number in that array (single value). If inputs are both numbers, it returns the biggest number (single value). If inputs are array and number, it returns the biggest number (array[1] vs number, single value). If inputs are both arrays, it returns an array of the biggest numbers per cell (array, length determined by the shorter array).
+declare function Max(...: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Calculates the maximum amount which can be used to place an exit long order based on wallet data. Assets reserved in open orders are excluded by default.
+declare function MaxExitLongAmount(market?: string): number
+
+-- Calculates the maximum amount which can be used to place an exit short order based on wallet data. Assets reserved in open orders are excluded by default.
+declare function MaxExitShortAmount(market?: string): number
+
+-- Calculates the maximum amount which can be used to place a long order based on wallet data.
+declare function MaxLongAmount(market?: string): number
+
+-- Calculates the maximum amount which can be used to place a short order based on wallet data.
+declare function MaxShortAmount(market?: string): number
+
+-- Returns the minimum value. If the input is a single array, it returns the minimum in that array (single value). If inputs are both numbers, it returns the smallest number (single value). If inputs are array and number, it returns the smallest number (single value). If inputs are both arrays, it returns an array of the smallest numbers per cell (array, length determined by shortest array)
+declare function Min(...: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Calculates the minimum trade amount on a certain price while keeping exchange specifications in consideration.
+declare function MinimumTradeAmount(market?: string, price?: number | HaasNumberCollection): number
+
+-- Calculates the number of minutes before a new candle opens.
+declare function MinutesTillCandleClose(interval: number | HaasNumberCollection): number
+
+-- Multiplies input1 with input2. If one of the parameters is a single value, the other is multiplied by this.
+declare function Mul(input1: number | number[] | HaasNumberCollection, input2: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Multiplies input1 with input2. If one of the parameters is a single value, the other is multiplied by this.
+declare function Mult(input1: number | number[] | HaasNumberCollection, input2: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- The Normalized Average True Range (NATR) is the normalized version
+-- of the Average True Range (ATR) indicator.
+declare function NATR(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- Blocks enter trade when targetPrice is above the last sell order. Only works on spot and when there is no position open.
+declare function NeverEnterWithALoss(acceptedLoss?: number | HaasNumberCollection, targetPrice?: number | HaasNumberCollection): boolean
+
+-- Compares the average enter price to the targetPrice or current price.
+declare function NeverExitWithLoss(acceptedLoss?: number | HaasNumberCollection, targetPrice?: number | HaasNumberCollection, positionId?: string): boolean
+
+-- Creates an unique identifier.
+declare function NewGuid(): string
+
+-- Validates all values on being false.
+declare function Not(...: boolean): boolean
+
+-- Compares two values and returns whether or not the values are different.
+declare function NotEquals(value1: any, value2: any): boolean
+
+-- The On-Balance Volume (OBV), developed by Joseph Granville,
+-- is a momentum indicator that uses volume flow to predict changes in asset price.
+-- He believed that when volume increases sharply without a significant change in the asset's price,
+-- the price will eventually jump upward or fall downward.
+-- This indicator is usually plotted on its own chart.
+declare function OBV(prices: number[] | HaasNumberCollection, volumes: number[] | HaasNumberCollection): HaasNumberCollection
+
+-- A collection with an average of open and close prices. Sorted from new to old.
+declare function OCPrices(interval?: number | HaasNumberCollection, fullCandles?: boolean, market?: string, hlcStyle?: boolean): HaasNumberCollection
+
+-- A collection with the average of open, high, low and close prices. Sorted from new to old.
+declare function OHLCPrices(interval?: number | HaasNumberCollection, fullCandles?: boolean, market?: string, hlcStyle?: boolean): HaasNumberCollection
+
+-- A collection with open prices. Sorted from new to old.
+declare function OpenPrices(interval?: number | HaasNumberCollection, fullCandles?: boolean, market?: string, hlcStyle?: boolean): HaasNumberCollection
+
+-- Converts a timestamp to the open timestamp of its candle.
+declare function OpenTime(unix: number | HaasNumberCollection, interval: number | HaasNumberCollection): number
+
+-- Validates if any of the values is true.
+declare function Or(...: boolean): boolean
+
+interface OrderContainerResult { price: number; executedAmount: number; filledAmount: number; isOpen: boolean; isFilled: boolean; isCancelled: boolean; feeCosts: number; feeCurrency: number; openTime: number; positionId: string; orderId: string; isEnterOrder: boolean; isExitOrder: boolean; triggerPrice: number; isBuyOrder: boolean; isSellOrder: boolean; 1: number; 2: number; 3: number; 4: boolean; 5: boolean; 6: boolean; 7: number; 8: number; 9: number; 10: string; 11: string; 12: boolean; 13: boolean; 14: number; 15: boolean; 16: boolean; [index: number]: boolean | number | string }
+
+-- Gets all the information from an specific order.
+declare function OrderContainer(orderId: string): OrderContainerResult
+
+-- Only allows an order to occur once per bar. Signals produced during an ordered bar are blocked.
+declare function OrderOncePerBar(interval?: number | HaasNumberCollection, positionId?: string): boolean
+
+-- Calculates the orderbook sentiment as a number.
+declare function OrderbookSentiment(market?: string): number
+
+-- Calculates the target profit and makes sure the fee costs are double-covered.
+declare function OvercomeDoubleFeeCosts(targetPrice?: number | HaasNumberCollection, positionId?: string): boolean
+
+-- Calculates the target profit and makes sure the fee costs are covered.
+declare function OvercomeFeeCosts(targetPrice?: number | HaasNumberCollection, positionId?: string): boolean
+
+-- The Positive Directional indicator (PLUSDI) measures the presence of an
+-- uptrend and is part of the Average Directional Index (ADX). If +DI is sloping upward, it's a sign
+-- that the price uptrend is getting stronger. This indicator is nearly always plotted along with
+-- the Negative Directional indicator (MINUSDI).
+declare function PLUSDI(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Positive Directional Movement (PLUSDM) indicator is the basis of
+-- the Negative Directional indicator (PLUSDI).
+declare function PLUSDM(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Percentage Price Oscillator (PPO) is a momentum oscillator
+-- that measures the difference between two moving averages as a percentage of the larger
+-- moving average. As with its cousin, MACD, the Percentage Price Oscillator is shown with
+-- a signal line, a histogram and a centerline.
+declare function PPO(prices: number[] | HaasNumberCollection, fastPeriod: number | HaasNumberCollection, slowPeriod: number | HaasNumberCollection, maType: EnumMovingAverages): HaasNumberCollection
+
+-- Converts the value to a specific type.
+declare function Parse(value: any, type: EnumParameterType): any
+
+-- Parses CSV data string and returns it as an object. Downloading from a URL is only supported on self-hosted servers.
+declare function ParseCsv(csv: string, hasHeaders?: boolean, columnDelimiter?: string, rowDelimiter?: string): any
+
+-- Parses a JSON data string (an object, an array or a single value) and returns it as an object. Downloading from a URL is only supported on self-hosted servers. Invalid JSON logs a warning and returns nil.
+declare function ParseJson(json: string): any
+
+-- Parses the trade amount to exchange specifications.
+declare function ParseTradeAmount(market: string, price: number | HaasNumberCollection, amount: number | HaasNumberCollection): number
+
+-- Parses the trade price to exchange specifications.
+declare function ParseTradePrice(market: string, price: number | HaasNumberCollection): number
+
+-- Enables the paused flag. Use in combination with IsBotPaused() to read the value. Can be used to temporary block certain actions like increasing position without stopping the whole bot. Bots will continue to update and are allowed to place/cancel orders.
+declare function PauseBot(): nil
+
+-- Calculates the percentage between input1 and input2 or the percentage change between the values of input1.
+declare function PercentageChange(input1: number | number[] | HaasNumberCollection, input2?: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Compares the average enter price to current price, percentage-based.
+declare function PercentagePriceChange(percentage?: number | HaasNumberCollection, targetPrice?: number | HaasNumberCollection, positionId?: string): boolean
+
+-- Places a (limit) buy order for the given amount and price. Returns the order identifier (text).
+declare function PlaceBuyOrder(price: number | HaasNumberCollection, amount: number | HaasNumberCollection, market?: string, type?: EnumOrderTypes, note?: string, positionId?: string, timeout?: number | HaasNumberCollection, triggerPrice?: number | HaasNumberCollection, reduceOnly?: boolean, hiddenOrder?: boolean): string
+
+-- Executes the remaining amount of a canceled order.
+declare function PlaceCancelledOrder(orderId: string, price?: number | HaasNumberCollection): string
+
+-- Places a (limit) exit long order for the given amount and price. Returns the order identifier (text).
+declare function PlaceExitLongOrder(price: number | HaasNumberCollection, amount: number | HaasNumberCollection, market?: string, type?: EnumOrderTypes, note?: string, positionId?: string, timeout?: number | HaasNumberCollection, triggerPrice?: number | HaasNumberCollection, reduceOnly?: boolean, hiddenOrder?: boolean): string
+
+-- Places exit orders for a specific bot position.
+declare function PlaceExitPositionOrder(positionId?: string, price?: number | HaasNumberCollection, type?: EnumOrderTypes, note?: string, timeout?: number | HaasNumberCollection): string
+
+-- Places a (limit) exit short order for the given amount and price. Returns the order identifier (text).
+declare function PlaceExitShortOrder(price: number | HaasNumberCollection, amount: number | HaasNumberCollection, market?: string, type?: EnumOrderTypes, note?: string, positionId?: string, timeout?: number | HaasNumberCollection, triggerPrice?: number | HaasNumberCollection, reduceOnly?: boolean, hiddenOrder?: boolean): string
+
+-- Places a (limit) go long order for the given amount and price. Returns the order identifier (text).
+declare function PlaceGoLongOrder(price: number | HaasNumberCollection, amount: number | HaasNumberCollection, market?: string, type?: EnumOrderTypes, note?: string, positionId?: string, timeout?: number | HaasNumberCollection, triggerPrice?: number | HaasNumberCollection, reduceOnly?: boolean, hiddenOrder?: boolean): string
+
+-- Places a (limit) go short order for the given amount and price. Returns the order identifier (text).
+declare function PlaceGoShortOrder(price: number | HaasNumberCollection, amount: number | HaasNumberCollection, market?: string, type?: EnumOrderTypes, note?: string, positionId?: string, timeout?: number | HaasNumberCollection, triggerPrice?: number | HaasNumberCollection, reduceOnly?: boolean, hiddenOrder?: boolean): string
+
+-- Places a (limit) sell order for the given amount and price. Returns the order identifier (text).
+declare function PlaceSellOrder(price: number | HaasNumberCollection, amount: number | HaasNumberCollection, market?: string, type?: EnumOrderTypes, note?: string, positionId?: string, timeout?: number | HaasNumberCollection, triggerPrice?: number | HaasNumberCollection, reduceOnly?: boolean, hiddenOrder?: boolean): string
+
+-- Creates a data line on the chart. The line can be styled accordingly. A positive chartId will place the line below the main price chart. A negative index above.
+declare function Plot(chartId: number | HaasNumberCollection, lineName: string, value: number | number[] | HaasNumberCollection, colorOptions?: any): string
+
+-- Takes care of the plotting side of a BBANDS (like) calculation and chart.
+declare function PlotBBandsChart(chartIndex: number | HaasNumberCollection, name: string, upper: number | number[] | HaasNumberCollection, middle: number | number[] | HaasNumberCollection, lower?: number | number[] | HaasNumberCollection): nil
+
+-- Creates a band between 2 lines.
+declare function PlotBands(lineGuid1: string, lineGuid2: string, fillColor: string | EnumColor): nil
+
+-- Changes a line to bars.
+declare function PlotBars(lineGuid: string, baseValue?: number | HaasNumberCollection, fillColor?: string | EnumColor): nil
+
+-- Draws a horizontal zone with buy and sell lines on the chart.
+declare function PlotBuySellZone(chartId: number | HaasNumberCollection, start: number | HaasNumberCollection, end_: number | HaasNumberCollection): nil
+
+-- Changes the line into circles.
+declare function PlotCircle(lineGuid: string, fillColor?: string | EnumColor): nil
+
+-- Creates a cloud with double colors between 2 lines.
+declare function PlotCloud(lineGuid1: string, lineGuid2: string, opacity: number | HaasNumberCollection): nil
+
+-- Changes the color of the line based on a base value.
+declare function PlotDoubleColor(lineGuid: string, baseValue: number | HaasNumberCollection, secondColor: string | EnumColor, fillColor?: string | EnumColor): nil
+
+-- Change the line into a histogram.
+declare function PlotHistogram(lineGuid: string, secondColor: string | EnumColor, fillRaisingBars?: boolean): nil
+
+-- Takes care of the plotting side of a MACD (like) calculation and chart.
+declare function PlotHistogramSignals(chartIndex: number | HaasNumberCollection, name: string, histogram: number | number[] | HaasNumberCollection, shortSignal?: number | number[] | HaasNumberCollection, longSignal?: number | number[] | HaasNumberCollection): nil
+
+-- Draws a horizontal line on the chart.
+declare function PlotHorizontalLine(chartId: number | HaasNumberCollection, name: string, color: string | EnumColor, value: number | HaasNumberCollection, lineDecoration?: EnumCharting, side?: EnumCharting): nil
+
+-- Draws a horizontal zone on the chart.
+declare function PlotHorizontalZone(chartId: number | HaasNumberCollection, name: string, color: string | EnumColor, start: number | HaasNumberCollection, end_: number | HaasNumberCollection, side?: EnumCharting): nil
+
+-- Plots the line with a buy and sell zone on the chart.
+declare function PlotLineBuySellZone(chartIndex: number | HaasNumberCollection, name: string, source: number | number[] | HaasNumberCollection, start: number | HaasNumberCollection, end_: number | HaasNumberCollection): nil
+
+-- Plots a pivot cross above or below the chart when detected.
+declare function PlotPivot(leftStrength: number | HaasNumberCollection, rightStrength: number | HaasNumberCollection): nil
+
+-- Creates a price plot. Candlestick by default.
+declare function PlotPrice(chartId: number | HaasNumberCollection, market: string, interval?: number | HaasNumberCollection, style?: EnumCharting, upColor?: string | EnumColor, upFill?: boolean, downColor?: string | EnumColor, downFill?: boolean, markColor?: string | EnumColor, markFill?: boolean): nil
+
+-- Draws a shape above the candle or first line on the chart.
+declare function PlotShape(chartId?: number | HaasNumberCollection, shape?: EnumCharting, color?: string | EnumColor, size?: number | HaasNumberCollection, aboveCandle?: boolean, text?: string, textColor?: string | EnumColor, offset?: number | HaasNumberCollection): nil
+
+-- Changes the line into a specific shape.
+declare function PlotShapes(lineGuid: string, shape: EnumCharting, fillColor?: string | EnumColor): nil
+
+-- Creates a small signal bar chart. A positive chartId will place the line below the main price chart. A negative index above.
+declare function PlotSignalBar(chartId: number | HaasNumberCollection, color: string | EnumColor): nil
+
+-- Creates a stacked area chart from a line guid collection.
+declare function PlotStackedArea(lineGuids: any): nil
+
+-- Draws a vertical line on the chart.
+declare function PlotVerticalLine(chartId: number | HaasNumberCollection, name: string, color: string | EnumColor, unix: number | HaasNumberCollection, lineDecoration?: EnumCharting): nil
+
+-- Draws a vertical zone on the chart.
+declare function PlotVerticalZone(chartId: number | HaasNumberCollection, name: string, color: string | EnumColor, start: number | HaasNumberCollection, end_: number | HaasNumberCollection): nil
+
+-- Creates volume bars. The bars can be styles accordingly. A positive chartId will place the line below the main price chart. A negative index above.
+declare function PlotVolume(chartId: number | HaasNumberCollection, upColor?: string | EnumColor, downColor?: string | EnumColor, upFill?: boolean, downFill?: boolean, side?: EnumCharting): nil
+
+interface PositionContainerResult { positionId: string; market: string; isLong: boolean; isShort: boolean; enterPrice: number; amount: number; profit: number; roi: number; openTime: number; updatedTime: number; closeTime: number; direction: EnumPosition; 1: string; 2: string; 3: boolean; 4: boolean; 5: number; 6: number; 7: number; 8: number; 9: number; 10: number; 11: number; 12: EnumPosition; [index: number]: EnumPosition | boolean | number | string }
+
+-- Gets all the information from the open bot position.
+declare function PositionContainer(positionId?: string): PositionContainerResult
+
+interface PositionToBoolResult { isLong: boolean; isShort: boolean; isNone: boolean; 1: boolean; 2: boolean; 3: boolean; [index: number]: boolean }
+
+-- Converts a position value to 3 boolean values.
+declare function PositionToBool(position: EnumPosition): PositionToBoolResult
+
+-- Calculates a specified number/table raised to the specified power number/table.
+declare function Pow(value: number | number[] | HaasNumberCollection, power: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Returns a number of how many decimals is allowed for order prices.
+declare function PriceDecimals(market?: string, price?: number | HaasNumberCollection): number
+
+-- Determines the price level. For example. 123456 will return 10000. 123 will return 100.
+declare function PriceLevel(price: number | HaasNumberCollection): number
+
+-- Gets the main market of the bot.
+declare function PriceMarket(): string
+
+-- Returns the minimum allowed price step for market.
+declare function PriceStep(market?: string): number
+
+-- A collection with close prices. Sorted from new to old.
+declare function Prices(interval?: number | HaasNumberCollection, fullCandles?: boolean, market?: string, hlcStyle?: boolean): HaasNumberCollection
+
+-- Returns the profit label. For reflection, in case the market is Bitstamp BTC/USD it will return 'USD'. When we are on BitMEX XBT/USD (XBTUSD), it will return 'XBT'.
+declare function ProfitCurrency(market?: string): string
+
+-- Returns the profit label. For reflection, in case the market is Bitstamp BTC/USD it will return 'USD'. When we are on BitMEX XBT/USD (XBTUSD), it will return 'XBT'.
+declare function ProfitLabel(market?: string): string
+
+-- Returns the quote currency of the market. For reflection, in case we are on Bitstamp BTC/USD it will return 'USD'.
+declare function QuoteCurrency(market?: string): string
+
+-- Returns a number of how many decimals is allowed for order prices.
+declare function QuoteDecimals(market?: string, price?: number | HaasNumberCollection): number
+
+-- Returns the minimum allowed price step for market.
+declare function QuoteStep(market?: string): number
+
+-- The Rate-of-Change (ROC) is often used when speaking about momentum,
+-- and it can generally be expressed as a ratio between a change in one variable relative to a
+-- corresponding change in another; graphically, the rate of change is represented by the slope
+-- of a line. The ROC is often illustrated by the Greek letter delta.
+-- This indicator is usually plotted on its own chart.
+declare function ROC(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Rate-of-Change Percentage (ROCP) is an alternative for ROC,
+-- showing the values as percentages rather than absolutes. This indicator is usually plotted on its own chart.
+declare function ROCP(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Rate-of-Change Ratio (ROCR) is an alternative for ROC,
+-- showing the values as a ratio rather than absolutes. This indicator is usually plotted on its own chart.
+declare function ROCR(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Rate-of-Change Ratio 100 Scale (ROCR100) is an alternative for ROC,
+-- showing the values as a ratio rather than absolutes. This indicator is usually plotted on its own chart.
+declare function ROCR100(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Relative Strength Index (RSI), developed by J. Welles Wilder,
+-- is a momentum oscillator that measures the speed and change of price movements.
+-- The RSI oscillates between zero and 100. Traditionally the RSI is considered
+-- overbought when above 70 and oversold when below 30, but can also be used to confirm
+-- trends. This indicator is usually plotted on its own chart.
+declare function RSI(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Relative Strength Index (RSI_ALTB), developed by J. Welles Wilder,
+-- is a momentum oscillator that measures the speed and change of price movements.
+-- The RSI oscillates between zero and 100. Traditionally the RSI is considered
+-- overbought when above 70 and oversold when below 30, but can also be used to confirm
+-- trends. This indicator is usually plotted on its own chart.
+declare function RSI_ALTB(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- Replaces any value above a specific value with another value.
+declare function ReplaceAbove(input: number | number[] | HaasNumberCollection, threshold: number | HaasNumberCollection, newValue: number | HaasNumberCollection): HaasNumberCollection
+
+-- Replaces any value below a specific value with another value.
+declare function ReplaceBelow(input: number | number[] | HaasNumberCollection, threshold: number | HaasNumberCollection, newValue: number | HaasNumberCollection): HaasNumberCollection
+
+-- Disables the pause flag. Use in combination with IsBotPaused() to read the value.
+declare function ResumeBot(): nil
+
+-- Reverses a signal from long to short or short to long. SignalNone will be ignored and stay the same.
+declare function ReverseSignal(signal: Enum): EnumSignal
+
+-- Rounds a value (or values if table) to the nearest integer or to the specified number of fractional digits.
+declare function Round(input: number | number[] | HaasNumberCollection, digits: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Parabolic Stop-And-Reverse (SAR), developed by Welles Wilder,
+-- refers to a price-and-time-based trading system. Wilder called this the "Parabolic Time/Price System."
+-- SAR stands for "stop and reverse", which is the actual indicator used in the system.
+-- SAR trails price as the trend extends over time. The indicator is below prices as they're rising
+-- and above prices as they're falling. In this regard, the indicator stops and reverses when the price
+-- trend reverses and breaks above or below the indicator.
+-- This indicator is usually plotted on the price chart.
+declare function SAR(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, acceleration: number | HaasNumberCollection, maxSpeed: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Parabolic Stop-And-Reverse [Extended] (SAREXT) is the same indicator as SAR(),
+-- but opens up more parameters for the user to modify.
+declare function SAREXT(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, startValue: number | HaasNumberCollection, offsetOnReverse: number | HaasNumberCollection, accelInitLong: number | HaasNumberCollection, accelLong: number | HaasNumberCollection, accelMaxLong: number | HaasNumberCollection, accelInitShort: number | HaasNumberCollection, accelShort: number | HaasNumberCollection, accelMaxShort: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Simple Moving Average (SMA) is an arithmetic moving average
+-- calculated by adding recent closing prices and then dividing that by the number of time
+-- periods in the calculation average.
+-- This indicator is usually plotted on the price chart.
+declare function SMA(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Simple Moving Average (SMA2) is an arithmetic moving average
+-- calculated by adding recent closing prices and then dividing that by the number of time
+-- periods in the calculation average.
+-- This indicator is usually plotted on the price chart.
+declare function SMA2(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Simple Stochastic (SSTOCH)
+declare function SSTOCH(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Standard Deviation (STDDEV) is an indicator that measures
+-- the size of recent price moves of an asset, to predict how volatile the price may be in
+-- future. It can help you decide whether the volatility of the price is likely to increase
+-- or decrease.
+-- This indicator is usually plotted on its own chart.
+declare function STDDEV(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection, deviation: number | HaasNumberCollection): HaasNumberCollection
+
+interface STOCHResult { slowK: HaasNumberCollection; slowD: HaasNumberCollection; 1: HaasNumberCollection; 2: HaasNumberCollection; [index: number]: HaasNumberCollection }
+
+-- The Stochastic Oscillator [Full] (STOCH), developed by Dr. George Lane,
+-- is a momentum indicator that uses support and resistance levels. The term stochastic
+-- refers to the point of a current price in relation to its price range over a period of time.
+declare function STOCH(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection, fastK: number | HaasNumberCollection, slowK: number | HaasNumberCollection, slowD: number | HaasNumberCollection): STOCHResult
+
+interface STOCHFResult { fastK: HaasNumberCollection; fastD: HaasNumberCollection; 1: HaasNumberCollection; 2: HaasNumberCollection; [index: number]: HaasNumberCollection }
+
+-- The Stochastic Oscillator [Fast] (STOCHF).
+declare function STOCHF(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection, fastK: number | HaasNumberCollection, fastD: number | HaasNumberCollection, maType: EnumMovingAverages): STOCHFResult
+
+interface STOCHRSIResult { fastK: HaasNumberCollection; fastD: HaasNumberCollection; 1: HaasNumberCollection; 2: HaasNumberCollection; [index: number]: HaasNumberCollection }
+
+-- The Stochastic-RSI (STOCHRSI) is essentially an indicator of an indicator.
+-- The Stochastic RSI is an oscillator that calculates a value between 0 and 1 which is
+-- then plotted as a line. This indicator is primarily used for identifying overbought and oversold conditions.
+-- This indicator is usually plotted on its own chart.
+declare function STOCHRSI(prices: number[] | HaasNumberCollection, rsiPeriod: number | HaasNumberCollection, fastK: number | HaasNumberCollection, fastD: number | HaasNumberCollection, maType: EnumMovingAverages): STOCHRSIResult
+
+-- Checks a collection for active safety signals.
+declare function SafetyContainer(...: boolean): boolean
+
+-- Saves a value on a specific key. This value can be retrieved with Load(). A maximum of 10.000 keys can be stored.
+declare function Save(key: string, value: any): nil
+
+-- This command can save and distribute a trading signal over the HaasCloud. This can be used in combination with trade signal enumeration. For example SignalLong(), SignalShort(), SignalExitPosition() or SignalNone(). Only publishes from a running bot. In backtests, labs and the editor's compile pass it does nothing.
+declare function SaveRemoteSignal(id: string, secret: string, signal: EnumSignal): nil
+
+-- Calculates the Standard Deviation from the data series.
+declare function Sd(input: number[] | HaasNumberCollection): number
+
+-- A collection with sell/ask prices. Sorted from new to old.
+declare function SellPrices(interval?: number | HaasNumberCollection, fullCandles?: boolean, market?: string, hlcStyle?: boolean): HaasNumberCollection
+
+-- Sends a notification to your browser and configured push channels (Discord, Telegram). Has no effect during backtests.
+declare function SendNotification(title: string, message: string): nil
+
+-- Sets a custom base value used in the ROI calculation (realized profits / baseValue * 100).
+declare function SetBotRoiBaseValue(baseValue: number | HaasNumberCollection, market?: string): nil
+
+-- Sets a custom fee percentage for backtests: the backtest charges it as both the maker and the taker fee, and Fee(), MakersFee() and TakersFee() return it. It has no effect on live or paper trading, which use the exchange's fees.
+declare function SetFee(percentage: number | HaasNumberCollection, market?: string): nil
+
+-- Sets the leverage ratio for current or specified market.
+declare function SetLeverage(leverage: number | HaasNumberCollection, market?: string, accountId?: string): boolean
+
+-- Sets the margin mode for current or specific market. It is NOT possible to change margin mode while having an open position.
+declare function SetMarginMode(marginMode: EnumMarginMode, market?: string, accountId?: string): boolean
+
+-- Overwrites the order type with the given type. This can be used to execute different order types on managed trading. Only LimitOrderType, MarketOrderType, NoTimeOutOrderType and MakerOrCancelOrderType are accepted. The conditional types (StopLimitOrderType, StopMarketOrderType, TakeProfitLimitOrderType, TakeProfitMarketOrderType, and the 'Trailing stop market order' choice of InputOrderType) need a triggerPrice, so use them with the Place*Order commands instead: SetOrderType() refuses them with a warning and keeps the current order type.
+declare function SetOrderType(type: EnumOrderTypes): nil
+
+-- Sets the position mode for current or specified market. It is NOT possible to change position mode while having an open position.
+declare function SetPositionMode(positionMode: EnumPositionMode, accountId?: string, market?: string): boolean
+
+-- Configures the opacity for the stacked areas of a chart, as a value between 0 and 100.
+declare function SetStackedAreaOpacity(chartId: number | HaasNumberCollection, opacity: number | HaasNumberCollection): nil
+
+-- Gets the total amount open in a short position.
+declare function ShortAmount(market?: string): number
+
+-- Keeps track of the highest/lowest recorded price and adjust the stop loss accordingly. The higher the price change the more the trailing distances shrinks.
+declare function ShrinkingTrailingStopLoss(percentage: number | HaasNumberCollection, shrinkPercentage: number | HaasNumberCollection, positionId?: string, direction?: EnumPosition): boolean
+
+-- Calculates an integer that indicates the sign of a number.
+declare function Sign(input: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Maps a signal value to their defined specifications.
+declare function SignalMapper(signal: Enum, reverse?: boolean, mapLongTo?: EnumSignal, mapShortTo?: EnumSignal, mapExitTo?: EnumSignal, mapNoneTo?: EnumSignal): EnumSignal
+
+-- Sets properties such as weight or ignore in the signal input.
+declare function SignalProperties(signal: Enum, useLong?: boolean, useShort?: boolean, useExit?: boolean, weight?: number | HaasNumberCollection, delay?: number | HaasNumberCollection): EnumSignal
+
+interface SignalToBoolResult { isLong: boolean; isShort: boolean; isExit: boolean; isNone: boolean; 1: boolean; 2: boolean; 3: boolean; 4: boolean; [index: number]: boolean }
+
+-- Converts a signal value to 4 boolean values.
+declare function SignalToBool(signal: Enum): SignalToBoolResult
+
+-- Logs the given signals.
+declare function SignalToLog(...: Enum): nil
+
+-- Add a weight to the signal. Can be used in combination with GetWeightedConsensusSignal().
+declare function SignalWeight(signal: Enum, weight: number | HaasNumberCollection): EnumSignal
+
+-- Reads the given data and tries to give a forecast.
+declare function SimpleForecastBySsa(dataset: number[] | HaasNumberCollection, l: number | HaasNumberCollection, n: number | HaasNumberCollection, forecastCount: number | HaasNumberCollection): HaasNumberCollection
+
+-- Calculates the sine of the specified angle.
+declare function Sin(input: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Calculates the hyperbolic sine of the specified angle.
+declare function Sinh(input: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Pauses script execution for a specified number of milliseconds. Useful for adding random delays to avoid predictable order timing patterns.
+declare function Sleep(milliseconds: number | HaasNumberCollection): number
+
+interface SlowRSIResult { rsi: HaasNumberCollection; slowRsi: HaasNumberCollection; 1: HaasNumberCollection; 2: HaasNumberCollection; [index: number]: HaasNumberCollection }
+
+-- The SlowRSI is a custom implementation from Haasonline. It uses a custom RSI and EMA calculation.
+declare function SlowRSI(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection, signal: number | HaasNumberCollection): SlowRSIResult
+
+-- Stores numeric values in a collection. Only adds the new value when the candle on the specified interval closed. This results in interval based data.
+declare function SourceManager(newValue: number | HaasNumberCollection, interval?: number | HaasNumberCollection, cap?: number | HaasNumberCollection, initialValues?: number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Gets the price source based on the input enum given. Can be any of Enumerations Source Price Types.
+declare function SourcePrices(sourceType: EnumSourcePriceTypes, interval?: number | HaasNumberCollection, fullCandles?: boolean, market?: string, hlcStyle?: boolean): HaasNumberCollection
+
+-- Calculates the square root of a specified number.
+declare function Sqrt(input: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Starts a timer.
+declare function StartTimer(key?: string): nil
+
+-- Calculates the current percentage change from the average enter price and compares it with the stop loss value.
+declare function StopLoss(percentage: number | HaasNumberCollection, positionId?: string, direction?: EnumPosition): boolean
+
+-- Blocks any signal until a certain number of minutes have passed since the last exit trade executed by a safety.
+declare function StopLossCooldown(minutes: number | HaasNumberCollection, positionId?: string): boolean
+
+-- Calculates the defined position's current ROI percentage and gives a signal if the set loss is reached.
+declare function StopLossROI(percentage: number | HaasNumberCollection, positionId?: string, direction?: EnumPosition): boolean
+
+-- Stops a timer.
+declare function StopTimer(key?: string): number
+
+-- Returns a value indicating whether a specified substring occurs within this string.
+declare function StringContains(value: string, searchValue: string, ignoreCase?: boolean): boolean
+
+-- Splits a string into substrings that are based on the characters in an array.
+declare function StringExplode(value: string, delimiter: string): any
+
+-- Split a string on '&' and '='.
+declare function StringFromQuery(value: string): any
+
+-- Gets the zero-based index of the first occurrence of the specified string in the current.
+declare function StringIndexOf(value: string, searchValue: string, ignoreCase?: boolean): number
+
+-- Concatenates 2 string with an optional separator.
+declare function StringJoin(value1: any, value2: any, separator?: string): string
+
+-- Splits a string into substrings that are based on the characters in an array.
+declare function StringSplit(value: string, delimiter: string): any
+
+-- Subtracts numbers/tables and returns the result number/table.
+declare function Sub(input1: number | number[] | HaasNumberCollection, input2: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Subtracts a percentage to the value.
+declare function SubPerc(value: number | number[] | HaasNumberCollection, percentage: number | HaasNumberCollection): HaasNumberCollection
+
+-- Subtracts a percentage to the value.
+declare function SubPercentage(value: number | number[] | HaasNumberCollection, percentage: number | HaasNumberCollection): HaasNumberCollection
+
+-- Retrieves a substring from this instance. The substring starts at a specified character position and has a specified length.
+declare function SubString(value: string, start: number | HaasNumberCollection, length: number | HaasNumberCollection): string
+
+-- Adds numbers/tables and returns the result number/table.
+declare function Sum(input1: number | number[] | HaasNumberCollection, input2?: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- The Triple Exponential Moving Average (T3), developed by Tim Tillson,
+-- attempts to offers a moving average with better smoothing than traditional exponential moving average.
+-- This indicator is usually plotted on the price chart.
+declare function T3(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection, vFactor: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Triple Exponential Moving Average (TEMA), developed by Patrick Mulloy,
+-- offers a moving average with less lag then traditional exponential moving average.
+-- This indicator is usually plotted on the price chart.
+declare function TEMA(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The True Range (TRANGE) developed by J. Welles Wilder,
+-- is a technical analysis volatility indicator. The indicator does not provide an
+-- indication of price trend, simply the degree of price volatility.
+-- This indicator is usually plotted on its own chart.
+declare function TRANGE(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection): HaasNumberCollection
+
+-- The Triangular Moving Average (TRIMA) is similar to other
+-- moving averages in that it shows the average (or mean) price over a specified number
+-- of data points (usually a number of price bars). However, the triangular moving average
+-- differs in that it is double smoothed - which also means it is averaged twice.
+-- This indicator is usually plotted on the price chart.
+declare function TRIMA(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- TRIX is a momentum oscillator that displays the percent rate of change of a triple exponentially smoothed moving average.
+-- This indicator is usually plotted on its own chart.
+declare function TRIX(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- Time Series Forecast (TSF) is a linear
+-- regression calculation that plots each bar's current regression
+-- value using the least square fit method. This indicator is sometimes
+-- referred to as a moving linear regression similar to a moving average.
+-- For example, the TSF value that covers 10 days will have the same
+-- value as a 10-day Time Series Forecast. This differs slightly from
+-- the Linear Regression indicator in that the Linear Regression indicator
+-- does not add the slope to the ending value of the regression line.
+-- This indicator is usually plotted on the price chart.
+declare function TSF(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The True Strength Index (TSI) is a momentum oscillator based on a double smoothing of price changes.
+declare function TSI(prices: number[] | HaasNumberCollection, periodA: number | HaasNumberCollection, periodB: number | HaasNumberCollection): HaasNumberCollection
+
+-- Typical Price (TYPPRICE) is simply an average of asset's price.
+-- The Median Price (MEDPRICE) and Weighted Close Price (WCLPRICE) are similar indicators.
+-- The Typical Price indicator provides a simple, single-line plot of the asset's average price.
+declare function TYPPRICE(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Calculates the current percentage change from the average enter price and compares it with the take profit value.
+declare function TakeProfit(percentage: number | HaasNumberCollection, positionId?: string, direction?: EnumPosition): boolean
+
+-- Calculates the defined position's current ROI percentage and gives a signal if the set profit is reached.
+declare function TakeProfitROI(percentage: number | HaasNumberCollection, positionId?: string, direction?: EnumPosition): boolean
+
+-- Gets takers fee of the market.
+declare function TakersFee(market?: string): number
+
+-- Calculates the tangent of the specified angle.
+declare function Tan(input: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Calculates the hyperbolic tangent of the specified angle.
+declare function Tanh(input: number | number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Gets the current unix timestamp. Based on UTC.
+declare function Time(): number
+
+-- Gets the trade amount setting.
+declare function TradeAmount(): number
+
+-- Checks the safety, indicator & insurance signal. If a safety is active, DoExitPosition() will be executed. When there are no safeties active, the indicator signal will be executed if the insurances agree.
+declare function TradeBotContainer(safetySignal?: boolean, indicatorSignal?: Enum, insuranceSignal?: boolean): nil
+
+interface TradeMarketContainerResult { baseCurrency: string; quoteCurrency: string; contractName: string; contractValue: number; makersFee: number; takersFee: number; underlyingAsset: string; minimumTradeAmount: number; minimumTradeVolume: number; calculatedMinTradeAmount: number; profitLabel: string; amountLabel: string; marketType: EnumTrading; 1: string; 2: string; 3: string; 4: number; 5: number; 6: number; 7: string; 8: number; 9: number; 10: number; 11: string; 12: string; 13: EnumTrading; [index: number]: EnumTrading | number | string }
+
+-- Retrieves all the information on the trade market.
+declare function TradeMarketContainer(market?: string): TradeMarketContainerResult
+
+-- Only allows a trade to occur once per bar. Signals produced during a traded bar are blocked.
+declare function TradeOncePerBar(interval?: number | HaasNumberCollection, positionId?: string): boolean
+
+-- Checks the current market condition for sideways movement.
+declare function TradeOnlySideways(threshold?: number | HaasNumberCollection, interval?: number | HaasNumberCollection, fullCandles?: boolean, market?: string): boolean
+
+-- Checks the current market condition for a trend.
+declare function TradeOnlyTrending(threshold?: number | HaasNumberCollection, interval?: number | HaasNumberCollection, fullCandles?: boolean, market?: string): boolean
+
+-- Keeps track of the highest/lowest recorded price and adjust the stop loss accordingly when the arm% has been reached.
+declare function TrailingArmStopLoss(percentage: number | HaasNumberCollection, arm: number | HaasNumberCollection, positionId?: string, direction?: EnumPosition): boolean
+
+-- Keeps track of the highest/lowest recorded price and adjust the stop loss accordingly.
+declare function TrailingStopLoss(percentage: number | HaasNumberCollection, positionId?: string, direction?: EnumPosition): boolean
+
+-- Truncates a value (or values if table) to the nearest integer or to the specified number of fractional digits.
+declare function Truncate(input: number | number[] | HaasNumberCollection, digits: number | HaasNumberCollection): HaasNumberCollection
+
+-- The UpDown RSI (UDRSI) is an RSI Based Indicator that uses
+-- an alternative formula to calculate the momentum oscillator. This Indicator works exactly like
+-- RSI but instead of determining this from the difference in price, it is calculated by what
+-- is called trend stepping. Trend stepping basically measures the closing price of a range of
+-- candles and when the price of one candle is lower than the next, it is calculated as 1 price
+-- step up. Because of this alternative calculation of Relative Strength Index, Up Down RSI
+-- produces some unique Trade Signals.
+declare function UDRSI(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Ultimate Oscillator (ULTOSC), developed by Larry Williams,
+-- is a momentum oscillator designed to capture momentum across three different timeframes.
+-- The multiple timeframe objective seeks to avoid the pitfalls of other oscillators. Many
+-- momentum oscillators surge at the beginning of a strong advance, only to form a bearish
+-- divergence as the advance continues. This is because they are stuck with one timeframe.
+-- The Ultimate Oscillator attempts to correct this fault by incorporating longer timeframes
+-- into the basic formula. Williams identified a buy signal a based on a bullish divergence
+-- and a sell signal based on a bearish divergence.
+declare function ULTOSC(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection, periodA: number | HaasNumberCollection, periodB: number | HaasNumberCollection, periodC: number | HaasNumberCollection): HaasNumberCollection
+
+-- Returns the underlying assets of the market. For reflection, in case we are on Bitstamp BTC/USD it will return 'BTC'. When we are on BitMEX XBT/USD (XBTUSD), it will return 'XBT'.
+declare function UnderlyingAsset(market?: string): string
+
+-- Marks the signal to be used when its matches a certain signal.
+declare function UseSignalIf(signal: Enum, signalToUse: Enum): EnumSignal
+
+-- Calculates the used margin for a specific position.
+declare function UsedMargin(market: string, price: number | HaasNumberCollection, amount: number | HaasNumberCollection, leverage: number | HaasNumberCollection): number
+
+interface UserPositionContainerResult { market: string; isLong: boolean; isShort: boolean; enterPrice: number; amount: number; profit: number; roi: number; direction: EnumPosition; 1: string; 2: boolean; 3: boolean; 4: number; 5: number; 6: number; 7: number; 8: EnumPosition; [index: number]: EnumPosition | boolean | number | string }
+
+-- Gets all the information from the open user position.
+declare function UserPositionContainer(accountId?: string, market?: string, leverage?: number | HaasNumberCollection, direction?: EnumPosition): UserPositionContainerResult
+
+-- Variance (VAR), developed by Dr. Rene Koch,
+-- is the variance ratio indicator that measures the degree of mean reversion or
+-- trendiness in a time series. It is an easy and fast way to detect whether
+-- a price series is trending, mean reverting or following a random walk.
+declare function VAR(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection, deviation: number | HaasNumberCollection): HaasNumberCollection
+
+-- Weighted Close Price (WCLPRICE) is simply an average of an asset's price.
+-- It gets its name from the fact that extra weight is given to the closing price.
+-- The Median Price (MEDPRICE) and Typical Price (TYPPRICE) are similar indicators.
+declare function WCLPRICE(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection): HaasNumberCollection
+
+-- Williams %R (WILLR), also known as the Williams Percent Range,
+-- is a type of momentum indicator that moves between 0 and -100 and measures overbought
+-- and oversold levels. The Williams %R may be used to find entry and exit points in the market.
+-- This indicator is usually plotted on its own chart.
+declare function WILLR(high: number[] | HaasNumberCollection, low: number[] | HaasNumberCollection, close: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- The Weighted Moving Average (WMA) puts more weight on recent
+-- data and less on past data. This is done by multiplying each bar's price by
+-- a weighting factor. Because of its unique calculation, WMA will follow prices
+-- more closely than a corresponding Simple Moving Average.
+declare function WMA(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- Welles Wilder's Smoothing (WWS), developed by J. Welles Wilder, Jr. and
+-- is part of the Wilder's RSI indicator implementation. This indicator smooths price
+-- movements to help you identify and spot bullish and bearish trends.
+-- This indicator is usually plotted on the price chart.
+declare function WWS(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- Blocks any signal until a certain number of minutes have passed since the last placed order. This includes orders executed in an update cycle.
+declare function WaitAfterOrder(timeout: number | HaasNumberCollection, positionId?: string): boolean
+
+-- Blocks any signal until a certain number of minutes have passed since the last trade.
+declare function WaitAfterTrade(timeout: number | HaasNumberCollection, positionId?: string): boolean
+
+-- Get the available amount in the wallet.
+declare function WalletAmount(accountId?: string, coin?: string, market?: string): number
+
+-- Checks if the wallet has enough of the funds.
+declare function WalletCheck(accountId: string, coin: string, amount: number | HaasNumberCollection): boolean
+
+-- Wilder Moving Average (WiMA), also called Wilder's Smoothed Moving Average,
+-- is similar to the Exponential Moving Average. Compared to other moving averages,
+-- Wilder's MA responds more slowly to price changes, where an n-period Wilder MA gives
+-- similar values to a 2n- period EMA. For example, a 14-period EMA has almost the
+-- same values as a 7-period Wilder MA.
+declare function WiMA(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+-- Write data to a file that can be exported later. Only records during a backtest. Self-hosted file size is unlimited, use with caution; cloud servers cap a file at 250,000 rows.
+declare function WriteExportData(name: string, ...: any): nil
+
+-- The Zero-Lag Exponential Moving Average (ZLEMA), developed by John Ehlers and Ric Way.
+-- As is the case with the double exponential moving average (DEMA) and the triple exponential moving average (TEMA)
+-- and as indicated by the name, the aim is to eliminate the inherent lag associated to all trend following
+-- indicators which average a price over time. The idea is do a regular exponential moving average (EMA) calculation
+-- but on a de-lagged data instead of doing it on the regular data. Data is de-lagged by removing the data from "lag"
+-- days ago thus removing (or attempting to) the cumulative effect of the moving average.
+declare function ZLEMA(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection): HaasNumberCollection
+
+interface ZLMAResult { ma1: HaasNumberCollection; ma2: HaasNumberCollection; 1: HaasNumberCollection; 2: HaasNumberCollection; [index: number]: HaasNumberCollection }
+
+-- The Zero Lag Moving Average (ZLMA) is the same as ZLEMA, but opens up the possibility to change the
+-- type of the moving average. The idea is do a regular moving average (MA) calculation but on a de-lagged data instead of doing
+-- it on the regular data. Data is de-lagged by removing the data from "lag" days ago thus removing (or attempting to) the
+-- cumulative effect of the moving average.
+declare function ZLMA(prices: number[] | HaasNumberCollection, period: number | HaasNumberCollection, maType?: EnumMovingAverages, maPeriod1?: number | HaasNumberCollection, maPeriod2?: number | HaasNumberCollection): ZLMAResult

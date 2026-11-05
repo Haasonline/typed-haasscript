@@ -1,0 +1,8 @@
+/node_modules/
+/out/
+*.vsix
+# Put there by package-platform.mjs.
+/server/
+# Copied from the repository root when packaging.
+/LICENSE-MIT
+/LICENSE-APACHE

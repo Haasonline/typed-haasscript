@@ -1,0 +1,89 @@
+-- Lua's math and string libraries as the TradeServer provides them
+-- (MoonSharp, Lua 5.2), each member verified to exist on the TradeServer.
+-- As in Lua, a number parameter also takes a string that reads as a
+-- number, and a string parameter also takes a number. Anything else stops
+-- the call with an error, a series included: a math command's result is a
+-- series even for plain numbers, and `math.floor(SubPerc(100, 10))` fails.
+-- No interfaces here: an interface of the built-in declarations is a
+-- command's result container.
+
+declare math: {
+  abs: (x: number | string) => number;
+  acos: (x: number | string) => number;
+  asin: (x: number | string) => number;
+  atan: (x: number | string) => number;
+  atan2: (y: number | string, x: number | string) => number;
+  ceil: (x: number | string) => number;
+  cos: (x: number | string) => number;
+  cosh: (x: number | string) => number;
+  deg: (x: number | string) => number;
+  exp: (x: number | string) => number;
+  floor: (x: number | string) => number;
+  fmod: (x: number | string, y: number | string) => number;
+  frexp: (x: number | string) => (number, number);
+  huge: number;
+  ldexp: (m: number | string, e: number | string) => number;
+  log: (x: number | string, base?: number | string) => number;
+  max: (x: number | string, ...: number | string) => number;
+  min: (x: number | string, ...: number | string) => number;
+  modf: (x: number | string) => (number, number);
+  pi: number;
+  pow: (x: number | string, y: number | string) => number;
+  rad: (x: number | string) => number;
+  random: (m?: number | string, n?: number | string) => number;
+  randomseed: (x: number | string) => nil;
+  sin: (x: number | string) => number;
+  sinh: (x: number | string) => number;
+  sqrt: (x: number | string) => number;
+  tan: (x: number | string) => number;
+  tanh: (x: number | string) => number
+}
+
+-- `string.format` takes only strings and numbers for its values, even for
+-- `%s`: a boolean, nil, a table or a constant stops it.
+declare string: {
+  byte: (s: string | number, i?: number | string, j?: number | string) => ...number;
+  char: (...: number | string) => string;
+  dump: (f: (...: any) => any) => string;
+  find: (s: string | number, pattern: string | number, init?: number | string, plain?: boolean) => (number | nil, number | nil, ...any);
+  format: (format: string | number, ...: string | number) => string;
+  gmatch: (s: string | number, pattern: string | number) => () => any;
+  gsub: (s: string | number, pattern: string | number, replacement: any, n?: number | string) => (string, number);
+  len: (s: string | number) => number;
+  lower: (s: string | number) => string;
+  match: (s: string | number, pattern: string | number, init?: number | string) => (any, ...any);
+  rep: (s: string | number, n: number | string, separator?: string | number) => string;
+  reverse: (s: string | number) => string;
+  sub: (s: string | number, i: number | string, j?: number | string) => string;
+  upper: (s: string | number) => string;
+  unicode: (s: string | number, i?: number | string, j?: number | string) => ...number;
+  contains: (s: string | number, part: string | number) => boolean;
+  startsWith: (s: string | number, part: string | number) => boolean;
+  endsWith: (s: string | number, part: string | number) => boolean
+}
+
+-- Lua's other globals that the TradeServer's compile check knows (verified
+-- on the TradeServer), not typed yet. `print`, `require`, `io` and `_G`
+-- are unknown to it, so they are left out.
+declare table: any
+declare type: any
+declare tostring: any
+declare tonumber: any
+declare pairs: any
+declare ipairs: any
+declare pcall: any
+declare xpcall: any
+declare error: any
+declare assert: any
+declare select: any
+declare unpack: any
+declare next: any
+declare rawget: any
+declare rawset: any
+declare rawequal: any
+declare setmetatable: any
+declare getmetatable: any
+declare package: any
+declare collectgarbage: any
+declare bit32: any
+declare _VERSION: any

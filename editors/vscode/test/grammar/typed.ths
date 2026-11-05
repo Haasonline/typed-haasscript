@@ -1,0 +1,64 @@
+-- SYNTAX TEST "source.typed-haasscript" "types are told apart from the plain script"
+import { average, type Quote as Q } from "./math/averages"
+-- <------ keyword.control.import.typed-haasscript
+--       ^^^^^^^ variable.other.readwrite.alias.typed-haasscript
+--                ^^^^ storage.type.type.typed-haasscript
+--                           ^^ keyword.control.as.typed-haasscript
+--                                  ^^^^ keyword.control.from.typed-haasscript
+--                                       ^^^^^^^^^^^^^^^^^ string.quoted.double.haasscript
+import * as series from "./series"
+--     ^ constant.language.import-export-all.typed-haasscript
+export local function latest(count: number, label?: string): Q
+-- <------ keyword.control.export.typed-haasscript
+--     ^^^^^ storage.modifier.local.haasscript
+--                    ^^^^^^ entity.name.function.haasscript
+--                                ^ keyword.operator.type.annotation.typed-haasscript
+--                                  ^^^^^^ support.type.primitive.typed-haasscript
+--                                               ^ keyword.operator.optional.typed-haasscript
+--                                                  ^^^^^^ support.type.primitive.typed-haasscript
+--                                                           ^ entity.name.type.typed-haasscript
+    return prices:Get(count)
+--         ^^^^^^ - entity.name.type.typed-haasscript
+--                ^^^ entity.name.function.call.haasscript
+--                ^^^ - entity.name.type.typed-haasscript
+end
+local quote = Load("quote") as Q | nil
+--                          ^^ keyword.operator.cast.typed-haasscript
+--                             ^ entity.name.type.typed-haasscript
+--                               ^ keyword.operator.type.typed-haasscript
+--                                 ^^^ support.type.primitive.typed-haasscript
+type Pair<T> = { first: T, second?: (value: T) => string }
+-- <---- storage.type.type.typed-haasscript
+--   ^^^^ entity.name.type.alias.typed-haasscript
+--               ^^^^^ variable.other.property.typed-haasscript
+--                      ^ entity.name.type.typed-haasscript
+--                                   ^^^^^ variable.parameter.typed-haasscript
+--                                             ^^ storage.type.function.arrow.typed-haasscript
+interface Prices extends Base {
+-- <--------- storage.type.interface.typed-haasscript
+--        ^^^^^^ entity.name.type.interface.typed-haasscript
+--               ^^^^^^^ storage.modifier.extends.typed-haasscript
+--                       ^^^^ entity.name.type.typed-haasscript
+    close: number[]
+--  ^^^^^ variable.other.property.typed-haasscript
+--         ^^^^^^ support.type.primitive.typed-haasscript
+}
+local function first<T>(values: T[]): T
+--                  ^ punctuation.definition.typeparameters.begin.typed-haasscript
+--                   ^ entity.name.type.typed-haasscript
+    return values[1]
+--         ^^^^^^ - entity.name.type.typed-haasscript
+end
+if a < b and c > (d) then Log(a) end
+--   ^ keyword.operator.comparison.haasscript
+--             ^ keyword.operator.comparison.haasscript
+--                ^ - entity.name.type.typed-haasscript
+--                        ^^^ entity.name.function.call.haasscript
+local text: string = "a" .. "b" -- a comment
+--          ^^^^^^ support.type.primitive.typed-haasscript
+--                 ^ keyword.operator.assignment.haasscript
+--                       ^^ keyword.operator.concatenation.haasscript
+--                              ^^^^^^^^^^^^ comment.line.double-dash.haasscript
+declare function CC_Example(value: number): number
+-- <------- storage.modifier.declare.typed-haasscript
+--               ^^^^^^^^^^ entity.name.function.haasscript

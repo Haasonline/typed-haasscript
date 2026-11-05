@@ -1,0 +1,3 @@
+# Typed HaasScript source and stripped upload files are Lua-based, not Haskell.
+*.ths linguist-language=Lua
+*.hs linguist-language=Lua

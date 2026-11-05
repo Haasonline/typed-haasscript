@@ -1,0 +1,16 @@
+[package]
+name = "ths_project"
+description = "A Typed HaasScript project: its ths.toml settings and the files they include"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+globset = "0.4.21"
+serde = { version = "1.0.229", features = ["derive"] }
+toml = "1.2.0"
+walkdir = "2.5.0"
+
+[dev-dependencies]
+tempfile = "3.27.0"

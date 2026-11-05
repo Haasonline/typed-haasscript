@@ -1,0 +1,5 @@
+allowBuilds:
+  '@vscode/vsce-sign': false
+  esbuild: false
+minimumReleaseAgeExclude:
+  - '@types/vscode@1.145.0'
