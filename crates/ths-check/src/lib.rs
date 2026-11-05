@@ -24,12 +24,13 @@ mod scopes;
 mod spreading_casts;
 mod syntax_access;
 mod type_environment;
+mod type_references;
 mod types;
 mod visibility;
 
 pub use analysis::{
     AnalyzedSymbol, FileAnalysis, ImportOrigin, Member, MemberAccess, MemberSite, Reference, ReferenceTarget,
-    SymbolKind,
+    SymbolKind, TypeReference, TypeTarget,
 };
 pub use declarations::Declarations;
 pub use diagnostic::{Diagnostic, Severity};
@@ -222,6 +223,7 @@ fn diagnose_into(
     diagnostics.sort_by_key(|diagnostic| diagnostic.range.start());
     let analysis = checked.analysis.map(|analysis| FileAnalysis {
         comment_and_string_interiors: comment_and_string_interiors::interiors(&root),
+        type_references: type_references::type_references(&root),
         ..analysis
     });
     (CheckedFile { diagnostics, interface }, analysis)

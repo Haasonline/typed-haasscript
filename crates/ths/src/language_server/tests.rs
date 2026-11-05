@@ -282,6 +282,34 @@ fn an_imported_name_leads_to_the_unsaved_export_in_its_module() {
     editor.stop();
 }
 
+#[test]
+fn an_imported_type_leads_to_its_declaration_in_its_module() {
+    let quotes_source = "\nexport interface Quote\n  bid: number\nend";
+    let project = project(&[("ths.toml", ""), ("bot.ths", ""), ("quotes.ths", quotes_source)]);
+    let bot = uri_of(&project.path().join("bot.ths"));
+    let quotes = uri_of(&project.path().join("quotes.ths"));
+    let (mut editor, _) = Editor::start();
+    editor.open(&bot, "import { type Quote } from \"./quotes\"\nlocal quote: Quote = { bid = 1 }");
+    for (line, character) in [(1, 14), (0, 15)] {
+        let location = editor.definition(&bot, line, character).unwrap();
+        assert_eq!(location.uri, quotes);
+        assert_eq!(start_of(&location), (1, 17));
+    }
+    editor.stop();
+}
+
+#[test]
+fn a_type_declared_in_the_file_leads_to_its_name() {
+    let project = project(&[("ths.toml", ""), ("bot.ths", "")]);
+    let bot = uri_of(&project.path().join("bot.ths"));
+    let (mut editor, _) = Editor::start();
+    editor.open(&bot, "type Side = \"buy\" | \"sell\"\nlocal side: Side = \"buy\"");
+    let location = editor.definition(&bot, 1, 13).unwrap();
+    assert_eq!(location.uri, bot);
+    assert_eq!(start_of(&location), (0, 5));
+    editor.stop();
+}
+
 impl Editor {
     fn completions(&mut self, uri: &Uri, line: u32, character: u32) -> Vec<CompletionItem> {
         let response: Option<CompletionResponse> =
@@ -332,6 +360,19 @@ fn the_fields_and_methods_of_a_value_are_offered_after_its_dot() {
     assert_eq!(labels, ["Spread", "bid"]);
     assert_eq!(labelled(&items, "bid").unwrap().kind, Some(CompletionItemKind::FIELD));
     assert_eq!(labelled(&items, "Spread").unwrap().kind, Some(CompletionItemKind::METHOD));
+    editor.stop();
+}
+
+#[test]
+fn the_fields_of_a_value_are_offered_after_its_dot_at_the_start_of_a_statement() {
+    let project = project(&[("ths.toml", ""), ("bot.ths", "")]);
+    let bot = uri_of(&project.path().join("bot.ths"));
+    let (mut editor, _) = Editor::start();
+    editor.open(&bot, "local quote = { bid = 1, ask = 2 }\nquote.");
+    let items = editor.completions(&bot, 1, 6);
+    let mut labels: Vec<&str> = items.iter().map(|item| item.label.as_str()).collect();
+    labels.sort();
+    assert_eq!(labels, ["ask", "bid"]);
     editor.stop();
 }
 

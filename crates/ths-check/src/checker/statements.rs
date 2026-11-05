@@ -74,7 +74,17 @@ impl Checker<'_> {
                     self.check_statement(&declaration);
                 }
             }
+            SyntaxKind::ErrorNode => self.check_unfinished_statement(statement),
             _ => {}
+        }
+    }
+
+    /// A statement still being typed, such as `quote.` before its field: the
+    /// parser has reported it, and its expression is still checked, so an
+    /// editor can offer what may follow it.
+    fn check_unfinished_statement(&mut self, statement: &SyntaxNode) {
+        if let Some(expression) = first_expression(statement) {
+            self.check_expression(&expression, None);
         }
     }
 
