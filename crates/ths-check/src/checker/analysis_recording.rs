@@ -178,7 +178,7 @@ impl Checker<'_> {
         let symbols = self.analyzed_symbols(&ids, recorder.definitions);
         let references = self.analyzed_references(recorder.references, &index_of);
         let member_sites = self.analyzed_member_sites(recorder.member_sites);
-        Some(FileAnalysis { symbols, references, member_sites, comment_and_string_interiors: Vec::new() })
+        Some(FileAnalysis { symbols, references, member_sites, ..FileAnalysis::default() })
     }
 
     /// The symbol of each of `ids`, in that order, with its declared type

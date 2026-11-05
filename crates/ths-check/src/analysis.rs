@@ -154,6 +154,25 @@ pub struct FileAnalysis {
     pub member_sites: Vec<MemberSite>,
     /// The cursor offsets inside each comment and string, half-open.
     pub comment_and_string_interiors: Vec<TextRange>,
+    /// In source order.
+    pub type_references: Vec<TypeReference>,
+}
+
+/// A type name written in the file whose declaration is known.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct TypeReference {
+    /// The name itself.
+    pub range: TextRange,
+    pub target: TypeTarget,
+}
+
+/// Where a type name is declared.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum TypeTarget {
+    /// The declared name, or the type parameter, in this file.
+    InFile(TextRange),
+    /// An export of another module.
+    Imported(ImportOrigin),
 }
 
 impl FileAnalysis {
@@ -161,6 +180,11 @@ impl FileAnalysis {
     /// after a name finds it.
     pub fn reference_at(&self, offset: TextSize) -> Option<&Reference> {
         self.references.iter().find(|reference| reference.range.contains_inclusive(offset))
+    }
+
+    /// The type name at `offset`, its end included.
+    pub fn type_reference_at(&self, offset: TextSize) -> Option<&TypeReference> {
+        self.type_references.iter().find(|reference| reference.range.contains_inclusive(offset))
     }
 
     /// The symbol a reference names, if it names one.

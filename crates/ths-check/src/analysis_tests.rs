@@ -4,7 +4,7 @@ use rowan::TextSize;
 use ths_syntax::Dialect;
 
 use crate::{
-    CheckOptions, Declarations, FileAnalysis, ImportedModules, ModuleInterface, SymbolKind, analyze_module,
+    CheckOptions, Declarations, FileAnalysis, ImportedModules, ModuleInterface, SymbolKind, TypeTarget, analyze_module,
     check_module,
 };
 
@@ -231,4 +231,28 @@ fn a_colon_offers_only_what_can_be_called_and_a_dot_offers_everything() {
     };
     assert_eq!(offered("account:"), ["Balance"]);
     assert_eq!(offered("account."), ["Balance", "cash"]);
+}
+
+/// Where the type name at `offset` is declared in the file.
+fn type_definition(analysis: &FileAnalysis, offset: TextSize) -> Option<TextSize> {
+    match &analysis.type_reference_at(offset)?.target {
+        TypeTarget::InFile(range) => Some(range.start()),
+        TypeTarget::Imported(_) => None,
+    }
+}
+
+#[test]
+fn a_type_parameter_name_leads_to_the_innermost_parameter() {
+    let source = "type Box<T> = { value: T }\nlocal function first<T>(items: T[]): T\n    return items[1]\nend";
+    let analysis = analyzed(source);
+    assert_eq!(type_definition(&analysis, offset_of(source, "T", 2)), Some(offset_of(source, "T", 1)));
+    assert_eq!(type_definition(&analysis, offset_of(source, "T", 4)), Some(offset_of(source, "T", 3)));
+    assert_eq!(type_definition(&analysis, offset_of(source, "T", 5)), Some(offset_of(source, "T", 3)));
+}
+
+#[test]
+fn a_built_in_type_name_has_no_declaration_in_the_file() {
+    let source = "local price: number = 1";
+    let analysis = analyzed(source);
+    assert!(analysis.type_reference_at(offset_of(source, "number", 1)).is_none());
 }
