@@ -2,7 +2,8 @@
 
 TypeScript-style type annotations and type checking for HaasScript, the Lua-based scripting language of HaasOnline TradeServer.
 
-Write scripts in `.ths` files with type annotations, check them with `ths check`, and strip the annotations with `ths strip` to get a `.hs` file you can upload to the TradeServer. Stripping replaces annotations with spaces, so line numbers in TradeServer errors match your source. A script that imports modules (`import { average } from "./math/averages"`) is written with those modules bundled in; a bundle's lines do not match the source, so read server errors against the `.hs` file. A module, a `.ths` file with an `export`, is never uploaded, so nothing is written for it.
+> [!NOTE]
+> **Status: alpha.** `ths check` and `ths strip` work. Please [report problems as issues](https://github.com/Haasonline/typed-haasscript/issues).
 
 ```lua
 local function average(prices: number[], period: number): number
@@ -10,18 +11,35 @@ local function average(prices: number[], period: number): number
 end
 ```
 
-**Status:** alpha. Please [report problems as issues](https://github.com/Haasonline/typed-haasscript/issues). `ths check` and `ths strip` work, and `ths check` knows every built-in HaasScript command, enumeration and result container from the declarations shipped inside it. `ths server` is a language server that reports the same errors as you type and answers hover, go-to-definition and completion, and the VSCode extension in [editors/vscode](editors/vscode) and the JetBrains plugin in [editors/jetbrains](editors/jetbrains) drive it. See [docs/design.md](docs/design.md).
+Write scripts in `.ths` files with type annotations, check them with `ths check`, and strip the annotations with `ths strip` to get a `.hs` file you can upload to the TradeServer.
 
-```sh
-ths check src/trend-bot.ths    # a plain .lua or .hs file reports only what the server rejects; rename it to .ths to see the rest
-ths check src/                 # every .ths, .lua and .hs file below src/
-ths check --strict src/trend-bot.ths    # also reports parameters and variables left as an unchecked 'any'
-ths check --shadowing src/trend-bot.ths # also warns where a read falls back past a local that ended with its block
-ths strip src/trend-bot.ths    # writes src/trend-bot.hs
-ths init                       # makes the current directory a project: writes a ths.toml listing every setting, switched off
-ths check                      # every file the project's ths.toml includes
-ths strip                      # strips every .ths file the project includes
+## Usage
+
+| Command | What it does |
+|---|---|
+| `ths check src/trend-bot.ths` | Checks that file. A plain `.lua` or `.hs` file reports only what the server rejects; rename it to `.ths` to see the rest. |
+| `ths check src/` | Checks every `.ths`, `.lua` and `.hs` file below `src/`. |
+| `ths check --strict src/trend-bot.ths` | Also reports parameters and variables left as an unchecked `any`. |
+| `ths check --shadowing src/trend-bot.ths` | Also warns where a read falls back past a local that ended with its block. |
+| `ths strip src/trend-bot.ths` | Writes `src/trend-bot.hs`. |
+| `ths init` | Makes the current directory a project: writes a `ths.toml` listing every setting, switched off. |
+| `ths check` | Checks every file the project's `ths.toml` includes. |
+| `ths strip` | Strips every `.ths` file the project includes. |
+
+## Stripping
+
+```mermaid
+flowchart TD
+    File[".ths file"] --> Export{"Has an export?"}
+    Export -->|"Yes, it is a module"| Nothing["Nothing is written"]
+    Export -->|No| Imports{"Imports modules?"}
+    Imports -->|No| Stripped[".hs file: line numbers match your source"]
+    Imports -->|Yes| Bundled[".hs file with modules bundled in: read server errors against the .hs file"]
 ```
+
+Stripping replaces annotations with spaces, so line numbers in TradeServer errors match your source. A script that imports modules (`import { average } from "./math/averages"`) is written with those modules bundled in; a bundle's lines do not match the source, so read server errors against the `.hs` file. A module, a `.ths` file with an `export`, is never uploaded, so nothing is written for it.
+
+As in TypeScript, `ths strip` writes its output even when there are type errors unless `refuse_output_on_errors` is set, and it replaces any `.hs` file already at the output path. A `.hs` file beside a `.ths` file of the same name is taken to be its stripped output and is never checked.
 
 ## Project settings
 
@@ -39,17 +57,28 @@ shadowing = false              # as --shadowing
 refuse_output_on_errors = true # ths strip writes nothing while any file has an error
 ```
 
+Files and directories whose names start with a dot are skipped.
+
+## Custom commands
+
 Custom commands need no import. Every file in the project that calls `DefineCommand`, typed or plain, declares its `CC_` command for all the others, with the parameter types read from its `DefineParameter` calls and the result types from its `DefineOutput` and `DefineOutputIndex` calls and the values it gives them, so a command that returns `SMA(…)` gives callers a series. Inside a command, each `DefineParameter` call has the type the parameter receives, such as a number for `NumberType`. The project's `.d.ths` files are loaded as declarations too, for commands that are not in the project.
-
-`ths server` speaks the Language Server Protocol over standard input and output, for any editor that can run a language server. Each open file is checked as `ths check` checks it, from the nearest `ths.toml` above it; a file with no `ths.toml` above it is not checked, and the editor plugins offer to create one. Each file sees the unsaved text of the other open files, so a script shows at once what a change to a module it imports does to it. Besides errors and warnings, hovering a name shows how it was declared, its type where it is written and the comment above its declaration, and go-to-definition leads to its declaration, through an import to the export in the module. Completion offers the names in scope, and after a `.` or `:` the fields and methods of the value before it.
-
-As in TypeScript, `ths strip` writes its output even when there are type errors unless `refuse_output_on_errors` is set, and it replaces any `.hs` file already at the output path. A `.hs` file beside a `.ths` file of the same name is taken to be its stripped output and is never checked, and files and directories whose names start with a dot are skipped.
 
 ## Tools
 
 - `ths`: the terminal command (`check`, `strip`, `init`, `server`)
 - A VSCode extension, in [editors/vscode](editors/vscode): errors as you type and syntax highlighting
 - A JetBrains plugin, in [editors/jetbrains](editors/jetbrains), for PyCharm and every other IntelliJ-based IDE from 2026.2: errors as you type and the same syntax highlighting
+
+`ths check` knows every built-in HaasScript command, enumeration and result container from the declarations shipped inside it. `ths server` is a language server that reports the same errors as you type and answers hover, go-to-definition and completion, and the VSCode extension in [editors/vscode](editors/vscode) and the JetBrains plugin in [editors/jetbrains](editors/jetbrains) drive it. See [docs/design.md](docs/design.md).
+
+## Language server
+
+`ths server` speaks the Language Server Protocol over standard input and output, for any editor that can run a language server. Each open file is checked as `ths check` checks it, from the nearest `ths.toml` above it; a file with no `ths.toml` above it is not checked, and the editor plugins offer to create one.
+
+- **Unsaved edits:** each file sees the unsaved text of the other open files, so a script shows at once what a change to a module it imports does to it.
+- **Hover:** shows how a name was declared, its type where it is written and the comment above its declaration.
+- **Go-to-definition:** leads to a name's declaration, through an import to the export in the module.
+- **Completion:** offers the names in scope, and after a `.` or `:` the fields and methods of the value before it.
 
 ## Building
 
