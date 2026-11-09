@@ -91,7 +91,7 @@ cargo build
 `ths check` reads the built-in commands from two files in `crates/ths-check/declarations/`, both compiled into the `ths` binary:
 
 - `haasscript.d.ths` is generated from the TradeServer's command list. Never edit it by hand.
-- `overrides.d.ths` holds hand-written corrections. A name declared there replaces the generated declaration of the same name, so regenerating keeps every correction. Each override rests on behavior verified on a TradeServer.
+- `overrides.d.ths` holds hand-written corrections. A name declared there replaces the generated declaration of the same name, so regenerating keeps every correction. Each override rests on behavior verified on the TradeServer.
 
 The generated file is updated when the TradeServer's commands change. After an update, rebuild `ths` so it embeds the new declarations, and run `cargo test`: one test checks that the built-in declarations check clean.
 
